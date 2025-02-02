@@ -1,6 +1,7 @@
 ﻿
 
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.ComponentModel.DataAnnotations;
 
 namespace Tinthanh.Data.Entities
 {

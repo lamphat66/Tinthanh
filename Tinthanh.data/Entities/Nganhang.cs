@@ -18,12 +18,10 @@ namespace Tinthanh.Data.Entities
         public string? Website { get; set; }
         public bool? Ngungsd { get; set; } = false;
         public DateTime? Ngayngungsd { get; set; }
-
         public DateTime? CreateDate { get; set; } = DateTime.Today;
         public string? Users { get; set; }
         public DateTime? EditDate { get; set; }
-         
-
+        public bool? Congty { get; set; } = false;
         public string? Diachi { get; set; }
  
 

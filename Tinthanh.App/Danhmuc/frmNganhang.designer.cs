@@ -52,7 +52,6 @@ partial class frmNganhang
         lkNhom = new DevExpress.XtraEditors.LookUpEdit();
         textEdit5 = new DevExpress.XtraEditors.TextEdit();
         checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
-        textEdit1 = new DevExpress.XtraEditors.TextEdit();
         Root = new DevExpress.XtraLayout.LayoutControlGroup();
         layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
         layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -60,7 +59,6 @@ partial class frmNganhang
         layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
         layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
         layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-        layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
         sidePanel2 = new DevExpress.XtraEditors.SidePanel();
         gridControl1 = new DevExpress.XtraGrid.GridControl();
         gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -78,7 +76,6 @@ partial class frmNganhang
         ((System.ComponentModel.ISupportInitialize)lkNhom.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)checkEdit3.Properties).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
@@ -86,7 +83,6 @@ partial class frmNganhang
         ((System.ComponentModel.ISupportInitialize)layoutControlItem4).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem5).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem8).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)layoutControlItem6).BeginInit();
         sidePanel2.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -225,7 +221,6 @@ partial class frmNganhang
         layoutControl1.Controls.Add(lkNhom);
         layoutControl1.Controls.Add(textEdit5);
         layoutControl1.Controls.Add(checkEdit3);
-        layoutControl1.Controls.Add(textEdit1);
         layoutControl1.Dock = DockStyle.Fill;
         layoutControl1.Location = new Point(0, 0);
         layoutControl1.Name = "layoutControl1";
@@ -291,7 +286,7 @@ partial class frmNganhang
         // checkEdit3
         // 
         checkEdit3.DataBindings.Add(new Binding("EditValue", bdSource, "Ngungsd", true, DataSourceUpdateMode.OnPropertyChanged));
-        checkEdit3.Location = new Point(12, 156);
+        checkEdit3.Location = new Point(12, 132);
         checkEdit3.MenuManager = barManager1;
         checkEdit3.Name = "checkEdit3";
         checkEdit3.Properties.Caption = "Ngưng sử dụng";
@@ -299,21 +294,11 @@ partial class frmNganhang
         checkEdit3.StyleController = layoutControl1;
         checkEdit3.TabIndex = 7;
         // 
-        // textEdit1
-        // 
-        textEdit1.DataBindings.Add(new Binding("EditValue", bdSource, "Lienhe", true, DataSourceUpdateMode.OnPropertyChanged));
-        textEdit1.Location = new Point(59, 132);
-        textEdit1.MenuManager = barManager1;
-        textEdit1.Name = "textEdit1";
-        textEdit1.Size = new Size(308, 20);
-        textEdit1.StyleController = layoutControl1;
-        textEdit1.TabIndex = 6;
-        // 
         // Root
         // 
         Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
         Root.GroupBordersVisible = false;
-        Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem8, layoutControlItem6 });
+        Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem8 });
         Root.Name = "Root";
         Root.Size = new Size(379, 573);
         Root.TextVisible = false;
@@ -366,20 +351,11 @@ partial class frmNganhang
         // layoutControlItem8
         // 
         layoutControlItem8.Control = checkEdit3;
-        layoutControlItem8.Location = new Point(0, 144);
+        layoutControlItem8.Location = new Point(0, 120);
         layoutControlItem8.Name = "layoutControlItem8";
-        layoutControlItem8.Size = new Size(359, 409);
+        layoutControlItem8.Size = new Size(359, 433);
         layoutControlItem8.TextSize = new Size(0, 0);
         layoutControlItem8.TextVisible = false;
-        // 
-        // layoutControlItem6
-        // 
-        layoutControlItem6.Control = textEdit1;
-        layoutControlItem6.Location = new Point(0, 120);
-        layoutControlItem6.Name = "layoutControlItem6";
-        layoutControlItem6.Size = new Size(359, 24);
-        layoutControlItem6.Text = "Liên hệ";
-        layoutControlItem6.TextSize = new Size(35, 13);
         // 
         // sidePanel2
         // 
@@ -465,7 +441,6 @@ partial class frmNganhang
         ((System.ComponentModel.ISupportInitialize)lkNhom.Properties).EndInit();
         ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).EndInit();
         ((System.ComponentModel.ISupportInitialize)checkEdit3.Properties).EndInit();
-        ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
         ((System.ComponentModel.ISupportInitialize)Root).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
@@ -473,7 +448,6 @@ partial class frmNganhang
         ((System.ComponentModel.ISupportInitialize)layoutControlItem4).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem5).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem8).EndInit();
-        ((System.ComponentModel.ISupportInitialize)layoutControlItem6).EndInit();
         sidePanel2.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
         ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
@@ -515,6 +489,4 @@ partial class frmNganhang
     private DevExpress.XtraGrid.Columns.GridColumn colTen;
     private DevExpress.XtraEditors.CheckEdit checkEdit3;
     private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-    private DevExpress.XtraEditors.TextEdit textEdit1;
-    private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
 }

@@ -82,7 +82,7 @@ namespace Tinthanh.App.Danhmuc
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bdSource.AddNew();
-            gridView1?.ShowEditForm();
+            
         }
 
 

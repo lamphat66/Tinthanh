@@ -61,13 +61,10 @@
             // 
             gridControl1.DataSource = bdSource;
             gridControl1.Dock = DockStyle.Fill;
-            gridControl1.Location = new Point(0, 31);
+            gridControl1.Location = new Point(0, 28);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
- 
             gridControl1.Size = new Size(405, 426);
- 
- 
             gridControl1.TabIndex = 2;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -76,17 +73,11 @@
             gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, colNgungsd });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
- 
-            gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplace;
- 
             gridView1.OptionsEditForm.EditFormColumnCount = 1;
             gridView1.OptionsNavigation.AutoFocusNewRow = true;
             gridView1.OptionsSelection.InvertSelection = true;
             gridView1.OptionsView.ColumnAutoWidth = false;
- 
- 
             gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
- 
             gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // colMa
@@ -196,11 +187,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
- 
             barDockControlTop.Size = new Size(405, 28);
- 
-            barDockControlTop.Size = new Size(407, 31);
- 
             // 
             // barDockControlBottom
             // 
@@ -214,27 +201,17 @@
             // 
             barDockControlLeft.CausesValidation = false;
             barDockControlLeft.Dock = DockStyle.Left;
-            barDockControlLeft.Location = new Point(0, 31);
+            barDockControlLeft.Location = new Point(0, 28);
             barDockControlLeft.Manager = barManager1;
- 
             barDockControlLeft.Size = new Size(0, 426);
- 
-     
- 
             // 
             // barDockControlRight
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
- 
             barDockControlRight.Location = new Point(405, 28);
             barDockControlRight.Manager = barManager1;
             barDockControlRight.Size = new Size(0, 426);
- 
-            barDockControlRight.Location = new Point(407, 31);
-            barDockControlRight.Manager = barManager1;
-            barDockControlRight.Size = new Size(0, 425);
- 
             // 
             // bar2
             // 

@@ -1,4 +1,6 @@
-﻿ 
+﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace Tinthanh.Data.Entities
 {
     public class Kho  
@@ -20,7 +22,10 @@ namespace Tinthanh.Data.Entities
         public string? Diachi { get; set; }
         public bool? Kho_ao { get; set; } = false;
         public bool? vitri { get; set; } = false;
-  
+       
+        //[MaxLength(20)]
+        //public string? Macu { get; set; }
+
     }
 
 

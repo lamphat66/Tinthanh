@@ -7,7 +7,7 @@ namespace Tinthanh.Data.Entities
         
         public string Ma { get; set; }
         public string? Ten { get; set; }
-        public bool? Ngungsd { get; set; }
+        public bool? Ngungsd { get; set; } = false;
 
     }
 }

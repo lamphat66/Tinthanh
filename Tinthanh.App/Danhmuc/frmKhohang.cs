@@ -73,7 +73,7 @@ public partial class frmKhohang : DevExpress.XtraEditors.XtraForm
     {
         if (dbContext.ChangeTracker.HasChanges()) Save();
         bdSource.AddNew();
-        txtMa.EditValue = Dungchung.Sinhmadoituong("KB", 3);
+        txtMa.EditValue = Dungchung.Sinhmadoituong("KB", 4);
         txtTen.Focus();
 
     }

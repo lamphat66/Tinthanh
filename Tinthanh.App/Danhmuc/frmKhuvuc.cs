@@ -21,7 +21,18 @@ namespace Tinthanh.App.Danhmuc
             this.Load += FrmDonvi_Load;
             this.FormClosing += FrmDonvi_FormClosing;
             gridView1.RowUpdated += GridView1_RowUpdated;
+            btnSave.ItemClick += BtnSave_ItemClick;
+            gridView1.InitNewRow += GridView1_InitNewRow;
+        }
 
+        private void GridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            gridView1.SetFocusedRowCellValue("Ma", Dungchung.Sinhmadoituong("KV", 4));
+        }
+
+        private void BtnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Save();
         }
 
         void Loaddata()
@@ -83,8 +94,9 @@ namespace Tinthanh.App.Danhmuc
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            bdSource.AddNew();
-            gridView1?.ShowEditForm();
+            gridView1.AddNewRow();
+            gridView1.SetFocusedRowCellValue("Ma", Dungchung.Sinhmadoituong("KV", 4));
+
         }
 
 

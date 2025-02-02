@@ -343,7 +343,8 @@ namespace Tinthanh.data.Migrations
                     Taikhoan = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Diachi = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Kho_ao = table.Column<bool>(type: "bit", nullable: true),
-                    vitri = table.Column<bool>(type: "bit", nullable: true)
+                    vitri = table.Column<bool>(type: "bit", nullable: true),
+                    Macu = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -535,7 +536,8 @@ namespace Tinthanh.data.Migrations
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Users = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     EditDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Diachi = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Diachi = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Macu = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
