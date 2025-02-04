@@ -10,6 +10,7 @@ public class VattuConfig : IEntityTypeConfiguration<Vattu>
         builder.ToTable("Vattu");
         builder.HasIndex(x => x.Ma).IsUnique();
         builder.Property(x => x.Ma).HasMaxLength(20);
+        builder.Property(x => x.Kho).HasMaxLength(20);
         builder.Property(x => x.Ten).IsRequired().HasMaxLength(100);
         builder.HasIndex(b => b.Manhom, "IX_NhomVattu");
 

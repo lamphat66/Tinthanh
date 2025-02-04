@@ -76,6 +76,16 @@
             xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             gridControl3 = new DevExpress.XtraGrid.GridControl();
             gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             labelControl9 = new DevExpress.XtraEditors.LabelControl();
             memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
@@ -102,6 +112,7 @@
             textEdit9 = new DevExpress.XtraEditors.TextEdit();
             txtTen = new DevExpress.XtraEditors.MemoEdit();
             textEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            textEdit10 = new DevExpress.XtraEditors.TextEdit();
             Root = new DevExpress.XtraLayout.LayoutControlGroup();
             layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -113,6 +124,7 @@
             layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -124,6 +136,7 @@
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)tablePanel1).BeginInit();
             tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)xtraTabControl1).BeginInit();
@@ -170,6 +183,7 @@
             ((System.ComponentModel.ISupportInitialize)textEdit9.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtTen.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit10.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
@@ -181,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem16).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlGroup2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem11).BeginInit();
@@ -246,16 +261,15 @@
             gridView2.GridControl = gridControl2;
             gridView2.Name = "gridView2";
             gridView2.NewItemRowText = "Click vào đây để thêm mới ";
-            gridView2.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             gridView2.OptionsEditForm.EditFormColumnCount = 2;
             gridView2.OptionsView.ColumnAutoWidth = false;
-            gridView2.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            gridView2.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             gridView2.OptionsView.ShowGroupPanel = false;
             gridView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] { new DevExpress.XtraGrid.Columns.GridColumnSortInfo(colBophan, DevExpress.Data.ColumnSortOrder.Ascending) });
             // 
             // colPhanloai
             // 
-            colPhanloai.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colPhanloai.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colPhanloai.AppearanceHeader.Options.UseFont = true;
             colPhanloai.AppearanceHeader.Options.UseTextOptions = true;
             colPhanloai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -273,11 +287,12 @@
             cboPhanloai.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             cboPhanloai.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten", "Name1") });
             cboPhanloai.Name = "cboPhanloai";
+            cboPhanloai.NullText = "";
             cboPhanloai.ShowHeader = false;
             // 
             // colHoten
             // 
-            colHoten.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colHoten.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colHoten.AppearanceHeader.Options.UseFont = true;
             colHoten.AppearanceHeader.Options.UseTextOptions = true;
             colHoten.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -290,7 +305,7 @@
             // 
             // colDienthoai
             // 
-            colDienthoai.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colDienthoai.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colDienthoai.AppearanceHeader.Options.UseFont = true;
             colDienthoai.AppearanceHeader.Options.UseTextOptions = true;
             colDienthoai.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -303,7 +318,7 @@
             // 
             // colChucvu
             // 
-            colChucvu.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colChucvu.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colChucvu.AppearanceHeader.Options.UseFont = true;
             colChucvu.AppearanceHeader.Options.UseTextOptions = true;
             colChucvu.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -316,7 +331,7 @@
             // 
             // colDidong
             // 
-            colDidong.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colDidong.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colDidong.AppearanceHeader.Options.UseFont = true;
             colDidong.AppearanceHeader.Options.UseTextOptions = true;
             colDidong.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -329,7 +344,7 @@
             // 
             // colDiachi
             // 
-            colDiachi.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colDiachi.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colDiachi.AppearanceHeader.Options.UseFont = true;
             colDiachi.AppearanceHeader.Options.UseTextOptions = true;
             colDiachi.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -343,7 +358,7 @@
             // 
             // colEmail
             // 
-            colEmail.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colEmail.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colEmail.AppearanceHeader.Options.UseFont = true;
             colEmail.AppearanceHeader.Options.UseTextOptions = true;
             colEmail.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -355,7 +370,7 @@
             // 
             // colBophan
             // 
-            colBophan.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colBophan.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colBophan.AppearanceHeader.Options.UseFont = true;
             colBophan.AppearanceHeader.Options.UseTextOptions = true;
             colBophan.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -368,7 +383,7 @@
             // 
             // colChinhanh
             // 
-            colChinhanh.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colChinhanh.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colChinhanh.AppearanceHeader.Options.UseFont = true;
             colChinhanh.AppearanceHeader.Options.UseTextOptions = true;
             colChinhanh.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -380,7 +395,7 @@
             // 
             // colEInvoice
             // 
-            colEInvoice.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colEInvoice.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colEInvoice.AppearanceHeader.Options.UseFont = true;
             colEInvoice.AppearanceHeader.Options.UseTextOptions = true;
             colEInvoice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -391,7 +406,7 @@
             // 
             // colQuyetdinh
             // 
-            colQuyetdinh.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colQuyetdinh.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colQuyetdinh.AppearanceHeader.Options.UseFont = true;
             colQuyetdinh.AppearanceHeader.Options.UseTextOptions = true;
             colQuyetdinh.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -403,7 +418,7 @@
             // 
             // colNgungsd
             // 
-            colNgungsd.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colNgungsd.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             colNgungsd.AppearanceHeader.Options.UseFont = true;
             colNgungsd.AppearanceHeader.Options.UseTextOptions = true;
             colNgungsd.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -493,7 +508,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(1120, 31);
+            barDockControlTop.Size = new Size(1104, 31);
             // 
             // barDockControlBottom
             // 
@@ -501,7 +516,7 @@
             barDockControlBottom.Dock = DockStyle.Bottom;
             barDockControlBottom.Location = new Point(0, 649);
             barDockControlBottom.Manager = barManager1;
-            barDockControlBottom.Size = new Size(1120, 23);
+            barDockControlBottom.Size = new Size(1104, 23);
             // 
             // barDockControlLeft
             // 
@@ -515,7 +530,7 @@
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(1120, 31);
+            barDockControlRight.Location = new Point(1104, 31);
             barDockControlRight.Manager = barManager1;
             barDockControlRight.Size = new Size(0, 618);
             // 
@@ -532,7 +547,7 @@
             xtraTabPage2.Controls.Add(labelControl3);
             xtraTabPage2.Controls.Add(textEdit15);
             xtraTabPage2.Name = "xtraTabPage2";
-            xtraTabPage2.Size = new Size(648, 245);
+            xtraTabPage2.Size = new Size(648, 249);
             xtraTabPage2.Text = "Công nợ";
             // 
             // labelControl6
@@ -637,7 +652,7 @@
             // 
             xtraTabPage3.Controls.Add(gridControl3);
             xtraTabPage3.Name = "xtraTabPage3";
-            xtraTabPage3.Size = new Size(648, 245);
+            xtraTabPage3.Size = new Size(648, 249);
             xtraTabPage3.Text = "Giá mua";
             // 
             // gridControl3
@@ -647,15 +662,121 @@
             gridControl3.MainView = gridView3;
             gridControl3.MenuManager = barManager1;
             gridControl3.Name = "gridControl3";
-            gridControl3.Size = new Size(648, 245);
+            gridControl3.Size = new Size(648, 249);
             gridControl3.TabIndex = 1;
             gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView3 });
             // 
             // gridView3
             // 
+            gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11, gridColumn12, gridColumn13 });
             gridView3.GridControl = gridControl3;
             gridView3.Name = "gridView3";
+            gridView3.OptionsView.ColumnAutoWidth = false;
             gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn4
+            // 
+            gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn4.Caption = "Mã VT";
+            gridColumn4.FieldName = "Ma";
+            gridColumn4.Name = "gridColumn4";
+            gridColumn4.Visible = true;
+            gridColumn4.VisibleIndex = 0;
+            // 
+            // gridColumn5
+            // 
+            gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn5.Caption = "Tên vật tư";
+            gridColumn5.FieldName = "Ten";
+            gridColumn5.Name = "gridColumn5";
+            gridColumn5.Visible = true;
+            gridColumn5.VisibleIndex = 1;
+            // 
+            // gridColumn6
+            // 
+            gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn6.Caption = "Tên nội bộ";
+            gridColumn6.FieldName = "TenNB";
+            gridColumn6.Name = "gridColumn6";
+            gridColumn6.Visible = true;
+            gridColumn6.VisibleIndex = 2;
+            // 
+            // gridColumn7
+            // 
+            gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn7.Caption = "Đơn vị";
+            gridColumn7.FieldName = "Donvi";
+            gridColumn7.Name = "gridColumn7";
+            gridColumn7.Visible = true;
+            gridColumn7.VisibleIndex = 3;
+            // 
+            // gridColumn8
+            // 
+            gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn8.Caption = "Giá mua";
+            gridColumn8.DisplayFormat.FormatString = "n0";
+            gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridColumn8.FieldName = "Giaban";
+            gridColumn8.Name = "gridColumn8";
+            gridColumn8.Visible = true;
+            gridColumn8.VisibleIndex = 4;
+            // 
+            // gridColumn9
+            // 
+            gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn9.Caption = "Giá củ";
+            gridColumn9.DisplayFormat.FormatString = "n0";
+            gridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridColumn9.FieldName = "Giacu";
+            gridColumn9.Name = "gridColumn9";
+            gridColumn9.Visible = true;
+            gridColumn9.VisibleIndex = 5;
+            // 
+            // gridColumn10
+            // 
+            gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn10.Caption = "Chiết khấu";
+            gridColumn10.FieldName = "Chietkhau";
+            gridColumn10.Name = "gridColumn10";
+            gridColumn10.Visible = true;
+            gridColumn10.VisibleIndex = 6;
+            // 
+            // gridColumn11
+            // 
+            gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn11.Caption = "Chiết khấu SP";
+            gridColumn11.FieldName = "ChietkhauSP";
+            gridColumn11.Name = "gridColumn11";
+            gridColumn11.Visible = true;
+            gridColumn11.VisibleIndex = 7;
+            // 
+            // gridColumn12
+            // 
+            gridColumn12.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn12.Caption = "Ngày tạo";
+            gridColumn12.FieldName = "Ngaygiagoc";
+            gridColumn12.Name = "gridColumn12";
+            gridColumn12.Visible = true;
+            gridColumn12.VisibleIndex = 8;
+            // 
+            // gridColumn13
+            // 
+            gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn13.Caption = "Ngày cập nhật";
+            gridColumn13.FieldName = "Ngaycapnhat";
+            gridColumn13.Name = "gridColumn13";
+            gridColumn13.Visible = true;
+            gridColumn13.VisibleIndex = 9;
             // 
             // xtraTabPage5
             // 
@@ -663,7 +784,7 @@
             xtraTabPage5.Controls.Add(memoEdit1);
             xtraTabPage5.Controls.Add(sidePanel7);
             xtraTabPage5.Name = "xtraTabPage5";
-            xtraTabPage5.Size = new Size(648, 245);
+            xtraTabPage5.Size = new Size(648, 249);
             xtraTabPage5.Text = "Tài liệu liên quan";
             // 
             // labelControl9
@@ -766,6 +887,7 @@
             layoutControl1.Controls.Add(textEdit9);
             layoutControl1.Controls.Add(txtTen);
             layoutControl1.Controls.Add(textEdit1);
+            layoutControl1.Controls.Add(textEdit10);
             layoutControl1.Dock = DockStyle.Fill;
             layoutControl1.Location = new Point(451, 12);
             layoutControl1.Name = "layoutControl1";
@@ -790,24 +912,24 @@
             txtMa.Location = new Point(97, 24);
             txtMa.MenuManager = barManager1;
             txtMa.Name = "txtMa";
-            txtMa.Size = new Size(321, 20);
+            txtMa.Size = new Size(177, 20);
             txtMa.StyleController = layoutControl1;
             txtMa.TabIndex = 0;
             // 
             // txtTentat
             // 
             txtTentat.DataBindings.Add(new Binding("EditValue", bdSource, "Tentat", true));
-            txtTentat.Location = new Point(97, 95);
+            txtTentat.Location = new Point(97, 110);
             txtTentat.MenuManager = barManager1;
             txtTentat.Name = "txtTentat";
             txtTentat.Size = new Size(321, 20);
             txtTentat.StyleController = layoutControl1;
-            txtTentat.TabIndex = 3;
+            txtTentat.TabIndex = 4;
             // 
             // lkNhom
             // 
             lkNhom.DataBindings.Add(new Binding("EditValue", bdSource, "Manhom", true));
-            lkNhom.Location = new Point(97, 119);
+            lkNhom.Location = new Point(97, 134);
             lkNhom.MenuManager = barManager1;
             lkNhom.Name = "lkNhom";
             lkNhom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
@@ -816,7 +938,7 @@
             lkNhom.Properties.ShowHeader = false;
             lkNhom.Size = new Size(321, 20);
             lkNhom.StyleController = layoutControl1;
-            lkNhom.TabIndex = 4;
+            lkNhom.TabIndex = 5;
             // 
             // textEdit3
             // 
@@ -826,7 +948,7 @@
             textEdit3.Name = "textEdit3";
             textEdit3.Size = new Size(321, 20);
             textEdit3.StyleController = layoutControl1;
-            textEdit3.TabIndex = 6;
+            textEdit3.TabIndex = 7;
             // 
             // textEdit4
             // 
@@ -836,7 +958,7 @@
             textEdit4.Name = "textEdit4";
             textEdit4.Size = new Size(321, 20);
             textEdit4.StyleController = layoutControl1;
-            textEdit4.TabIndex = 7;
+            textEdit4.TabIndex = 8;
             // 
             // textEdit5
             // 
@@ -846,7 +968,7 @@
             textEdit5.Name = "textEdit5";
             textEdit5.Size = new Size(321, 20);
             textEdit5.StyleController = layoutControl1;
-            textEdit5.TabIndex = 8;
+            textEdit5.TabIndex = 9;
             // 
             // textEdit6
             // 
@@ -856,7 +978,7 @@
             textEdit6.Name = "textEdit6";
             textEdit6.Size = new Size(321, 20);
             textEdit6.StyleController = layoutControl1;
-            textEdit6.TabIndex = 9;
+            textEdit6.TabIndex = 10;
             // 
             // checkEdit1
             // 
@@ -917,19 +1039,31 @@
             txtTen.Location = new Point(97, 48);
             txtTen.MenuManager = barManager1;
             txtTen.Name = "txtTen";
-            txtTen.Size = new Size(321, 43);
+            txtTen.Size = new Size(321, 58);
             txtTen.StyleController = layoutControl1;
-            txtTen.TabIndex = 2;
+            txtTen.TabIndex = 3;
             // 
             // textEdit1
             // 
             textEdit1.DataBindings.Add(new Binding("EditValue", bdSource, "Diachi", true));
-            textEdit1.Location = new Point(97, 143);
+            textEdit1.Location = new Point(97, 158);
             textEdit1.MenuManager = barManager1;
             textEdit1.Name = "textEdit1";
-            textEdit1.Size = new Size(321, 49);
+            textEdit1.Size = new Size(321, 34);
             textEdit1.StyleController = layoutControl1;
-            textEdit1.TabIndex = 5;
+            textEdit1.TabIndex = 6;
+            // 
+            // textEdit10
+            // 
+            textEdit10.DataBindings.Add(new Binding("EditValue", bdSource, "Id", true));
+            textEdit10.Location = new Point(351, 24);
+            textEdit10.MenuManager = barManager1;
+            textEdit10.Name = "textEdit10";
+            textEdit10.Properties.ReadOnly = true;
+            textEdit10.Size = new Size(67, 20);
+            textEdit10.StyleController = layoutControl1;
+            textEdit10.TabIndex = 2;
+            textEdit10.TabStop = false;
             // 
             // Root
             // 
@@ -942,7 +1076,7 @@
             // 
             // layoutControlGroup1
             // 
-            layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem6, layoutControlItem7, layoutControlItem8, layoutControlItem9, layoutControlItem10 });
+            layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem6, layoutControlItem7, layoutControlItem8, layoutControlItem9, layoutControlItem10, layoutControlItem16 });
             layoutControlGroup1.Location = new Point(0, 0);
             layoutControlGroup1.Name = "layoutControlGroup1";
             layoutControlGroup1.Size = new Size(422, 292);
@@ -953,7 +1087,7 @@
             layoutControlItem2.Control = txtMa;
             layoutControlItem2.Location = new Point(0, 0);
             layoutControlItem2.Name = "layoutControlItem2";
-            layoutControlItem2.Size = new Size(398, 24);
+            layoutControlItem2.Size = new Size(254, 24);
             layoutControlItem2.Text = "Mã";
             layoutControlItem2.TextSize = new Size(69, 13);
             // 
@@ -962,14 +1096,14 @@
             layoutControlItem3.Control = txtTen;
             layoutControlItem3.Location = new Point(0, 24);
             layoutControlItem3.Name = "layoutControlItem3";
-            layoutControlItem3.Size = new Size(398, 47);
+            layoutControlItem3.Size = new Size(398, 62);
             layoutControlItem3.Text = "Tên";
             layoutControlItem3.TextSize = new Size(69, 13);
             // 
             // layoutControlItem4
             // 
             layoutControlItem4.Control = txtTentat;
-            layoutControlItem4.Location = new Point(0, 71);
+            layoutControlItem4.Location = new Point(0, 86);
             layoutControlItem4.Name = "layoutControlItem4";
             layoutControlItem4.Size = new Size(398, 24);
             layoutControlItem4.Text = "Tên tắt";
@@ -978,7 +1112,7 @@
             // layoutControlItem5
             // 
             layoutControlItem5.Control = lkNhom;
-            layoutControlItem5.Location = new Point(0, 95);
+            layoutControlItem5.Location = new Point(0, 110);
             layoutControlItem5.Name = "layoutControlItem5";
             layoutControlItem5.Size = new Size(398, 24);
             layoutControlItem5.Text = "Nhóm";
@@ -987,9 +1121,9 @@
             // layoutControlItem6
             // 
             layoutControlItem6.Control = textEdit1;
-            layoutControlItem6.Location = new Point(0, 119);
+            layoutControlItem6.Location = new Point(0, 134);
             layoutControlItem6.Name = "layoutControlItem6";
-            layoutControlItem6.Size = new Size(398, 53);
+            layoutControlItem6.Size = new Size(398, 38);
             layoutControlItem6.Text = "Địa chỉ";
             layoutControlItem6.TextSize = new Size(69, 13);
             // 
@@ -1028,6 +1162,15 @@
             layoutControlItem10.Size = new Size(398, 24);
             layoutControlItem10.Text = "Mã số thuế";
             layoutControlItem10.TextSize = new Size(69, 13);
+            // 
+            // layoutControlItem16
+            // 
+            layoutControlItem16.Control = textEdit10;
+            layoutControlItem16.Location = new Point(254, 0);
+            layoutControlItem16.Name = "layoutControlItem16";
+            layoutControlItem16.Size = new Size(144, 24);
+            layoutControlItem16.Text = "Id";
+            layoutControlItem16.TextSize = new Size(69, 13);
             // 
             // layoutControlGroup2
             // 
@@ -1106,7 +1249,7 @@
             // 
             // gridView1
             // 
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2 });
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn3 });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             gridView1.OptionsView.ShowFooter = true;
@@ -1139,11 +1282,17 @@
             gridColumn2.VisibleIndex = 1;
             gridColumn2.Width = 558;
             // 
+            // gridColumn3
+            // 
+            gridColumn3.Caption = "gridColumn3";
+            gridColumn3.FieldName = "Id";
+            gridColumn3.Name = "gridColumn3";
+            // 
             // frmNhacungcap
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1120, 672);
+            ClientSize = new Size(1104, 672);
             Controls.Add(tablePanel1);
             Controls.Add(barDockControlLeft);
             Controls.Add(barDockControlRight);
@@ -1200,6 +1349,7 @@
             ((System.ComponentModel.ISupportInitialize)textEdit9.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtTen.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit10.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)Root).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
@@ -1211,6 +1361,7 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem8).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem9).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem16).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlGroup2).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem11).EndInit();
@@ -1320,5 +1471,18 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraEditors.MemoEdit txtTen;
         private DevExpress.XtraEditors.MemoEdit textEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.TextEdit textEdit10;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
     }
 }

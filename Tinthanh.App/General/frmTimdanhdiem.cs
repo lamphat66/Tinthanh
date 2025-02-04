@@ -18,6 +18,7 @@ namespace Tinthanh.App.General
         public string Ten = "";
         public string Donvi = "";
         private string _Tenbang = "";
+        public int Id = 0;
         private int _loai = 1;
         public frmTimdanhdiem(string Tenbang, int Loai)
         {
@@ -48,10 +49,13 @@ namespace Tinthanh.App.General
                 SetDataSource(_Tenbang, 2,txtTen.Text);
 
                 gridControl1.Focus();
-                gridView1.FocusedRowHandle = 0;
-                gridView1_FocusedRowChanged(null, null);
+                if (gridView1.RowCount > 0)
+                {
+                    gridView1.FocusedRowHandle = 0;
+                    gridView1_FocusedRowChanged(null, null);
+                 
+                }
                 e.SuppressKeyPress = true;
-                
             }
         }
 
@@ -78,11 +82,14 @@ namespace Tinthanh.App.General
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             GridView view = gridView1;
+            
+            
             if (view.RowCount > 0)
             {
                 Ma = view.GetRowCellValue(view.FocusedRowHandle, colMa).ToString();
                 Ten = view.GetRowCellValue(view.FocusedRowHandle, colTen).ToString();
                 Donvi = view.GetRowCellValue(view.FocusedRowHandle,"Donvi").ToString();
+                Id=Convert.ToInt32(view.GetRowCellValue(view.FocusedRowHandle, "Id"));
             }
         }
 

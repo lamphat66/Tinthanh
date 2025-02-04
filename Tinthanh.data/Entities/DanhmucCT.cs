@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Tinthanh.Data.Entities
 {
@@ -10,8 +6,8 @@ namespace Tinthanh.Data.Entities
     {
         public int Id { get; set; }
         public int DanhmucId { get; set; }
-        public int STT { get; set; }
-        public string Ten { get; set; }
+        public int Ma { get; set; }    
+        public string? Ten { get; set; }
         public bool Ngungsd { get; set; } = false;
         public virtual Danhmuc? Danhmuc { get; set; }   
 

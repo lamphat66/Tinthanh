@@ -18,7 +18,7 @@ namespace Tinthanh.Data.Configurations
 
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
-            builder.Property(x => x.Ngungsd).HasDefaultValue(false);
+           
 
         }
     }

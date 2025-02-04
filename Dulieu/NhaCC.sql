@@ -24,8 +24,10 @@ INSERT INTO [dbo].[Nhacungcap]
            ,[ThanhtoanNH]
            ,[VAT])
     Select  Ma,left(Ten,80),left(Tentat,50),Manhom,masothue,dienthoai,  danghi,isnull(Left(diachi,100),''),PTGiaohang,HanTT,TileTT,TheodoiCn,
-	maxno,ISO,Hoadon,ThanhtoanNH,VAT from tinthanh.dbo.Doituong where loaidt='CV'
-
+	maxno,ISO,Hoadon,ThanhtoanNH,VAT from tinthanh.dbo.Doituong where loaidt='CV' and danghi=0
+	 
+	go
+	
 	INSERT INTO [dbo].[LienlacNCC]
            ([Hoten]
            ,[Dienthoai]
@@ -40,12 +42,17 @@ INSERT INTO [dbo].[Nhacungcap]
            ,[Didong]
            ,[Diachi]
            ,[Phanloai]
-           ,[PhanloaiId])
+           ,[PhanloaiId]
+		   ,NhacungcapId)
 
 
-     Select left(isnull(Hoten,''),50),left(sodienthoai,30),left(email,50),chucvu,bophan,makh,chinhan,hoadondientu,quyetdinh,ngungsd,didong, left(diachi,50) ,phanloai,Phanloaiid from tinthanh.dbo.Nguoilienlac
+     Select left(isnull(Hoten,''),50),left(sodienthoai,30),left(a.email,50),chucvu,bophan,makh,chinhan,hoadondientu,quyetdinh,
+	 a.ngungsd,didong, left(a.diachi,50) ,phanloai,Phanloaiid ,b.Id
+	 from tinthanh.dbo.Nguoilienlac a inner join nhacungcap b on a.makh=b.Ma
 	 where left(makh,2)='CV'
+	 
 
+	 
 
 GO
 

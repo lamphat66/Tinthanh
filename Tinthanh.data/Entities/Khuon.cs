@@ -24,6 +24,7 @@ namespace Tinthanh.Data.Entities
         public string? Ghichu  { get; set; }
         public string? Makh { get; set; }
         public string? TenKH { get; set; }
+        public int KhachhangId { get; set; }
         public short? Tilevon { get; set; }
         public float? SanluonggiaKH { get; set; }
         public float? ThoigiangiaKH { get; set; }

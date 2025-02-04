@@ -15,7 +15,7 @@ namespace Tinthanh.App.Danhmuc
     {
         private readonly TinthanhDBContext dbContext;
         bool IsNew = false;
-
+        int Makhuon = 0;
 
 
         public frmKhuon()
@@ -26,7 +26,7 @@ namespace Tinthanh.App.Danhmuc
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             btnClose.ItemClick += delegate { this.Close(); };
 
-
+            
             gridControl2.ProcessGridKey += GridControl2_ProcessGridKey;
 
             gridControl3.ProcessGridKey += GridControl3_ProcessGridKey;
@@ -44,6 +44,7 @@ namespace Tinthanh.App.Danhmuc
             LoadLookup();
         }
 
+         
         private void GridControl3_ProcessGridKey(object? sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.Control)
@@ -67,9 +68,9 @@ namespace Tinthanh.App.Danhmuc
             if (dbContext!.ChangeTracker.HasChanges() || IsNew) Save();
             if (gridView1.RowCount > 0)
             {
-                string? Ma = gridView1.GetFocusedRowCellValue("Ma").ToString();
+                 Makhuon =(Int32) gridView1.GetFocusedRowCellValue("Id");
 
-                Khuon? data = dbContext.Khuons.Find(Ma);
+                Khuon? data = dbContext.Khuons.Find(Makhuon);
 
                 bdSource.DataSource = data;
                 LoadKhuonCT();
@@ -183,7 +184,7 @@ namespace Tinthanh.App.Danhmuc
             var data = GetDataDanhsach(Loai, filter);
 
             gridControl1.DataSource = data;
-            if (gridView1.DataRowCount == 1)
+            if (gridView1.DataRowCount >0 )
             {
                 gridView1.FocusedRowHandle = 0; // Đặt dòng đầu tiên làm dòng được chọn
                 gridView1_FocusedRowChanged(null, null);
@@ -219,6 +220,7 @@ namespace Tinthanh.App.Danhmuc
                     txtMakh.EditValue = frm.Ma;
                     btnKhachhang.Focus();
                     btnKhachhang.EditValue = frm.Ten;
+                    txtKhachhangId.EditValue= frm.Id;
                 }
 
         }
@@ -231,12 +233,16 @@ namespace Tinthanh.App.Danhmuc
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     GridView view = gridView2;
-                    if (view.IsNewItemRow(view.FocusedRowHandle)) view.AddNewRow();
+                    if (view.IsNewItemRow(view.FocusedRowHandle))
+                    {
+                       view.AddNewRow();
+                         
 
+                    }
                     view.SetRowCellValue(view.FocusedRowHandle, colMasp, frm.Ma);
                     view.SetRowCellValue(view.FocusedRowHandle, colTenSP, frm.Ten);
                     view.SetRowCellValue(view.FocusedRowHandle, colDonvi, frm.Donvi);
-
+                    view.SetRowCellValue(view.FocusedRowHandle, "SanphamId", frm.Id);
                 }
 
         }
@@ -257,11 +263,12 @@ namespace Tinthanh.App.Danhmuc
             {
                 this.dbContext.Entry(data).Collection(e => e.KhuonCTs).Load();
 
-                gridControl2.DataSource = data.KhuonCTs.OrderBy(k => k.Nhom);
+                 
+                gridControl2.DataSource = data.KhuonCTs;
 
 
             }
-
+            
         }
 
 

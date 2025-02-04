@@ -10,9 +10,9 @@ namespace Tinthanh.Data.Configurations
         public void Configure(EntityTypeBuilder<BanggiaNCC> builder)
         {
             builder.ToTable("BanggiaNCC");
-            builder.HasIndex(p => new { p.MaVT, p.MaDT }).IsUnique();
-            builder.Property(x => x.MaDT).IsRequired().HasMaxLength(20);
-            builder.Property(x => x.MaVT).IsRequired().HasMaxLength(20);
+          //  builder.HasIndex(p => new { p.MaVT, p.MaDT }).IsUnique();
+            builder.HasIndex(p => new { p.NhaCCId, p.VattuId }).IsUnique();
+          
             builder.Property(x => x.TenVT).HasMaxLength(100);
             builder.Property(x => x.TenNB).HasMaxLength(100);
             builder.Property(x => x.Donvi).HasMaxLength(20);

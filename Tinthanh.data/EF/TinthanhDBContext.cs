@@ -27,8 +27,7 @@ namespace Tinthanh.Data.EF
         public DbSet<Tailieu> Tailieus { get; set; }
         public DbSet<DanhmucCT>DanhmucCTs { get; set; }
         public DbSet<Thanhpham> Thanhphams { get; set; }
-        
-            
+             
         public DbSet<Khuvuc> Khuvucs { get; set; }
         public DbSet<DateDim> DateDims { get; set; }
         public DbSet<Loaitaisan> Loaitaisans { get; set; }
@@ -78,16 +77,19 @@ namespace Tinthanh.Data.EF
             modelBuilder.ApplyConfiguration(new BanggialeConfig());
             modelBuilder.ApplyConfiguration(new BanggiaNCCConfig());
             modelBuilder.ApplyConfiguration(new DanhmucConfig());
+            modelBuilder.ApplyConfiguration(new DanhmucCTConfig());
             modelBuilder.ApplyConfiguration(new LoaidanhdiemConfig());
             modelBuilder.ApplyConfiguration(new LoaiddoituongConfig());
             modelBuilder.ApplyConfiguration(new NhomdanhdiemConfig());
             modelBuilder.ApplyConfiguration(new NhomdoituongConfig());
             modelBuilder.ApplyConfiguration(new TailieuConfig());
             modelBuilder.ApplyConfiguration(new LienlacConfig());
+            modelBuilder.ApplyConfiguration(new LienlacKHConfig());
             modelBuilder.ApplyConfiguration(new DonviConfig());
 
             modelBuilder.ApplyConfiguration(new TaisanConfig());
             modelBuilder.ApplyConfiguration(new DonvisanphamConfig());
+            modelBuilder.ApplyConfiguration(new DonviVattuConfig());
             modelBuilder.ApplyConfiguration(new KhuvucConfig());
             modelBuilder.ApplyConfiguration(new DateDimConfig());
             modelBuilder.ApplyConfiguration(new LoaitaisanConfig());

@@ -30,154 +30,156 @@ namespace Tinthanh.App.General
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTim));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMa = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            txtTen = new DevExpress.XtraEditors.TextEdit();
+            btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            btnOK = new DevExpress.XtraEditors.SimpleButton();
+            gridControl1 = new DevExpress.XtraGrid.GridControl();
+            gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            colMa = new DevExpress.XtraGrid.Columns.GridColumn();
+            colTen = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTen.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.labelControl1);
-            this.panel1.Controls.Add(this.txtTen);
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.btnOK);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 356);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(510, 29);
-            this.panel1.TabIndex = 1;
+            panel1.Controls.Add(labelControl1);
+            panel1.Controls.Add(txtTen);
+            panel1.Controls.Add(btnCancel);
+            panel1.Controls.Add(btnOK);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 356);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(510, 29);
+            panel1.TabIndex = 1;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(10, 8);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(76, 13);
-            this.labelControl1.TabIndex = 3;
-            this.labelControl1.Text = "Nhập tên để tìm";
+            labelControl1.Location = new Point(10, 8);
+            labelControl1.Name = "labelControl1";
+            labelControl1.Size = new Size(76, 13);
+            labelControl1.TabIndex = 3;
+            labelControl1.Text = "Nhập tên để tìm";
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(92, 5);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(169, 20);
-            this.txtTen.TabIndex = 1;
+            txtTen.Location = new Point(92, 5);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(169, 20);
+            txtTen.TabIndex = 1;
             // 
             // btnCancel
             // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(426, 3);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.ImageOptions.Image = (Image)resources.GetObject("btnCancel.ImageOptions.Image");
+            btnCancel.Location = new Point(426, 3);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 23);
+            btnCancel.TabIndex = 3;
+            btnCancel.Text = "Cancel";
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnOK
             // 
-            this.btnOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.ImageOptions.Image")));
-            this.btnOK.Location = new System.Drawing.Point(285, 3);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 2;
-            this.btnOK.Text = "OK";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            btnOK.ImageOptions.Image = (Image)resources.GetObject("btnOK.ImageOptions.Image");
+            btnOK.Location = new Point(285, 3);
+            btnOK.Name = "btnOK";
+            btnOK.Size = new Size(75, 23);
+            btnOK.TabIndex = 2;
+            btnOK.Text = "OK";
+            btnOK.Click += btnOK_Click;
             // 
             // gridControl1
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 3);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(510, 347);
-            this.gridControl1.TabIndex = 2;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            gridControl1.Dock = DockStyle.Fill;
+            gridControl1.Location = new Point(3, 3);
+            gridControl1.MainView = gridView1;
+            gridControl1.Name = "gridControl1";
+            gridControl1.Size = new Size(510, 347);
+            gridControl1.TabIndex = 2;
+            gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
-            this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMa,
-            this.colTen});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.OptionsNavigation.UseTabKey = false;
-            this.gridView1.OptionsView.ShowFooter = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            gridView1.Appearance.HeaderPanel.Font = new Font("Tahoma", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+            gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, gridColumn1 });
+            gridView1.GridControl = gridControl1;
+            gridView1.Name = "gridView1";
+            gridView1.OptionsBehavior.Editable = false;
+            gridView1.OptionsNavigation.UseTabKey = false;
+            gridView1.OptionsView.ShowFooter = true;
+            gridView1.OptionsView.ShowGroupPanel = false;
+            gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
+            gridView1.DoubleClick += gridView1_DoubleClick;
             // 
             // colMa
             // 
-            this.colMa.Caption = "Mã";
-            this.colMa.FieldName = "Ma";
-            this.colMa.Name = "colMa";
-            this.colMa.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Ma", "{0}")});
-            this.colMa.Visible = true;
-            this.colMa.VisibleIndex = 0;
-            this.colMa.Width = 107;
+            colMa.Caption = "Mã";
+            colMa.FieldName = "Ma";
+            colMa.Name = "colMa";
+            colMa.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] { new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Ma", "{0}") });
+            colMa.Visible = true;
+            colMa.VisibleIndex = 0;
+            colMa.Width = 107;
             // 
             // colTen
             // 
-            this.colTen.Caption = "Tên";
-            this.colTen.FieldName = "Ten";
-            this.colTen.Name = "colTen";
-            this.colTen.Visible = true;
-            this.colTen.VisibleIndex = 1;
-            this.colTen.Width = 434;
+            colTen.Caption = "Tên";
+            colTen.FieldName = "Ten";
+            colTen.Name = "colTen";
+            colTen.Visible = true;
+            colTen.VisibleIndex = 1;
+            colTen.Width = 434;
+            // 
+            // gridColumn1
+            // 
+            gridColumn1.Caption = "colId";
+            gridColumn1.FieldName = "Id";
+            gridColumn1.Name = "gridColumn1";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.gridControl1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(516, 388);
-            this.tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(gridControl1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(516, 388);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // frmTim
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(516, 388);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmTim";
-            this.Text = "Tìm kiếm";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancel;
+            ClientSize = new Size(516, 388);
+            Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(2);
+            Name = "frmTim";
+            Text = "Tìm kiếm";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTen.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -191,5 +193,6 @@ namespace Tinthanh.App.General
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtTen;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

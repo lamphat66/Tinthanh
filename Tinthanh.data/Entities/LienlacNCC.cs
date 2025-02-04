@@ -11,7 +11,7 @@ namespace Tinthanh.Data.Entities
         public string? Email { get; set; }
         public string? Chucvu { get; set; }
         public string? Bophan { get; set; }
-        public string? Ma { get; set; }
+        
         public string? Chinhanh { get; set; }
 
         public bool? EInvoice { get; set; } = false;

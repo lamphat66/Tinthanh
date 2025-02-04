@@ -5,8 +5,9 @@ namespace Tinthanh.Data.Entities
     public class BanggiaNCC
     {
         public int Id { get; set; }
-        public string? MaDT { get; set; }
-        public string? MaVT { get; set; }
+       
+        public int NhaCCId { get; set; }
+        public int VattuId { get; set; }
         public string? Donvi { get; set; }
         public string? TenVT { get; set; }
         public string? TenNB { get; set; }
@@ -14,8 +15,8 @@ namespace Tinthanh.Data.Entities
         public double? Chietkhau { get; set; }
         public double? TienChietKhau { get; set; }
         public double? Giacu { get; set; }
-        public DateTime? NgayUpdate { get; set; }=DateTime.Today;
-       
+        public DateTime? Ngaycapnhat { get; set; }=DateTime.Today;
+        public DateTime? Ngaygiagoc { get; set; } = DateTime.Today;
         public bool? ROHS { get; set; } = false;
         public int? Baohanh { get; set; }
         public string? Ghichu { get; set; }

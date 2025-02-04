@@ -8,7 +8,7 @@ INSERT INTO [dbo].[Vattu]
            ,[Manhom]
            ,[Macu]
            ,[Ngungsd]
-			 ,[Donvi]
+			,[Donvi]
           ,trongluong
            ,[Tonmax]
            ,[Tonmin]
@@ -18,10 +18,14 @@ INSERT INTO [dbo].[Vattu]
            ,[TieuchiKT]
            ,[Xuatxu]
            ,[Nhapkhau]
+		   ,kho
           )
-	 select  masp,left(tensp,80),left(tentat,50),manhom,masp,ngungsd,donvi,trongluong,Tonmax,tonmin,quycach,matdo,tieuchiKT,xuatxu,NK 
+	 select  masp,left(tensp,80),left(tentat,50),manhom,masp,ngungsd,donvi,trongluong,Tonmax,tonmin,quycach,matdo,tieuchiKT,xuatxu,NK ,''
 	 from tinthanh.dbo.Vattu where left(masp,2)='VT'  and dongsp='NM'
 
+
+	 update vattu set Ma='VT'+format(Cast(id as int),'000000') 
+	  
 
 INSERT INTO [dbo].[DonviVattu]
            ([Donvi]
@@ -29,9 +33,9 @@ INSERT INTO [dbo].[DonviVattu]
            ,[Trongluong]
            ,dongia
            ,[Ngungsd]
-           ,[Ma]
+           ,VattuId
           )
 
-		   select  madv, heso,trongluong,gianhap,0, ma  from tinthanh.dbo.donvisanpham where ma in (select ma from vattu)
+		   select  madv, heso,a.trongluong,gianhap,0, b.id  from tinthanh.dbo.donvisanpham a inner join Vattu b on a.ma=b.ma  
 
-
+ select  * from vattu

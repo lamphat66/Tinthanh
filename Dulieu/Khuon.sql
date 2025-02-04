@@ -31,10 +31,13 @@ INSERT INTO [dbo].[Khuon]
          
         
            ,[Ngungsd]
-		   from Tinthanh.dbo.Khuon  
+		   from Tinthanh.dbo.Khuon  where Ngungsd=0
 
 update Khuon set Makh=madt,tenKH=b.tenkh,Tilevon=Gopvon from khuon a inner join tinthanh.dbo.KhuonKH b on a.Ma=b.masp
 
+update khuon set KhachhangId=b.Id from Khuon a inner join Khachhang b on a.Makh=b.Ma
+
+delete from khuon where khachhangId =0
 
 INSERT INTO [dbo].[Khuon_CT]
            ([Masp]
@@ -56,7 +59,7 @@ INSERT INTO [dbo].[Khuon_CT]
            ,[Rongspd]
            ,[Rongspa]
            ,[Caospa]
-           ,[Makhuon]
+           ,KhuonId
            ,[Nhom]
            ,[Caospd])
 		 
@@ -64,7 +67,7 @@ INSERT INTO [dbo].[Khuon_CT]
 
 select	    [MaTP]
            ,[TenSP]
-           ,[Socav]
+           ,a.[Socav]
            ,[Donvi]
            ,[SPchinh]
            ,[DaiD]
@@ -81,14 +84,19 @@ select	    [MaTP]
            ,[Rongspd]
            ,[Rongspa]
            ,[Caospa]
-           ,[Makhuon]
+           ,b.Id
            ,[Nhom]
            ,[Caospd]
 		  
-            from Tinthanh.dbo.Khuon_CT where matp is not null
-
-Update Khuon_CT set Tensp=b.Tensp from Khuon_CT  a inner join tinthanh.dbo.Thanhpham b on a.Masp=b.Masp
+            from Tinthanh.dbo.Khuon_CT a inner join Khuon b on a.Makhuon=b.ma where matp is not null
 
  
+
+ update khuon_CT set sanphamid=b.Id from Khuon_CT a inner join thanhpham b on a.masp=b.ma
+ update khuon_CT set Tensp=b.ten from Khuon_CT a inner join Thanhpham b on a.Masp=b.ma
+ delete From khuon_CT where SanphamId is null
+
+  
+
 
  

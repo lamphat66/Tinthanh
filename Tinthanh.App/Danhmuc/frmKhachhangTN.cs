@@ -21,6 +21,7 @@ public partial class frmKhachhangTN : DevExpress.XtraEditors.XtraForm
        
         btnCancel.ItemClick += delegate { Loaddata(); };
         btnDelete.ItemClick += BtnDelete_ItemClick;
+        
     }
 
     private void FrmKhohang_FormClosing(object? sender, FormClosingEventArgs e)
@@ -72,12 +73,15 @@ public partial class frmKhachhangTN : DevExpress.XtraEditors.XtraForm
     private void FrmKhohang_Load(object? sender, EventArgs e)
     {
         Loaddata();
+        
     }
 
     void Loaddata()
     {
+
         this.dbContext?.KhachhangTNs.Load();
         this.bdSource.DataSource = this.dbContext?.KhachhangTNs.Local.ToBindingList();
+        
     }
 
     private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

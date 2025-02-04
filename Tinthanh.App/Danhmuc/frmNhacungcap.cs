@@ -48,11 +48,12 @@ namespace Tinthanh.App.Danhmuc
             if (dbContext!.ChangeTracker.HasChanges() || IsNew) Save();
             if (gridView1.RowCount > 0)
             {
-                string? ma = gridView1.GetFocusedRowCellValue("Ma").ToString();
+                int ma =(Int32) gridView1.GetFocusedRowCellValue("Id");
 
                 Nhacungcap? kh = dbContext.Nhacungcaps.Find(ma);
                 bdSource.DataSource = kh;
                 Loadlienlac();
+                LoadBangia(ma);
 
             }
         }
@@ -91,11 +92,11 @@ namespace Tinthanh.App.Danhmuc
             lkNhom.Properties.BestFit();
 
             var Phanloai = dbContext.DanhmucCTs
-                .Where(p => p.DanhmucId == 2)
+                .Where(p => p.DanhmucId == 200)
                 .ToList();
             cboPhanloai.DataSource = Phanloai;
             cboPhanloai.DisplayMember = "Ten";
-            cboPhanloai.ValueMember = "STT";
+            cboPhanloai.ValueMember = "Ma";
             cboPhanloai.BestFit();
         }
         private void FrmKhachhang_FormClosing(object? sender, FormClosingEventArgs e)
@@ -130,7 +131,7 @@ namespace Tinthanh.App.Danhmuc
                 var m = bdSource.Current as Nhacungcap;
 
 
-                var r = dbContext.Nhacungcaps.Find(m.Ma);
+                var r = dbContext.Nhacungcaps.Find(m.Id);
                 if (r != null)
                 {
                     gridView1.DeleteSelectedRows();
@@ -160,7 +161,7 @@ namespace Tinthanh.App.Danhmuc
             var data = GetDataDanhsach(Loai, filter);
 
             gridControl1.DataSource = data;
-            if (gridView1.DataRowCount == 1)
+            if (gridView1.DataRowCount >0)
             {
                 gridView1.FocusedRowHandle = 0; // Đặt dòng đầu tiên làm dòng được chọn
                 gridView1_FocusedRowChanged(null, null);
@@ -220,6 +221,21 @@ namespace Tinthanh.App.Danhmuc
             txtTen.Focus();
             Loadlienlac();
 
+        }
+        void LoadBangia(int Ma)
+        {
+
+            gridControl3.DataSource = BanggiaNCC(Ma);
+            gridView3.BestFitColumns();
+
+        }
+        public DataTable BanggiaNCC(int Ma)
+        {
+            string Ten = "[pr_GiamuaNCC]";
+
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@NhacungcapId", Ma, DbType.Int32, ParameterDirection.Input);
+            return SQLHelper.ExecProcedureDataAsDataTable(Ten, para);
         }
     }
 }

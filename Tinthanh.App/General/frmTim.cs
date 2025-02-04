@@ -13,6 +13,7 @@ namespace Tinthanh.App.General
 
         public string Ma = "";
         public string Ten = "";
+        public int Id = 0;
         private string _Tenbang = "";
         private int _loai = 1;
         public frmTim(string Tenbang, int Loai)
@@ -44,8 +45,11 @@ namespace Tinthanh.App.General
                 SetDataSource(_Tenbang, 2,txtTen.Text);
 
                 gridControl1.Focus();
-                gridView1.FocusedRowHandle = 0;
-                gridView1_FocusedRowChanged(null, null);
+                if (gridView1.RowCount > 0)
+                {
+                    gridView1.FocusedRowHandle = 0;
+                    gridView1_FocusedRowChanged(null, null);
+                }
                 e.SuppressKeyPress = true;
                 
             }
@@ -78,6 +82,7 @@ namespace Tinthanh.App.General
             {
                 Ma = view.GetRowCellValue(view.FocusedRowHandle, colMa).ToString();
                 Ten = view.GetRowCellValue(view.FocusedRowHandle, colTen).ToString();
+                Id = (Int32)view.GetRowCellValue(view.FocusedRowHandle, "Id");
             }
         }
 

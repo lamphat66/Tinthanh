@@ -44,6 +44,7 @@
             colSocav = new DevExpress.XtraGrid.Columns.GridColumn();
             colSPchinh = new DevExpress.XtraGrid.Columns.GridColumn();
             colNhom = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             barManager1 = new DevExpress.XtraBars.BarManager(components);
             bar1 = new DevExpress.XtraBars.Bar();
             btnAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -114,7 +115,9 @@
             txtMakh = new DevExpress.XtraEditors.TextEdit();
             textEdit4 = new DevExpress.XtraEditors.LookUpEdit();
             textEdit13 = new DevExpress.XtraEditors.TextEdit();
+            txtKhachhangId = new DevExpress.XtraEditors.TextEdit();
             layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             Root = new DevExpress.XtraLayout.LayoutControlGroup();
             layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -142,6 +145,7 @@
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)tablePanel1).BeginInit();
             tablePanel1.SuspendLayout();
@@ -189,7 +193,9 @@
             ((System.ComponentModel.ISupportInitialize)txtMakh.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit13.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtKhachhangId.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem13).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
@@ -275,15 +281,18 @@
             gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { cboDonvi, btnSanpham });
             gridControl2.Size = new Size(633, 263);
             gridControl2.TabIndex = 6;
+            gridControl2.UseEmbeddedNavigator = true;
             gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView2, grdSanpham, grdKhuon });
             // 
             // gridView2
             // 
-            gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMasp, colTenSP, colDonvi, colSocav, colSPchinh, colNhom });
+            gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMasp, colTenSP, colDonvi, colSocav, colSPchinh, colNhom, gridColumn7 });
             gridView2.GridControl = gridControl2;
             gridView2.Name = "gridView2";
             gridView2.NewItemRowText = "Click vào đây để thêm mới ";
             gridView2.OptionsEditForm.EditFormColumnCount = 2;
+            gridView2.OptionsNavigation.AutoFocusNewRow = true;
+            gridView2.OptionsView.ColumnAutoWidth = false;
             gridView2.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             gridView2.OptionsView.ShowGroupPanel = false;
             // 
@@ -304,6 +313,7 @@
             btnSanpham.AutoHeight = false;
             btnSanpham.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Search) });
             btnSanpham.Name = "btnSanpham";
+            btnSanpham.ButtonClick += btnSanpham_ButtonClick;
             // 
             // colTenSP
             // 
@@ -368,6 +378,16 @@
             colNhom.Name = "colNhom";
             colNhom.Visible = true;
             colNhom.VisibleIndex = 5;
+            // 
+            // gridColumn7
+            // 
+            gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn7.Caption = "Sản phẩm Id";
+            gridColumn7.FieldName = "SanphamId";
+            gridColumn7.Name = "gridColumn7";
+            gridColumn7.Visible = true;
+            gridColumn7.VisibleIndex = 6;
             // 
             // barManager1
             // 
@@ -436,7 +456,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(1087, 31);
+            barDockControlTop.Size = new Size(1098, 31);
             // 
             // barDockControlBottom
             // 
@@ -444,7 +464,7 @@
             barDockControlBottom.Dock = DockStyle.Bottom;
             barDockControlBottom.Location = new Point(0, 672);
             barDockControlBottom.Manager = barManager1;
-            barDockControlBottom.Size = new Size(1087, 0);
+            barDockControlBottom.Size = new Size(1098, 0);
             // 
             // barDockControlLeft
             // 
@@ -458,7 +478,7 @@
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(1087, 31);
+            barDockControlRight.Location = new Point(1098, 31);
             barDockControlRight.Manager = barManager1;
             barDockControlRight.Size = new Size(0, 641);
             // 
@@ -852,8 +872,9 @@
             layoutControl1.Controls.Add(txtMakh);
             layoutControl1.Controls.Add(textEdit4);
             layoutControl1.Controls.Add(textEdit13);
+            layoutControl1.Controls.Add(txtKhachhangId);
             layoutControl1.Dock = DockStyle.Fill;
-            layoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem6 });
+            layoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem6, layoutControlItem13 });
             layoutControl1.Location = new Point(442, 12);
             layoutControl1.Name = "layoutControl1";
             layoutControl1.Root = Root;
@@ -1092,6 +1113,16 @@
             textEdit13.StyleController = layoutControl1;
             textEdit13.TabIndex = 12;
             // 
+            // txtKhachhangId
+            // 
+            txtKhachhangId.DataBindings.Add(new Binding("EditValue", bdSource, "KhachhangId", true));
+            txtKhachhangId.Location = new Point(518, 239);
+            txtKhachhangId.MenuManager = barManager1;
+            txtKhachhangId.Name = "txtKhachhangId";
+            txtKhachhangId.Size = new Size(97, 20);
+            txtKhachhangId.StyleController = layoutControl1;
+            txtKhachhangId.TabIndex = 21;
+            // 
             // layoutControlItem6
             // 
             layoutControlItem6.Control = txtMakh;
@@ -1100,6 +1131,15 @@
             layoutControlItem6.Size = new Size(98, 24);
             layoutControlItem6.TextSize = new Size(0, 0);
             layoutControlItem6.TextVisible = false;
+            // 
+            // layoutControlItem13
+            // 
+            layoutControlItem13.Control = txtKhachhangId;
+            layoutControlItem13.Location = new Point(0, 215);
+            layoutControlItem13.Name = "layoutControlItem13";
+            layoutControlItem13.Size = new Size(183, 37);
+            layoutControlItem13.Text = "KhachhangId";
+            layoutControlItem13.TextSize = new Size(50, 20);
             // 
             // Root
             // 
@@ -1322,7 +1362,7 @@
             // 
             // gridView1
             // 
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2 });
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn1, gridColumn2, gridColumn6 });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             gridView1.OptionsBehavior.Editable = false;
@@ -1356,6 +1396,12 @@
             gridColumn2.VisibleIndex = 1;
             gridColumn2.Width = 291;
             // 
+            // gridColumn6
+            // 
+            gridColumn6.Caption = "gridColumn6";
+            gridColumn6.FieldName = "Id";
+            gridColumn6.Name = "gridColumn6";
+            // 
             // gridView4
             // 
             gridView4.Name = "gridView4";
@@ -1364,7 +1410,8 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1087, 672);
+            AutoSize = true;
+            ClientSize = new Size(1098, 672);
             Controls.Add(tablePanel1);
             Controls.Add(barDockControlLeft);
             Controls.Add(barDockControlRight);
@@ -1421,7 +1468,9 @@
             ((System.ComponentModel.ISupportInitialize)txtMakh.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit13.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtKhachhangId.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)layoutControlItem13).EndInit();
             ((System.ComponentModel.ISupportInitialize)Root).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlGroup1).EndInit();
             ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
@@ -1567,5 +1616,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn35;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn36;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn37;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.TextEdit txtKhachhangId;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
     }
 }

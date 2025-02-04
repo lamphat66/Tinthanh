@@ -19,7 +19,7 @@ namespace Tinthanh.Data.Configurations
             builder.Property(x => x.LinkNhaCC).HasMaxLength(20);
             
             builder.Property(x => x.Taikhoan).HasMaxLength(20);
-            builder.Property(x => x.Ghichu).HasMaxLength(200);
+            builder.Property(x => x.Ghichu).HasMaxLength(300);
             builder.Property(x => x.Lienhe).HasMaxLength(100);
             builder.Property(x => x.Diachi).HasMaxLength(200);
             builder.Property(x => x.Tentat).HasMaxLength(100);

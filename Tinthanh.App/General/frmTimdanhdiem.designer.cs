@@ -39,8 +39,9 @@ namespace Tinthanh.App.General
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             colMa = new DevExpress.XtraGrid.Columns.GridColumn();
             colTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            tableLayoutPanel1 = new TableLayoutPanel();
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtTen.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
@@ -112,7 +113,7 @@ namespace Tinthanh.App.General
             gridView1.Appearance.HeaderPanel.Options.UseFont = true;
             gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
             gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, gridColumn1 });
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, gridColumn1, gridColumn2 });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             gridView1.OptionsBehavior.Editable = false;
@@ -141,6 +142,14 @@ namespace Tinthanh.App.General
             colTen.VisibleIndex = 1;
             colTen.Width = 434;
             // 
+            // gridColumn1
+            // 
+            gridColumn1.Caption = "Đơn vị";
+            gridColumn1.FieldName = "Donvi";
+            gridColumn1.Name = "gridColumn1";
+            gridColumn1.Visible = true;
+            gridColumn1.VisibleIndex = 2;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 1;
@@ -157,13 +166,11 @@ namespace Tinthanh.App.General
             tableLayoutPanel1.Size = new Size(516, 388);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // gridColumn1
+            // gridColumn2
             // 
-            gridColumn1.Caption = "Đơn vị";
-            gridColumn1.FieldName = "Donvi";
-            gridColumn1.Name = "gridColumn1";
-            gridColumn1.Visible = true;
-            gridColumn1.VisibleIndex = 2;
+            gridColumn2.Caption = "gridColumn2";
+            gridColumn2.FieldName = "Id";
+            gridColumn2.Name = "gridColumn2";
             // 
             // frmTimdanhdiem
             // 
@@ -196,5 +203,6 @@ namespace Tinthanh.App.General
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

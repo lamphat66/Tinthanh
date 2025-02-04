@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tinthanh.Data.EF;
 
@@ -11,9 +12,11 @@ using Tinthanh.Data.EF;
 namespace Tinthanh.data.Migrations
 {
     [DbContext(typeof(TinthanhDBContext))]
-    partial class TinthanhDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250203021256_update3")]
+    partial class update3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,11 +62,17 @@ namespace Tinthanh.data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<string>("Makh")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<string>("Marieng")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Masp")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
@@ -105,6 +114,9 @@ namespace Tinthanh.data.Migrations
                     b.HasIndex("KhachhangId", "SanphamId")
                         .IsUnique();
 
+                    b.HasIndex("Masp", "Makh")
+                        .IsUnique();
+
                     b.ToTable("BanggiaKH", (string)null);
                 });
 
@@ -142,10 +154,17 @@ namespace Tinthanh.data.Migrations
                     b.Property<bool?>("Hoadon")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("Ngaycapnhat")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("MaDT")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
-                    b.Property<DateTime?>("Ngaygiagoc")
+                    b.Property<string>("MaVT")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("NgayUpdate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("NhaCCId")
@@ -176,6 +195,9 @@ namespace Tinthanh.data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MaVT", "MaDT")
+                        .IsUnique();
 
                     b.HasIndex("NhaCCId", "VattuId")
                         .IsUnique();
@@ -586,9 +608,8 @@ namespace Tinthanh.data.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Donvi")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<double?>("Heso")
                         .HasColumnType("float");
@@ -599,14 +620,14 @@ namespace Tinthanh.data.Migrations
                     b.Property<double?>("Trongluong")
                         .HasColumnType("float");
 
-                    b.Property<int>("VattuId")
+                    b.Property<int?>("VattuId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("VattuId");
 
-                    b.ToTable("DonviVattu", (string)null);
+                    b.ToTable("DonviVattu");
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.Donvisanpham", b =>
@@ -1288,8 +1309,8 @@ namespace Tinthanh.data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Diachi")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Didong")
                         .HasMaxLength(50)
@@ -1307,11 +1328,10 @@ namespace Tinthanh.data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Hoten")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("KhachhangId")
+                    b.Property<int?>("KhachhangId")
                         .HasColumnType("int");
 
                     b.Property<bool?>("Ngungsd")
@@ -1331,7 +1351,7 @@ namespace Tinthanh.data.Migrations
 
                     b.HasIndex("KhachhangId");
 
-                    b.ToTable("LienlacKH", (string)null);
+                    b.ToTable("LienlacKH");
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.LienlacNCC", b =>
@@ -2322,9 +2342,6 @@ namespace Tinthanh.data.Migrations
                     b.Property<double?>("Cao")
                         .HasColumnType("float");
 
-                    b.Property<bool?>("Cohinh")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime?>("CreateDate")
                         .HasColumnType("datetime2");
 
@@ -2343,8 +2360,9 @@ namespace Tinthanh.data.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Kho")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int?>("Loainhua")
                         .HasColumnType("int");
@@ -2687,9 +2705,7 @@ namespace Tinthanh.data.Migrations
                 {
                     b.HasOne("Tinthanh.Data.Entities.Vattu", "Vattu")
                         .WithMany("DonviVattus")
-                        .HasForeignKey("VattuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VattuId");
 
                     b.Navigation("Vattu");
                 });
@@ -2719,9 +2735,7 @@ namespace Tinthanh.data.Migrations
                 {
                     b.HasOne("Tinthanh.Data.Entities.Khachhang", "Khachhang")
                         .WithMany("LienlacKHs")
-                        .HasForeignKey("KhachhangId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("KhachhangId");
 
                     b.Navigation("Khachhang");
                 });

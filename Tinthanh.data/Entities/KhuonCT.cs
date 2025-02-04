@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿ 
 
 namespace Tinthanh.Data.Entities
 {
@@ -29,6 +25,7 @@ namespace Tinthanh.Data.Entities
         public double? Rongspa { get; set; }
         public double? Caospa { get; set; }
         public int? KhuonId { get; set; }
+        public int? SanphamId { get; set; }
         public int? Nhom { get; set; }
         public double? Caospd { get; set; }
         public virtual Khuon? Khuon { get; set; }

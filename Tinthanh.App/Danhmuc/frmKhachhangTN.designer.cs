@@ -170,7 +170,7 @@ partial class frmKhachhangTN
         barDockControlTop.Dock = DockStyle.Top;
         barDockControlTop.Location = new Point(0, 0);
         barDockControlTop.Manager = barManager1;
-        barDockControlTop.Size = new Size(794, 28);
+        barDockControlTop.Size = new Size(794, 31);
         // 
         // barDockControlBottom
         // 
@@ -184,26 +184,26 @@ partial class frmKhachhangTN
         // 
         barDockControlLeft.CausesValidation = false;
         barDockControlLeft.Dock = DockStyle.Left;
-        barDockControlLeft.Location = new Point(0, 28);
+        barDockControlLeft.Location = new Point(0, 31);
         barDockControlLeft.Manager = barManager1;
-        barDockControlLeft.Size = new Size(0, 575);
+        barDockControlLeft.Size = new Size(0, 572);
         // 
         // barDockControlRight
         // 
         barDockControlRight.CausesValidation = false;
         barDockControlRight.Dock = DockStyle.Right;
-        barDockControlRight.Location = new Point(794, 28);
+        barDockControlRight.Location = new Point(794, 31);
         barDockControlRight.Manager = barManager1;
-        barDockControlRight.Size = new Size(0, 575);
+        barDockControlRight.Size = new Size(0, 572);
         // 
         // sidePanel1
         // 
         sidePanel1.Controls.Add(sidePanel3);
         sidePanel1.Controls.Add(sidePanel2);
         sidePanel1.Dock = DockStyle.Left;
-        sidePanel1.Location = new Point(0, 28);
+        sidePanel1.Location = new Point(0, 31);
         sidePanel1.Name = "sidePanel1";
-        sidePanel1.Size = new Size(780, 575);
+        sidePanel1.Size = new Size(780, 572);
         sidePanel1.TabIndex = 9;
         sidePanel1.Text = "sidePanel1";
         // 
@@ -213,7 +213,7 @@ partial class frmKhachhangTN
         sidePanel3.Dock = DockStyle.Fill;
         sidePanel3.Location = new Point(388, 0);
         sidePanel3.Name = "sidePanel3";
-        sidePanel3.Size = new Size(391, 575);
+        sidePanel3.Size = new Size(391, 572);
         sidePanel3.TabIndex = 1;
         sidePanel3.Text = "sidePanel3";
         // 
@@ -230,37 +230,37 @@ partial class frmKhachhangTN
         layoutControl1.Location = new Point(0, 0);
         layoutControl1.Name = "layoutControl1";
         layoutControl1.Root = Root;
-        layoutControl1.Size = new Size(391, 575);
+        layoutControl1.Size = new Size(391, 572);
         layoutControl1.TabIndex = 0;
         layoutControl1.Text = "layoutControl1";
         // 
         // txtMa
         // 
         txtMa.DataBindings.Add(new Binding("EditValue", bdSource, "Ma", true, DataSourceUpdateMode.OnPropertyChanged));
-        txtMa.Location = new Point(73, 12);
+        txtMa.Location = new Point(65, 12);
         txtMa.MenuManager = barManager1;
         txtMa.Name = "txtMa";
-        txtMa.Size = new Size(306, 20);
+        txtMa.Size = new Size(314, 20);
         txtMa.StyleController = layoutControl1;
         txtMa.TabIndex = 4;
         // 
         // txtTen
         // 
         txtTen.DataBindings.Add(new Binding("EditValue", bdSource, "Ten", true, DataSourceUpdateMode.OnPropertyChanged));
-        txtTen.Location = new Point(73, 36);
+        txtTen.Location = new Point(65, 36);
         txtTen.MenuManager = barManager1;
         txtTen.Name = "txtTen";
-        txtTen.Size = new Size(306, 20);
+        txtTen.Size = new Size(314, 20);
         txtTen.StyleController = layoutControl1;
         txtTen.TabIndex = 5;
         // 
         // textEdit5
         // 
         textEdit5.DataBindings.Add(new Binding("EditValue", bdSource, "Diachi", true, DataSourceUpdateMode.OnPropertyChanged));
-        textEdit5.Location = new Point(73, 60);
+        textEdit5.Location = new Point(65, 60);
         textEdit5.MenuManager = barManager1;
         textEdit5.Name = "textEdit5";
-        textEdit5.Size = new Size(306, 20);
+        textEdit5.Size = new Size(314, 20);
         textEdit5.StyleController = layoutControl1;
         textEdit5.TabIndex = 8;
         // 
@@ -271,37 +271,37 @@ partial class frmKhachhangTN
         checkEdit3.MenuManager = barManager1;
         checkEdit3.Name = "checkEdit3";
         checkEdit3.Properties.Caption = "Ngưng sử dụng";
-        checkEdit3.Size = new Size(367, 20);
+        checkEdit3.Size = new Size(367, 19);
         checkEdit3.StyleController = layoutControl1;
         checkEdit3.TabIndex = 11;
         // 
         // textEdit1
         // 
         textEdit1.DataBindings.Add(new Binding("EditValue", bdSource, "Dienthoai", true));
-        textEdit1.Location = new Point(73, 84);
+        textEdit1.Location = new Point(65, 84);
         textEdit1.MenuManager = barManager1;
         textEdit1.Name = "textEdit1";
-        textEdit1.Size = new Size(306, 20);
+        textEdit1.Size = new Size(314, 20);
         textEdit1.StyleController = layoutControl1;
         textEdit1.TabIndex = 12;
         // 
         // textEdit4
         // 
         textEdit4.DataBindings.Add(new Binding("EditValue", bdSource, "Lienhe", true));
-        textEdit4.Location = new Point(73, 108);
+        textEdit4.Location = new Point(65, 108);
         textEdit4.MenuManager = barManager1;
         textEdit4.Name = "textEdit4";
-        textEdit4.Size = new Size(306, 20);
+        textEdit4.Size = new Size(314, 20);
         textEdit4.StyleController = layoutControl1;
         textEdit4.TabIndex = 13;
         // 
         // textEdit3
         // 
         textEdit3.DataBindings.Add(new Binding("EditValue", bdSource, "Email", true));
-        textEdit3.Location = new Point(73, 132);
+        textEdit3.Location = new Point(65, 132);
         textEdit3.MenuManager = barManager1;
         textEdit3.Name = "textEdit3";
-        textEdit3.Size = new Size(306, 20);
+        textEdit3.Size = new Size(314, 20);
         textEdit3.StyleController = layoutControl1;
         textEdit3.TabIndex = 14;
         // 
@@ -311,7 +311,7 @@ partial class frmKhachhangTN
         Root.GroupBordersVisible = false;
         Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem5, layoutControlItem8, layoutControlItem4, layoutControlItem6, layoutControlItem3 });
         Root.Name = "Root";
-        Root.Size = new Size(391, 575);
+        Root.Size = new Size(391, 572);
         Root.TextVisible = false;
         // 
         // layoutControlItem1
@@ -346,7 +346,7 @@ partial class frmKhachhangTN
         layoutControlItem8.Control = checkEdit3;
         layoutControlItem8.Location = new Point(0, 144);
         layoutControlItem8.Name = "layoutControlItem8";
-        layoutControlItem8.Size = new Size(371, 411);
+        layoutControlItem8.Size = new Size(371, 408);
         layoutControlItem8.TextSize = new Size(0, 0);
         layoutControlItem8.TextVisible = false;
         // 
@@ -383,7 +383,7 @@ partial class frmKhachhangTN
         sidePanel2.Dock = DockStyle.Left;
         sidePanel2.Location = new Point(0, 0);
         sidePanel2.Name = "sidePanel2";
-        sidePanel2.Size = new Size(388, 575);
+        sidePanel2.Size = new Size(388, 572);
         sidePanel2.TabIndex = 0;
         sidePanel2.Text = "sidePanel2";
         // 
@@ -395,7 +395,7 @@ partial class frmKhachhangTN
         gridControl1.MainView = gridView1;
         gridControl1.MenuManager = barManager1;
         gridControl1.Name = "gridControl1";
-        gridControl1.Size = new Size(387, 575);
+        gridControl1.Size = new Size(387, 572);
         gridControl1.TabIndex = 0;
         gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
         // 

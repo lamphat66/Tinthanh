@@ -26,12 +26,12 @@ namespace Tinthanh.Data.Entities
       
         public string? Taikhoan { get; set; }
         public string? Diachi { get; set; }
-        public int? Thuoc { get; set; }
-        public int? Makv { get; set; }
+        public string? Thuoc { get; set; }
+        public string? Makv { get; set; }
         public double? Soducongno { get; set; }
         public double? Donhang { get; set; }
         public double? Dagiao { get; set; }
-        public int? PTVanchuyen { get; set; } = 1;
+        public int? PTVanchuyen { get; set; } 
         public string? Lienhe { get; set; }
         public int? Loaicn { get; set; }
         public int? HanTT { get; set; }

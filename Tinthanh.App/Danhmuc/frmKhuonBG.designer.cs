@@ -50,12 +50,14 @@ partial class frmKhuonBG
         checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
         txtTen = new DevExpress.XtraEditors.MemoEdit();
         dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+        textEdit1 = new DevExpress.XtraEditors.TextEdit();
         Root = new DevExpress.XtraLayout.LayoutControlGroup();
         layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
         layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
         layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
         emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
         layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+        layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
         sidePanel2 = new DevExpress.XtraEditors.SidePanel();
         gridControl1 = new DevExpress.XtraGrid.GridControl();
         gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -72,12 +74,14 @@ partial class frmKhuonBG
         ((System.ComponentModel.ISupportInitialize)txtTen.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem8).BeginInit();
         ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem4).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)layoutControlItem3).BeginInit();
         sidePanel2.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -214,6 +218,7 @@ partial class frmKhuonBG
         layoutControl1.Controls.Add(checkEdit3);
         layoutControl1.Controls.Add(txtTen);
         layoutControl1.Controls.Add(dateEdit1);
+        layoutControl1.Controls.Add(textEdit1);
         layoutControl1.Dock = DockStyle.Fill;
         layoutControl1.Location = new Point(0, 0);
         layoutControl1.Name = "layoutControl1";
@@ -228,7 +233,7 @@ partial class frmKhuonBG
         txtMa.Location = new Point(60, 12);
         txtMa.MenuManager = barManager1;
         txtMa.Name = "txtMa";
-        txtMa.Size = new Size(307, 20);
+        txtMa.Size = new Size(164, 20);
         txtMa.StyleController = layoutControl1;
         txtMa.TabIndex = 0;
         // 
@@ -251,7 +256,7 @@ partial class frmKhuonBG
         txtTen.Name = "txtTen";
         txtTen.Size = new Size(307, 41);
         txtTen.StyleController = layoutControl1;
-        txtTen.TabIndex = 2;
+        txtTen.TabIndex = 3;
         // 
         // dateEdit1
         // 
@@ -266,11 +271,23 @@ partial class frmKhuonBG
         dateEdit1.StyleController = layoutControl1;
         dateEdit1.TabIndex = 4;
         // 
+        // textEdit1
+        // 
+        textEdit1.DataBindings.Add(new Binding("EditValue", bdSource, "Id", true));
+        textEdit1.Location = new Point(276, 12);
+        textEdit1.MenuManager = barManager1;
+        textEdit1.Name = "textEdit1";
+        textEdit1.Properties.ReadOnly = true;
+        textEdit1.Size = new Size(91, 20);
+        textEdit1.StyleController = layoutControl1;
+        textEdit1.TabIndex = 2;
+        textEdit1.TabStop = false;
+        // 
         // Root
         // 
         Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
         Root.GroupBordersVisible = false;
-        Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem8, emptySpaceItem1, layoutControlItem4 });
+        Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem8, emptySpaceItem1, layoutControlItem4, layoutControlItem3 });
         Root.Name = "Root";
         Root.Size = new Size(379, 570);
         Root.TextVisible = false;
@@ -280,7 +297,7 @@ partial class frmKhuonBG
         layoutControlItem1.Control = txtMa;
         layoutControlItem1.Location = new Point(0, 0);
         layoutControlItem1.Name = "layoutControlItem1";
-        layoutControlItem1.Size = new Size(359, 24);
+        layoutControlItem1.Size = new Size(216, 24);
         layoutControlItem1.Text = "Mã";
         layoutControlItem1.TextSize = new Size(44, 13);
         // 
@@ -319,6 +336,15 @@ partial class frmKhuonBG
         layoutControlItem4.Text = "Ngày tạo";
         layoutControlItem4.TextSize = new Size(44, 13);
         // 
+        // layoutControlItem3
+        // 
+        layoutControlItem3.Control = textEdit1;
+        layoutControlItem3.Location = new Point(216, 0);
+        layoutControlItem3.Name = "layoutControlItem3";
+        layoutControlItem3.Size = new Size(143, 24);
+        layoutControlItem3.Text = "Id";
+        layoutControlItem3.TextSize = new Size(44, 13);
+        // 
         // sidePanel2
         // 
         sidePanel2.Controls.Add(gridControl1);
@@ -347,6 +373,8 @@ partial class frmKhuonBG
         gridView1.GridControl = gridControl1;
         gridView1.Name = "gridView1";
         gridView1.OptionsBehavior.Editable = false;
+        gridView1.OptionsFind.AlwaysVisible = true;
+        gridView1.OptionsView.ShowFooter = true;
         gridView1.OptionsView.ShowGroupPanel = false;
         // 
         // colMa
@@ -358,6 +386,7 @@ partial class frmKhuonBG
         colMa.Caption = "Mã  ";
         colMa.FieldName = "Ma";
         colMa.Name = "colMa";
+        colMa.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] { new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Ma", "{0}") });
         colMa.Visible = true;
         colMa.VisibleIndex = 0;
         colMa.Width = 80;
@@ -402,12 +431,14 @@ partial class frmKhuonBG
         ((System.ComponentModel.ISupportInitialize)txtTen.Properties).EndInit();
         ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties.CalendarTimeProperties).EndInit();
         ((System.ComponentModel.ISupportInitialize)dateEdit1.Properties).EndInit();
+        ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
         ((System.ComponentModel.ISupportInitialize)Root).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem8).EndInit();
         ((System.ComponentModel.ISupportInitialize)emptySpaceItem1).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem4).EndInit();
+        ((System.ComponentModel.ISupportInitialize)layoutControlItem3).EndInit();
         sidePanel2.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
         ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
@@ -446,4 +477,6 @@ partial class frmKhuonBG
     private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     private DevExpress.XtraEditors.DateEdit dateEdit1;
     private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+    private DevExpress.XtraEditors.TextEdit textEdit1;
+    private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
 }

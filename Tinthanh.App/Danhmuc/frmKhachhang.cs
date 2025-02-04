@@ -70,11 +70,11 @@ namespace Tinthanh.App.Danhmuc
             lkKhuvuc.Properties.BestFit();
 
             var Phanloai = dbContext.DanhmucCTs
-                .Where(p => p.DanhmucId == 2)
+                .Where(p => p.DanhmucId == 200)
                 .ToList();
             cboPhanloai.DataSource = Phanloai;
             cboPhanloai.DisplayMember = "Ten";
-            cboPhanloai.ValueMember = "STT";
+            cboPhanloai.ValueMember = "Ma";
             cboPhanloai.BestFit();
         }
         private void FrmKhachhang_FormClosing(object? sender, FormClosingEventArgs e)
@@ -139,10 +139,11 @@ namespace Tinthanh.App.Danhmuc
             var data = GetDataDanhsach(Loai, filter);
             
             gridControl1.DataSource = data;
-            if (gridView1.DataRowCount == 1)
+            if (gridView1.DataRowCount > 0)
             {
+
                 gridView1.FocusedRowHandle = 0; // Đặt dòng đầu tiên làm dòng được chọn
-              gridView1_FocusedRowChanged(null, null);
+                gridView1_FocusedRowChanged(null, null);
             }
         }
         private void frmKhachhang_Load(object sender, EventArgs e)
@@ -173,11 +174,13 @@ namespace Tinthanh.App.Danhmuc
             if (dbContext!.ChangeTracker.HasChanges()||IsNew) Save();
                 if (gridView1.RowCount>0)
             {
-                string?  ma = gridView1.GetFocusedRowCellValue("Ma").ToString();
+                int  Id =(Int32) gridView1.GetFocusedRowCellValue("Id");
 
-                Khachhang? kh = dbContext.Khachhangs.Find(ma);
+                Khachhang? kh = dbContext.Khachhangs.Find(Id);
                 bdSource.DataSource = kh;
                 Loadlienlac();
+                LoadBangia(Id);
+                LoadKhuon(Id);
 
             }
 
@@ -214,6 +217,38 @@ namespace Tinthanh.App.Danhmuc
             txtMa.EditValue =  Dungchung.Sinhmadoituong("KH", 4);
             txtTen.Focus();
             Loadlienlac();
+
+        }
+
+        public DataTable BanggiaKH(int Ma)
+        {
+            string Ten = "[pr_BanggiaKH]";
+
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@KhachhangId", Ma, DbType.Int32, ParameterDirection.Input);
+            return SQLHelper.ExecProcedureDataAsDataTable(Ten, para);
+        }
+        void LoadBangia(int ma)
+        {
+
+            gridControl3.DataSource = BanggiaKH(ma);
+            gridView3.BestFitColumns();
+
+        }
+
+        public DataTable Khuonsohuu(int Ma)
+        {
+            string Ten = "[pr_Khuonsohuu]";
+
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@KhachhangId", Ma, DbType.Int32, ParameterDirection.Input);
+            return SQLHelper.ExecProcedureDataAsDataTable(Ten, para);
+        }
+        void LoadKhuon(int ma)
+        {
+
+            gridControl4.DataSource = Khuonsohuu(ma);
+            gridView4.BestFitColumns();
 
         }
     }

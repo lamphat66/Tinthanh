@@ -4,7 +4,7 @@ using DevExpress.XtraGrid.Views.Base;
 using Microsoft.EntityFrameworkCore;
 using Tinthanh.App.General;
 using Tinthanh.Data.EF;
-using Tinthanh.Data.Entities;
+ 
 
 
 namespace Tinthanh.App.Danhmuc
@@ -22,7 +22,12 @@ namespace Tinthanh.App.Danhmuc
             gridView1.RowUpdated += GridView1_RowUpdated;
             this.Load += FrmDanhmuc_Load;
             this.FormClosing += FrmDanhmuc_FormClosing;
+            btnSave.ItemClick += BtnSave_ItemClick;
+        }
 
+        private void BtnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Save();
         }
 
         private void FrmDanhmuc_FormClosing(object? sender, FormClosingEventArgs e)
@@ -112,7 +117,8 @@ namespace Tinthanh.App.Danhmuc
             {
                 this.dbContext!.SaveChanges();
                 this.gridView1.RefreshData();
-                bdSourceCT.ResetBindings(false);
+                this.gridView2.RefreshData();
+
             }
             catch (Exception ex)
             {
@@ -123,7 +129,7 @@ namespace Tinthanh.App.Danhmuc
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bdSource.AddNew();
-            gridView1?.ShowEditForm();
+            
         }
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -11,7 +11,7 @@ namespace Tinthanh.Data.Configurations
         public void Configure(EntityTypeBuilder<KhuonBG> builder)
         {
             builder.ToTable("KhuonBG");
-            builder.HasKey(x => x.Ma);
+            builder.HasIndex(x => x.Ma).IsUnique();
             builder.Property(x => x.Ma).HasMaxLength(20);
             builder.Property(x => x.Ten).IsRequired().HasMaxLength(100);
 

@@ -54,6 +54,7 @@
             barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             bar3 = new DevExpress.XtraBars.Bar();
             bdSourceCT = new BindingSource(components);
+            btnSave = new DevExpress.XtraBars.BarButtonItem();
             sidePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
@@ -69,9 +70,9 @@
             // 
             sidePanel1.Controls.Add(gridControl1);
             sidePanel1.Dock = DockStyle.Left;
-            sidePanel1.Location = new Point(0, 28);
+            sidePanel1.Location = new Point(0, 31);
             sidePanel1.Name = "sidePanel1";
-            sidePanel1.Size = new Size(324, 531);
+            sidePanel1.Size = new Size(324, 528);
             sidePanel1.TabIndex = 0;
             sidePanel1.Text = "sidePanel1";
             // 
@@ -82,7 +83,7 @@
             gridControl1.Location = new Point(0, 0);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(323, 531);
+            gridControl1.Size = new Size(323, 528);
             gridControl1.TabIndex = 4;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -95,11 +96,11 @@
             gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
-            gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             gridView1.OptionsEditForm.EditFormColumnCount = 1;
             gridView1.OptionsNavigation.AutoFocusNewRow = true;
             gridView1.OptionsSelection.InvertSelection = true;
             gridView1.OptionsView.ColumnAutoWidth = false;
+            gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             gridView1.OptionsView.ShowDetailButtons = false;
             gridView1.OptionsView.ShowGroupPanel = false;
             // 
@@ -133,9 +134,9 @@
             // 
             sidePanel2.Controls.Add(gridControl2);
             sidePanel2.Dock = DockStyle.Left;
-            sidePanel2.Location = new Point(324, 28);
+            sidePanel2.Location = new Point(324, 31);
             sidePanel2.Name = "sidePanel2";
-            sidePanel2.Size = new Size(387, 531);
+            sidePanel2.Size = new Size(387, 528);
             sidePanel2.TabIndex = 1;
             sidePanel2.Text = "sidePanel2";
             // 
@@ -145,7 +146,7 @@
             gridControl2.Location = new Point(0, 0);
             gridControl2.MainView = gridView2;
             gridControl2.Name = "gridControl2";
-            gridControl2.Size = new Size(386, 531);
+            gridControl2.Size = new Size(386, 528);
             gridControl2.TabIndex = 3;
             gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView2 });
             // 
@@ -155,12 +156,11 @@
             gridView2.GridControl = gridControl2;
             gridView2.Name = "gridView2";
             gridView2.NewItemRowText = "Click tại đây để thêm 1 dòng mới or nhấn Ctrl+Insert";
-            gridView2.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplace;
             gridView2.OptionsEditForm.EditFormColumnCount = 1;
             gridView2.OptionsNavigation.AutoFocusNewRow = true;
             gridView2.OptionsSelection.InvertSelection = true;
             gridView2.OptionsView.ColumnAutoWidth = false;
-            gridView2.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            gridView2.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // colSTT
@@ -210,8 +210,8 @@
             barManager1.DockControls.Add(barDockControlLeft);
             barManager1.DockControls.Add(barDockControlRight);
             barManager1.Form = this;
-            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnDelete, btnRefresh, btnClose });
-            barManager1.MaxItemId = 10;
+            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnDelete, btnRefresh, btnClose, btnSave });
+            barManager1.MaxItemId = 11;
             // 
             // bar1
             // 
@@ -219,7 +219,7 @@
             bar1.DockCol = 0;
             bar1.DockRow = 0;
             bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnRefresh, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
+            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnSave, true), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnRefresh, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
             bar1.Text = "Tools";
             // 
             // btnAdd
@@ -268,7 +268,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(731, 28);
+            barDockControlTop.Size = new Size(731, 31);
             // 
             // barDockControlBottom
             // 
@@ -282,17 +282,17 @@
             // 
             barDockControlLeft.CausesValidation = false;
             barDockControlLeft.Dock = DockStyle.Left;
-            barDockControlLeft.Location = new Point(0, 28);
+            barDockControlLeft.Location = new Point(0, 31);
             barDockControlLeft.Manager = barManager1;
-            barDockControlLeft.Size = new Size(0, 531);
+            barDockControlLeft.Size = new Size(0, 528);
             // 
             // barDockControlRight
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(731, 28);
+            barDockControlRight.Location = new Point(731, 31);
             barDockControlRight.Manager = barManager1;
-            barDockControlRight.Size = new Size(0, 531);
+            barDockControlRight.Size = new Size(0, 528);
             // 
             // bar3
             // 
@@ -305,6 +305,14 @@
             bar3.OptionsBar.DrawDragBorder = false;
             bar3.OptionsBar.UseWholeRow = true;
             bar3.Text = "Status bar";
+            // 
+            // btnSave
+            // 
+            btnSave.Caption = "Lưu";
+            btnSave.Id = 10;
+            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
+            btnSave.Name = "btnSave";
+            btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // frmDanhmuc
             // 
@@ -359,5 +367,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTen1;
         private DevExpress.XtraGrid.Columns.GridColumn colNgungsd;
         private BindingSource bdSourceCT;
+        private DevExpress.XtraBars.BarButtonItem btnSave;
     }
 }

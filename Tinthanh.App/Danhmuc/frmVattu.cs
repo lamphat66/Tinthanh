@@ -45,7 +45,7 @@ namespace Tinthanh.App.Danhmuc
             if (dbContext!.ChangeTracker.HasChanges() || IsNew) Save();
             if (gridView1.RowCount > 0)
             {
-                string? ma = gridView1.GetFocusedRowCellValue("Ma").ToString();
+                int? ma = (Int32)gridView1.GetFocusedRowCellValue("Id");
 
                 Vattu? data = dbContext.Vattus.Find(ma);
                 bdSource.DataSource = data;
@@ -133,7 +133,7 @@ namespace Tinthanh.App.Danhmuc
                 var m = bdSource.Current as Vattu;
 
 
-                var r = dbContext.Vattus.Find(m.Ma);
+                var r = dbContext.Vattus.Find(m.Id);
                 if (r != null)
                 {
                     gridView1.DeleteSelectedRows();
@@ -217,7 +217,9 @@ namespace Tinthanh.App.Danhmuc
             IsNew = true;
             bdSource.EndEdit();
             bdSource.AddNew();
-            txtMa.Focus();
+            
+            txtMa.EditValue = Dungchung.Sinhmadoituong("VT", 6);
+            txtTen.Focus();
             LoadDonviVattu();
 
         }

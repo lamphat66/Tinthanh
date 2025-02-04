@@ -60,6 +60,7 @@
             colNgaycapnhat = new DevExpress.XtraGrid.Columns.GridColumn();
             colVAT = new DevExpress.XtraGrid.Columns.GridColumn();
             colROHS = new DevExpress.XtraGrid.Columns.GridColumn();
+            colGhichu = new DevExpress.XtraGrid.Columns.GridColumn();
             sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             gridControl2 = new DevExpress.XtraGrid.GridControl();
             gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -69,7 +70,7 @@
             btnFind = new DevExpress.XtraEditors.SimpleButton();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             txtFind = new DevExpress.XtraEditors.TextEdit();
-            colGhichu = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)barManager1).BeginInit();
             sidePanel1.SuspendLayout();
@@ -234,7 +235,7 @@
             colMasp.AppearanceHeader.Options.UseTextOptions = true;
             colMasp.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             colMasp.Caption = "Mã VT";
-            colMasp.FieldName = "MaVT";
+            colMasp.FieldName = "VattuId";
             colMasp.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             colMasp.Name = "colMasp";
             colMasp.OptionsColumn.FixedWidth = true;
@@ -390,6 +391,15 @@
             colROHS.Visible = true;
             colROHS.VisibleIndex = 10;
             // 
+            // colGhichu
+            // 
+            colGhichu.Caption = "Ghi chú";
+            colGhichu.FieldName = "Ghichu";
+            colGhichu.Name = "colGhichu";
+            colGhichu.Visible = true;
+            colGhichu.VisibleIndex = 15;
+            colGhichu.Width = 120;
+            // 
             // sidePanel2
             // 
             sidePanel2.Controls.Add(gridControl2);
@@ -414,7 +424,7 @@
             // 
             // gridView2
             // 
-            gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen });
+            gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, gridColumn1 });
             gridView2.GridControl = gridControl2;
             gridView2.Name = "gridView2";
             gridView2.OptionsBehavior.Editable = false;
@@ -484,14 +494,11 @@
             txtFind.Size = new Size(189, 20);
             txtFind.TabIndex = 3;
             // 
-            // colGhichu
+            // gridColumn1
             // 
-            colGhichu.Caption = "Ghi chú";
-            colGhichu.FieldName = "Ghichu";
-            colGhichu.Name = "colGhichu";
-            colGhichu.Visible = true;
-            colGhichu.VisibleIndex = 15;
-            colGhichu.Width = 120;
+            gridColumn1.Caption = "gridColumn1";
+            gridColumn1.FieldName = "Id";
+            gridColumn1.Name = "gridColumn1";
             // 
             // frmBanggiaNCC
             // 
@@ -562,5 +569,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colVAT;
         private DevExpress.XtraGrid.Columns.GridColumn colROHS;
         private DevExpress.XtraGrid.Columns.GridColumn colGhichu;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

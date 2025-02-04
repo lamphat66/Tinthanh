@@ -71,6 +71,9 @@
             btnFind = new DevExpress.XtraEditors.SimpleButton();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             txtFind = new DevExpress.XtraEditors.TextEdit();
+            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            colKhachhangId = new DevExpress.XtraGrid.Columns.GridColumn();
+            colSanphamId = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)barManager1).BeginInit();
             sidePanel1.SuspendLayout();
@@ -147,7 +150,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(1099, 31);
+            barDockControlTop.Size = new Size(1091, 31);
             // 
             // barDockControlBottom
             // 
@@ -155,7 +158,7 @@
             barDockControlBottom.Dock = DockStyle.Bottom;
             barDockControlBottom.Location = new Point(0, 647);
             barDockControlBottom.Manager = barManager1;
-            barDockControlBottom.Size = new Size(1099, 0);
+            barDockControlBottom.Size = new Size(1091, 0);
             // 
             // barDockControlLeft
             // 
@@ -169,7 +172,7 @@
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(1099, 31);
+            barDockControlRight.Location = new Point(1091, 31);
             barDockControlRight.Manager = barManager1;
             barDockControlRight.Size = new Size(0, 616);
             // 
@@ -191,7 +194,7 @@
             sidePanel1.Dock = DockStyle.Fill;
             sidePanel1.Location = new Point(0, 31);
             sidePanel1.Name = "sidePanel1";
-            sidePanel1.Size = new Size(1099, 616);
+            sidePanel1.Size = new Size(1091, 616);
             sidePanel1.TabIndex = 7;
             sidePanel1.Text = "sidePanel1";
             // 
@@ -201,7 +204,7 @@
             sidePanel3.Dock = DockStyle.Fill;
             sidePanel3.Location = new Point(390, 0);
             sidePanel3.Name = "sidePanel3";
-            sidePanel3.Size = new Size(709, 616);
+            sidePanel3.Size = new Size(701, 616);
             sidePanel3.TabIndex = 1;
             sidePanel3.Text = "sidePanel3";
             // 
@@ -212,13 +215,13 @@
             gridControl1.Location = new Point(0, 0);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(709, 616);
+            gridControl1.Size = new Size(701, 616);
             gridControl1.TabIndex = 3;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMasp, colTenSPKH, colDonvi, colTenSPTT, colGiaban, colGiabannt, colGiacu, colGiacuNT, colGiale, colGiaao, colKhomay, colMatdo, colSoCAV, colTrongluong, colUsers, colNgaycapnhat, colNgaygiagoc });
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMasp, colTenSPKH, colDonvi, colTenSPTT, colGiaban, colGiabannt, colGiacu, colGiacuNT, colGiale, colGiaao, colKhomay, colMatdo, colSoCAV, colTrongluong, colUsers, colNgaycapnhat, colNgaygiagoc, colKhachhangId, colSanphamId });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             gridView1.OptionsEditForm.EditFormColumnCount = 1;
@@ -445,7 +448,7 @@
             // 
             // gridView2
             // 
-            gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen });
+            gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, gridColumn1 });
             gridView2.GridControl = gridControl2;
             gridView2.Name = "gridView2";
             gridView2.OptionsBehavior.Editable = false;
@@ -515,11 +518,31 @@
             txtFind.Size = new Size(189, 20);
             txtFind.TabIndex = 3;
             // 
+            // gridColumn1
+            // 
+            gridColumn1.Caption = "gridColumn1";
+            gridColumn1.FieldName = "Id";
+            gridColumn1.Name = "gridColumn1";
+            // 
+            // colKhachhangId
+            // 
+            colKhachhangId.FieldName = "KhachhangId";
+            colKhachhangId.Name = "colKhachhangId";
+            colKhachhangId.Visible = true;
+            colKhachhangId.VisibleIndex = 17;
+            // 
+            // colSanphamId
+            // 
+            colSanphamId.FieldName = "SanphamId";
+            colSanphamId.Name = "colSanphamId";
+            colSanphamId.Visible = true;
+            colSanphamId.VisibleIndex = 18;
+            // 
             // frmBanggiaKH
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1099, 647);
+            ClientSize = new Size(1091, 647);
             Controls.Add(sidePanel1);
             Controls.Add(barDockControlLeft);
             Controls.Add(barDockControlRight);
@@ -585,5 +608,8 @@
         private DevExpress.XtraEditors.SimpleButton btnFind;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtFind;
+        private DevExpress.XtraGrid.Columns.GridColumn colKhachhangId;
+        private DevExpress.XtraGrid.Columns.GridColumn colSanphamId;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

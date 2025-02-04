@@ -10,9 +10,9 @@ namespace Tinthanh.Data.Configurations
         public void Configure(EntityTypeBuilder<BanggiaKH> builder)
         {
             builder.ToTable("BanggiaKH");
-            builder.HasIndex(p => new { p.Masp, p.Makh }).IsUnique();
-            builder.Property(x => x.Makh).IsRequired().HasMaxLength(20);
-            builder.Property(x => x.Masp).IsRequired().HasMaxLength(20);
+          //  builder.HasIndex(p => new { p.Masp, p.Makh }).IsUnique();
+            builder.HasIndex(p => new { p.KhachhangId, p.SanphamId }).IsUnique();
+            builder.Property(x => x.Masp).HasMaxLength(20);
             builder.Property(x => x.TenSPKH).HasMaxLength(100);
             builder.Property(x => x.TenSPTT).HasMaxLength(100);
             builder.Property(x => x.Donvi).HasMaxLength(20);

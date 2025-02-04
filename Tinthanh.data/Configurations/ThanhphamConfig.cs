@@ -14,8 +14,12 @@ namespace Tinthanh.Data.Configurations
             builder.Property(x => x.Ma).HasMaxLength(20);
             builder.Property(x => x.Ten).IsRequired().HasMaxLength(100);
             builder.HasIndex(b => b.Manhom, "IX_Nhomthanhpham");
-
-            builder.Property(x => x.Ghichu).HasMaxLength(200);
+            builder.Property(x => x.Manhom).HasMaxLength(20);
+            builder.Property(x => x.Ghichu).HasMaxLength(300);
+            builder.Property(x => x.TKkho).HasMaxLength(20);
+            builder.Property(x => x.TKphi).HasMaxLength(20);
+            builder.Property(x => x.Donvi).HasMaxLength(20);
+            builder.Property(x => x.Mabo).HasMaxLength(20);
 
 
 

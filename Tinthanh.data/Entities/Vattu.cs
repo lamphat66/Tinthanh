@@ -43,11 +43,11 @@ namespace Tinthanh.Data.Entities
         public string? Xuatxu { get; set; }
         public bool? Nhapkhau { get; set; }
         public double? Tonreq { get; set; }
-        public string Kho { get; set; }
+        public string? Kho { get; set; }
         public double? Titrong { get; set; }
         public int? Loainhua { get; set; }
 
-
+        public bool? Cohinh { get; set; } = false;
         public virtual ObservableCollectionListSource<DonviVattu>? DonviVattus { get; set; }
 
     }

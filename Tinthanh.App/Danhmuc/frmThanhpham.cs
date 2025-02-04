@@ -11,7 +11,7 @@ namespace Tinthanh.App.Danhmuc
     {
         private readonly TinthanhDBContext dbContext;
         bool IsNew = false;
-        string Masp = "";
+        int Masp = 0;
 
 
         public frmThanhpham()
@@ -47,18 +47,18 @@ namespace Tinthanh.App.Danhmuc
             if (dbContext!.ChangeTracker.HasChanges() || IsNew) Save();
             if (gridView1.RowCount > 0)
             {
-                Masp = gridView1.GetFocusedRowCellValue("Ma")?.ToString() ?? string.Empty;
+                Masp = (Int32)gridView1.GetFocusedRowCellValue("Id");
 
                 Thanhpham? data = dbContext.Thanhphams.Find(Masp);
                 bdSource.DataSource = data;
                 LoadDonvisanpham();
                 LoadBangia(Masp);
                 LoadKhuon(Masp);
-               
+
 
             }
         }
-        void LoadBangia(string sp)
+        void LoadBangia(int sp)
         {
            
             gridControl3.DataSource = BanggiaKH(sp);
@@ -66,7 +66,7 @@ namespace Tinthanh.App.Danhmuc
 
         }
 
-        void LoadKhuon(string sp)
+        void LoadKhuon(int sp)
         {
           
             gridControl5.DataSource = KhuonSanxuat(sp);
@@ -152,7 +152,7 @@ namespace Tinthanh.App.Danhmuc
                 var m = bdSource.Current as Thanhpham;
 
 
-                var r = dbContext.Thanhphams.Find(m.Ma);
+                var r = dbContext.Thanhphams.Find(m.Id);
                 if (r != null)
                 {
                     gridView1.DeleteSelectedRows();
@@ -165,8 +165,13 @@ namespace Tinthanh.App.Danhmuc
 
         private void Save()
         {
+            var m = bdSource.Current as Thanhpham;
+           
+           
+            if (IsNew) dbContext.Thanhphams.Add(m);
+            m.EditDate = DateTime.Today;
+            m.Users = Dungchung.un;
             bdSource.EndEdit();
-            if (IsNew) dbContext.Thanhphams.Add(bdSource.Current as Thanhpham);
             dbContext.SaveChanges();
             IsNew = false;
         }
@@ -181,7 +186,7 @@ namespace Tinthanh.App.Danhmuc
             var data = GetDataDanhsach(Loai, filter);
 
             gridControl1.DataSource = data;
-            if (gridView1.DataRowCount == 1)
+            if (gridView1.DataRowCount >0)
             {
                 gridView1.FocusedRowHandle = 0; // Đặt dòng đầu tiên làm dòng được chọn
                 gridView1_FocusedRowChanged(null, null);
@@ -242,20 +247,20 @@ namespace Tinthanh.App.Danhmuc
 
         }
 
-        public DataTable BanggiaKH(string Ma)
+        public DataTable BanggiaKH(int Ma)
         {
             string Ten = "[pr_DanhsachKH]";
 
             DynamicParameters para = new DynamicParameters();
-            para.Add("@Masp", Ma, DbType.String, ParameterDirection.Input);
+            para.Add("@SanphamId", Ma, DbType.Int32, ParameterDirection.Input);
             return SQLHelper.ExecProcedureDataAsDataTable(Ten, para);
         }
 
-        public DataTable KhuonSanxuat(string Ma)
+        public DataTable KhuonSanxuat(int Ma)
         {
             string Ten = "[pr_Khuonsanpham]";
             DynamicParameters para = new DynamicParameters();
-            para.Add("@Masp", Ma, DbType.String, ParameterDirection.Input);
+            para.Add("@Sanphamid", Ma, DbType.Int32, ParameterDirection.Input);
             return SQLHelper.ExecProcedureDataAsDataTable(Ten, para);
         }
     }

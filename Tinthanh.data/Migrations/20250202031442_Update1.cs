@@ -158,12 +158,12 @@ namespace Tinthanh.data.Migrations
                 oldMaxLength: 50,
                 oldNullable: true);
 
-            //migrationBuilder.AddColumn<string>(
-            //    name: "Macu",
-            //    table: "Kho",
-            //    type: "nvarchar(50)",
-            //    maxLength: 50,
-            //    nullable: true);
+            migrationBuilder.AddColumn<string>(
+                name: "Macu",
+                table: "KhachhangTN",
+                type: "nvarchar(20)",
+                maxLength: 20,
+                nullable: true);
 
             migrationBuilder.AlterColumn<string>(
                 name: "Donvi",
@@ -228,9 +228,9 @@ namespace Tinthanh.data.Migrations
                 name: "Congty",
                 table: "Nganhang");
 
-            //migrationBuilder.DropColumn(
-            //    name: "Macu",
-            //    table: "Kho");
+            migrationBuilder.DropColumn(
+                name: "Macu",
+                table: "KhachhangTN");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Xuatxu",

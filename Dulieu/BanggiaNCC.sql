@@ -11,16 +11,18 @@ INSERT INTO [dbo].[BanggiaNCC]
            ,[Chietkhau]
            ,[TienChietKhau]
            ,[Giacu]
-           ,[NgayUpdate]
-           ,[HesoSP]
+		   ,Ngaygiagoc
+           ,[Ngaycapnhat]
+          -- ,[HesoSP]
            ,[ROHS]
            ,[Baohanh]
-           ,[Ghichhu]
+          -- ,[Ghichhu]
            ,[Hoadon]
            ,[Users]
            ,[ChietkhauSP]
            ,[VAT]
-           ,[HanNH])
+         --  ,[HanNH]
+		 )
 
 
 		   select [MaDT]
@@ -32,16 +34,17 @@ INSERT INTO [dbo].[BanggiaNCC]
            ,[Chietkhau]
            ,[TienChietKhau]
            ,[Giacu]
+		   ,Ngaygiagoc
            ,[NgayUpdate]
-           ,[HesoSP]
+          -- ,[HesoSP]
            ,[ROHS]
            ,[Baohanh]
-           ,[Ghichhu]
+          -- ,[Ghichhu]
            ,[Hoadon]
            ,[Users]
            ,[ChietkhauSP]
            ,[VAT]
-           ,[HanNH] 
+          -- ,[HanNH] 
 		   from tinthanh.dbo.Tenspkh where madt in(Select ma from tinthanh.dbo.doituong where loaidt='CV') and isnull(ngungsd,0)=0 
     
 GO
@@ -53,3 +56,13 @@ WITH DuplicateRows AS (
 )
 delete  FROM DuplicateRows
 WHERE RowNumber > 1;
+
+Update banggiaNCC set maVT=b.Ma from BanggiaNCC a inner join vattu b on a.Mavt=b.Macu 
+Update BanggiaNCC set NhaCCId=c.Id,VattuId=b.Id from BanggiaNCC a inner join Vattu b on a.Mavt=b.Ma 
+inner join Nhacungcap c on a.Madt=c.Ma
+
+
+delete  from BanggiaNCC where mavt not in(Select Ma from Vattu)
+delete  from BanggiaNCC where madt not in(Select Ma from Nhacungcap)
+
+ 

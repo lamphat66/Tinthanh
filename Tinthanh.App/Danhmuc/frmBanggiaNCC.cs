@@ -14,7 +14,7 @@ namespace Tinthanh.App.Danhmuc
     {
         private readonly TinthanhDBContext dbContext;
         bool IsNew = false;
-        string MaKH = "";
+        int MaNCC =0;
         public frmBanggiaNCC()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace Tinthanh.App.Danhmuc
                 var d = bdSource.Current as BanggiaNCC;
                 if (d != null)
                 {
-                    d.MaDT = MaKH;
+                    d.NhaCCId = MaNCC;
                     dbContext.BanggiaNCCs.Add(d);
                 }
 
@@ -60,11 +60,11 @@ namespace Tinthanh.App.Danhmuc
             if (dbContext!.ChangeTracker.HasChanges() || IsNew) Save();
             if (gridView2.RowCount > 0)
             {
-                MaKH = gridView2.GetFocusedRowCellValue("Ma").ToString();
+                MaNCC = (Int32)gridView2.GetFocusedRowCellValue("Id");
 
-                Nhacungcap? kh = dbContext.Nhacungcaps.Find(MaKH);
+                Nhacungcap? kh = dbContext.Nhacungcaps.Find(MaNCC);
                 bdSource.DataSource = kh;
-                Loaddata(MaKH);
+                Loaddata(MaNCC);
 
             }
         }
@@ -93,19 +93,20 @@ namespace Tinthanh.App.Danhmuc
         }
 
 
-        private void Loaddata(string kh)
+        private void Loaddata(int kh)
         {
 
-            var data = this.dbContext?.BanggiaNCCs.Where(x => x.MaDT == kh).ToList();
+            var data = this.dbContext?.BanggiaNCCs.Where(x => x.NhaCCId == kh).ToList();
 
             this.bdSource.DataSource = data;
+            gridView1.BestFitColumns();
 
         }
 
         private void FrmDonvi_Load(object? sender, EventArgs e)
         {
             LoadDanhsach(1, txtFind.Text);
-            gridView1.BestFitColumns();
+           
 
         }
 

@@ -4,8 +4,11 @@ namespace Tinthanh.Data.Entities
     public class BanggiaKH
     {
         public int Id { get; set; }
-        public string? Makh { get; set; }
+        
+        public int KhachhangId { get; set; }
+        public int SanphamId { get; set; }
         public string? Masp { get; set; }
+        
         public string? Marieng { get; set; }
         public string? Donvi { get; set; }
         public string? TenSPKH { get; set; }
