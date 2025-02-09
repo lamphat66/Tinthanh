@@ -7,7 +7,7 @@ namespace Tinthanh.App.General
    public  class FTP:IDisposable      
     {
         
-
+       
         private string Host = "192.168.1.8";
         private string UserName = "ftp01";
         private string Pass = "ftp01@";
@@ -35,6 +35,11 @@ namespace Tinthanh.App.General
         {
             
             client.DownloadFile(FileName, RemoteFile,FtpLocalExists.Overwrite,FtpVerify.None);
+        }
+        public void Delete(string RemoteFile)
+        {
+            if (client.FileExists(RemoteFile))  
+            client.DeleteFile(RemoteFile);
         }
         public void Dispose()
         {

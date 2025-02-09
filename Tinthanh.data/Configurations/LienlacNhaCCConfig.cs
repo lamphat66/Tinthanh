@@ -9,7 +9,7 @@ using Tinthanh.Data.Entities;
 
 namespace Tinthanh.Data.Configurations
 {
-    public class LienlacConfig : IEntityTypeConfiguration<LienlacNCC>
+    public class LienlacNhaCCConfig : IEntityTypeConfiguration<LienlacNCC>
     {
         public void Configure(EntityTypeBuilder<LienlacNCC> builder)
         {

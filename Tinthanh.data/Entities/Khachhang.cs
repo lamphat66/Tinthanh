@@ -49,7 +49,8 @@ namespace Tinthanh.Data.Entities
         public bool? VAT { get; set; }
         
         public virtual ObservableCollectionListSource<LienlacKH>? LienlacKHs { get; set; }
+        public virtual ObservableCollectionListSource<Khachhang_Tailieu>? Khachhang_Tailieus { get; set; }
 
- 
+
     }
 }

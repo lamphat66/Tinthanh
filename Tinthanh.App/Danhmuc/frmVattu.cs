@@ -1,6 +1,9 @@
 ﻿using Dapper;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
 using Tinthanh.App.General;
 using Tinthanh.Data.EF;
 using Tinthanh.Data.Entities;
@@ -25,7 +28,7 @@ namespace Tinthanh.App.Danhmuc
 
             gridControl2.ProcessGridKey += GridControl2_ProcessGridKey;
             gridView2.RowUpdated += GridView2_RowUpdated;
-
+            gridControl4.ProcessGridKey += GridControl4_ProcessGridKey;
             btnClose.ItemClick += delegate { this.Close(); };
             btnAdd.ItemClick += delegate
             {
@@ -45,12 +48,13 @@ namespace Tinthanh.App.Danhmuc
             if (dbContext!.ChangeTracker.HasChanges() || IsNew) Save();
             if (gridView1.RowCount > 0)
             {
-                int? ma = (Int32)gridView1.GetFocusedRowCellValue("Id");
+                int ma = (Int32)gridView1.GetFocusedRowCellValue("Id");
 
                 Vattu? data = dbContext.Vattus.Find(ma);
                 bdSource.DataSource = data;
                 LoadDonviVattu();
-
+                LoadBanggia(ma);
+                LoadTailieu();
             }
         }
 
@@ -143,6 +147,24 @@ namespace Tinthanh.App.Danhmuc
 
             }
         }
+        private void GridControl4_ProcessGridKey(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.Control)
+            {
+                if (MessageBox.Show("Xóa 1 tài liệu ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    FTP f = new FTP("/Vattu");
+                    var tenfile = gridView6.GetFocusedRowCellValue("Tenfile")?.ToString();
+                    if (!string.IsNullOrEmpty(tenfile))
+                    {
+                        f.Delete(tenfile);
+                        gridView6.DeleteSelectedRows();
+                    }
+                    f.Dispose();
+                }
+                e.Handled = true;
+            }
+        }
 
         private void Save()
         {
@@ -169,6 +191,19 @@ namespace Tinthanh.App.Danhmuc
             }
         }
 
+        private void LoadTailieu()
+        {
+            var data = bdSource.Current as Vattu;
+
+            if (data != null)
+            {
+                this.dbContext.Entry(data).Collection(e => e.VattuTailieus).Load();
+
+                gridControl4.DataSource = data.VattuTailieus;
+
+
+            }
+        }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
@@ -222,6 +257,95 @@ namespace Tinthanh.App.Danhmuc
             txtTen.Focus();
             LoadDonviVattu();
 
+        }
+        void LoadBanggia(int Ma)
+        {
+            gridControl3.DataSource = BanggiaVT(Ma);
+            gridView3.BestFitColumns();
+
+        }
+        public DataTable BanggiaVT(int Ma)
+        {
+            string Ten = "[pr_GiamuaVT]";
+
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@VattuId", Ma, DbType.Int32, ParameterDirection.Input);
+            return SQLHelper.ExecProcedureDataAsDataTable(Ten, para);
+        }
+
+
+
+        private void btnFileName_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 0) //upload File
+            {
+                using (var dlg = new OpenFileDialog())
+                {
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        string fileSource = dlg.FileName;
+                        string FileUpload = Path.GetFileName(fileSource);
+                        FTP f = new FTP("/Vattu");
+                        try
+                        {
+
+                            f.UploadFile(fileSource, FileUpload);
+                            MessageBox.Show("Upload Xong!!");
+                            f.Dispose();
+
+                            GridView view = gridView6;
+
+                            if (view.IsNewItemRow(view.FocusedRowHandle))
+                            {
+                                view.AddNewRow();
+
+                            }
+                            gridView6.SetRowCellValue(view.FocusedRowHandle, "Tenfile", Path.GetFileName(fileSource));
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
+                }
+            }
+
+            if (e.Button.Index == 1) //DownLoad File
+            {
+                using (var dlg = new SaveFileDialog())
+                {
+                    dlg.FileName = gridView6.GetFocusedRowCellValue("Tenfile").ToString();
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        string fileDownload = dlg.FileName;
+                        string FileSource = Path.GetFileName(dlg.FileName);
+                        FTP f = new FTP("/Vattu");
+                        try
+                        {
+
+                            f.DownLoad(fileDownload, FileSource);
+                            MessageBox.Show("Download Xong!!");
+
+                            ProcessStartInfo psi = new ProcessStartInfo();
+                            psi.FileName = fileDownload;
+                            psi.UseShellExecute = true;
+                            psi.WindowStyle = ProcessWindowStyle.Normal;
+                            Process.Start(psi);
+
+                            f.Dispose();
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
+                }
+            }
         }
     }
 }

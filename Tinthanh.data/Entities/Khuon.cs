@@ -36,7 +36,8 @@ namespace Tinthanh.Data.Entities
         
         public DateTime? EditDate { get; set; }
         public virtual ObservableCollectionListSource<KhuonCT>? KhuonCTs { get; set; }
-    
+        public virtual ObservableCollectionListSource<Khuon_Tailieu>? Khuon_Tailieus { get; set; }
+
 
     }
 

@@ -22,12 +22,15 @@ namespace Tinthanh.Data.EF
         public DbSet<Nhomdoituong> Nhomdoituongs { get; set; }
         public DbSet<Donvi> Donvis { get; set; }
         public DbSet<Vattu> Vattus { get; set; }
+        public DbSet<DonviVattu> DonviVattus { get; set; }
+        public DbSet<Vattu_Tailieu> Vattu_Tailieus { get; set; }
         public DbSet<Taisan> Taisans { get; set; }
         public DbSet<Donvisanpham> Donvisanphams { get; set; }
         public DbSet<Tailieu> Tailieus { get; set; }
         public DbSet<DanhmucCT>DanhmucCTs { get; set; }
         public DbSet<Thanhpham> Thanhphams { get; set; }
-             
+        public DbSet<Thanhpham_Tailieu>Thanhpham_Tailieus { get; set; }
+
         public DbSet<Khuvuc> Khuvucs { get; set; }
         public DbSet<DateDim> DateDims { get; set; }
         public DbSet<Loaitaisan> Loaitaisans { get; set; }
@@ -36,13 +39,15 @@ namespace Tinthanh.Data.EF
         public DbSet<User> Users { get; set; }
         public DbSet<User_CT> UserCTs { get; set; }
         public DbSet<Chucnang> Chucnangs { get; set; }
-        public DbSet<KhuonCT> KhuonCTs { get; set; }
-        public DbSet<KhuonBG> KhuonBGs { get; set; }
+       
         public DbSet<Xemay> Xemays { get; set; }
         public DbSet<XeHoatdong> XeHoatdongs { get; set; }
         public DbSet<XeBaoTri> XeBaoTris { get; set; }
         public DbSet<MaymocTB> MaymocTBs { get; set; }
         public DbSet<Khuon> Khuons { get; set; }
+        public DbSet<KhuonCT> KhuonCTs { get; set; }
+        public DbSet<KhuonBG> KhuonBGs { get; set; }
+        public DbSet<Khuon_Tailieu> Khuon_Tailieus { get; set; }
         public DbSet<ThanhphamBG> ThanhphamBGs { get; set; }
         public DbSet<Dangkiem> Dangkiems { get; set; }
         public DbSet<Khomay> Khomays { get; set; }
@@ -53,9 +58,14 @@ namespace Tinthanh.Data.EF
         public DbSet<TieuchiCT> TieuchiCTs { get; set; }
 
         public DbSet<Khachhang> Khachhangs { get; set; }
+        public DbSet<LienlacKH> LienlacKHs { get; set; }
+        public DbSet<Khachhang_Tailieu> Khachhang_Tailieus { get; set; }
         public DbSet<Kho> Khos { get; set; }
         public DbSet<Nganhang> Nganhangs { get; set; }
         public DbSet<Nhacungcap> Nhacungcaps { get; set; }
+        public DbSet<LienlacNCC> LienlacNCCs { get; set; }
+        public DbSet<NhaCC_Tailieu> NhaCC_Tailieus { get; set; }
+        
         public DbSet<KhachhangTN> KhachhangTNs { get; set; }
 
 
@@ -83,13 +93,13 @@ namespace Tinthanh.Data.EF
             modelBuilder.ApplyConfiguration(new NhomdanhdiemConfig());
             modelBuilder.ApplyConfiguration(new NhomdoituongConfig());
             modelBuilder.ApplyConfiguration(new TailieuConfig());
-            modelBuilder.ApplyConfiguration(new LienlacConfig());
-            modelBuilder.ApplyConfiguration(new LienlacKHConfig());
+           
+           
             modelBuilder.ApplyConfiguration(new DonviConfig());
 
             modelBuilder.ApplyConfiguration(new TaisanConfig());
-            modelBuilder.ApplyConfiguration(new DonvisanphamConfig());
-            modelBuilder.ApplyConfiguration(new DonviVattuConfig());
+            
+          
             modelBuilder.ApplyConfiguration(new KhuvucConfig());
             modelBuilder.ApplyConfiguration(new DateDimConfig());
             modelBuilder.ApplyConfiguration(new LoaitaisanConfig());
@@ -99,25 +109,39 @@ namespace Tinthanh.Data.EF
             modelBuilder.ApplyConfiguration(new UserCTConfig());
             modelBuilder.ApplyConfiguration(new ChucnangConfig());
             modelBuilder.ApplyConfiguration(new DangkiemConfig());
+            
             modelBuilder.ApplyConfiguration(new ThanhphamConfig());
+            modelBuilder.ApplyConfiguration(new ThanhphamTailieuConfig());
             modelBuilder.ApplyConfiguration(new ThanhphamBGConfig());
+            modelBuilder.ApplyConfiguration(new DonvisanphamConfig());
+
             modelBuilder.ApplyConfiguration(new VattuConfig());
-            modelBuilder.ApplyConfiguration(new KhachhangConfig());
-            modelBuilder.ApplyConfiguration(new NhacungcapConfig());
+            modelBuilder.ApplyConfiguration(new VattuTailieuConfig());
+            modelBuilder.ApplyConfiguration(new DonviVattuConfig());
+
             modelBuilder.ApplyConfiguration(new XemayConfig());
             modelBuilder.ApplyConfiguration(new XebaotriConfig());
             modelBuilder.ApplyConfiguration(new XeHoatdongConfig());
             modelBuilder.ApplyConfiguration(new MaymocTBConfig());
+           
             modelBuilder.ApplyConfiguration(new KhuonConfig());
             modelBuilder.ApplyConfiguration(new KhuonCTConfig());
             modelBuilder.ApplyConfiguration(new KhuonBGConfig());
-
+            modelBuilder.ApplyConfiguration(new KhuonTailieuConfig());
+            
             modelBuilder.ApplyConfiguration(new CongviecBTConfig());
             modelBuilder.ApplyConfiguration(new KhomayConfig());
             modelBuilder.ApplyConfiguration(new DanhmucKTConfig());
+          
             modelBuilder.ApplyConfiguration(new KhachhangConfig());
+            modelBuilder.ApplyConfiguration(new KhachhangTailieuConfig());
             modelBuilder.ApplyConfiguration(new KhachhangTNConfig());
+            modelBuilder.ApplyConfiguration(new LienlacKHConfig());
+
             modelBuilder.ApplyConfiguration(new NhacungcapConfig());
+            modelBuilder.ApplyConfiguration(new LienlacNhaCCConfig());
+            modelBuilder.ApplyConfiguration(new NhaCCTailieuConfig());
+            
             modelBuilder.ApplyConfiguration(new NganhangConfig());
             modelBuilder.ApplyConfiguration(new KhoConfig());
 

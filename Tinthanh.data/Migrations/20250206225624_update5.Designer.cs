@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tinthanh.Data.EF;
 
@@ -11,9 +12,11 @@ using Tinthanh.Data.EF;
 namespace Tinthanh.data.Migrations
 {
     [DbContext(typeof(TinthanhDBContext))]
-    partial class TinthanhDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250206225624_update5")]
+    partial class update5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

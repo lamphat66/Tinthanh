@@ -6,6 +6,7 @@ namespace Tinthanh.Data.Entities
     {
         public int Ma { get; set; }
         public string? Ten { get; set; }
+        public string? Tentat { get; set; }
         public double? Loinhuan { get; set; } = 0;
         public double? Giakhuon { get; set; } = 0;
         public double? GiakhuonUSD { get; set; } = 0;

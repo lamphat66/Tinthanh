@@ -1,9 +1,10 @@
 ﻿using Dapper;
 
 using DevExpress.XtraGrid.Views.Base;
-
+using DevExpress.XtraGrid.Views.Grid;
 using System.Data;
-
+using System.Diagnostics;
+using System.IO;
 using Tinthanh.App.General;
 using Tinthanh.Data.EF;
 using Tinthanh.Data.Entities;
@@ -24,7 +25,7 @@ namespace Tinthanh.App.Danhmuc
             Load += FrmNhacungcap_Load;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             btnClose.ItemClick += delegate { this.Close(); };
-
+            gridControl5.ProcessGridKey += GridControl5_ProcessGridKey;
 
             gridControl2.ProcessGridKey += GridControl2_ProcessGridKey;
             gridView2.RowUpdated += GridView2_RowUpdated;
@@ -43,6 +44,27 @@ namespace Tinthanh.App.Danhmuc
             LoadLookup();
         }
 
+        private void GridControl5_ProcessGridKey(object? sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.Control)
+            {
+                if (MessageBox.Show("Xóa 1 tài liệu ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    FTP f = new FTP("/Nhacungcap");
+                    var tenfile = gridView6.GetFocusedRowCellValue("Tenfile")?.ToString();
+                    if (!string.IsNullOrEmpty(tenfile))
+                    {
+                        f.Delete(tenfile);
+                        gridView6.DeleteSelectedRows();
+                    }
+                    f.Dispose();
+                }
+                e.Handled = true;
+            }
+        }
+        
+
         private void gridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
         {
             if (dbContext!.ChangeTracker.HasChanges() || IsNew) Save();
@@ -54,6 +76,7 @@ namespace Tinthanh.App.Danhmuc
                 bdSource.DataSource = kh;
                 Loadlienlac();
                 LoadBangia(ma);
+                LoadTailieu();
 
             }
         }
@@ -236,6 +259,93 @@ namespace Tinthanh.App.Danhmuc
             DynamicParameters para = new DynamicParameters();
             para.Add("@NhacungcapId", Ma, DbType.Int32, ParameterDirection.Input);
             return SQLHelper.ExecProcedureDataAsDataTable(Ten, para);
+        }
+        
+        private void LoadTailieu()
+        {
+            var data = bdSource.Current as Nhacungcap;
+
+            if (data != null)
+            {
+                this.dbContext.Entry(data).Collection(e => e.NhaCC_Tailieus).Load();
+
+                gridControl5.DataSource = data.NhaCC_Tailieus;
+
+
+            }
+        }
+
+        private void btnFileName_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 0) //upload File
+            {
+                using (var dlg = new OpenFileDialog())
+                {
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        string fileSource = dlg.FileName;
+                        string FileUpload = Path.GetFileName(fileSource);
+                        FTP f = new FTP("/Nhacungcap");
+                        try
+                        {
+
+                            f.UploadFile(fileSource, FileUpload);
+                            MessageBox.Show("Upload Xong!!");
+                            f.Dispose();
+
+                            GridView view = gridView6;
+
+                            if (view.IsNewItemRow(view.FocusedRowHandle))
+                            {
+                                view.AddNewRow();
+
+                            }
+                            gridView6.SetRowCellValue(view.FocusedRowHandle, "Tenfile", Path.GetFileName(fileSource));
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
+                }
+            }
+
+            if (e.Button.Index == 1) //DownLoad File
+            {
+                using (var dlg = new SaveFileDialog())
+                {
+                    dlg.FileName = gridView6.GetFocusedRowCellValue("Tenfile").ToString();
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        string fileDownload = dlg.FileName;
+                        string FileSource = Path.GetFileName(dlg.FileName);
+                        FTP f = new FTP("/Nhacungcap");
+                        try
+                        {
+
+                            f.DownLoad(fileDownload, FileSource);
+                            MessageBox.Show("Download Xong!!");
+
+                            ProcessStartInfo psi = new ProcessStartInfo();
+                            psi.FileName = fileDownload;
+                            psi.UseShellExecute = true;
+                            psi.WindowStyle = ProcessWindowStyle.Normal;
+                            Process.Start(psi);
+
+                            f.Dispose();
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
+                }
+            }
         }
     }
 }

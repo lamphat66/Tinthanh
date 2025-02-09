@@ -29,6 +29,7 @@ namespace Tinthanh.App.Danhmuc
             this.dbContext?.Khomays.Load();
 
             this.bdSource.DataSource = dbContext?.Khomays.Local.ToBindingList();
+            gridView1.BestFitColumns();
         }
         private void FrmDonvi_Load(object? sender, EventArgs e)
         {

@@ -118,7 +118,8 @@ namespace Tinthanh.App
 
         private void mnuDonvi_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenForm(typeof(frmDonvi));
+            //OpenForm(typeof(frmDonvi));
+            OpenForm(typeof(XtraForm1));
         }
 
         private void mnuDanhdiem_ItemClick(object sender, ItemClickEventArgs e)

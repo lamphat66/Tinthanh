@@ -28,176 +28,224 @@
         /// </summary>
         private void InitializeComponent()
         {
-            gridControl3 = new DevExpress.XtraGrid.GridControl();
-            gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)gridControl3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridView3).BeginInit();
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
+            barManager1 = new DevExpress.XtraBars.BarManager(components);
+            bar1 = new DevExpress.XtraBars.Bar();
+            btnAdd = new DevExpress.XtraBars.BarButtonItem();
+            btnDelete = new DevExpress.XtraBars.BarButtonItem();
+            btnRefresh = new DevExpress.XtraBars.BarButtonItem();
+            btnClose = new DevExpress.XtraBars.BarButtonItem();
+            barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            gridControl1 = new DevExpress.XtraGrid.GridControl();
+            gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            colMa = new DevExpress.XtraGrid.Columns.GridColumn();
+            colTen = new DevExpress.XtraGrid.Columns.GridColumn();
+            colNgungsd = new DevExpress.XtraGrid.Columns.GridColumn();
+            btnSave = new DevExpress.XtraBars.BarButtonItem();
+            ((System.ComponentModel.ISupportInitialize)barManager1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
             // 
-            // gridControl3
+            // barManager1
             // 
-            gridControl3.Dock = DockStyle.Fill;
-            gridControl3.Location = new Point(0, 0);
-            gridControl3.MainView = gridView3;
-            gridControl3.Name = "gridControl3";
-            gridControl3.Size = new Size(750, 505);
-            gridControl3.TabIndex = 2;
-            gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView3 });
+            barManager1.AllowCustomization = false;
+            barManager1.AllowQuickCustomization = false;
+            barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] { bar1 });
+            barManager1.DockControls.Add(barDockControlTop);
+            barManager1.DockControls.Add(barDockControlBottom);
+            barManager1.DockControls.Add(barDockControlLeft);
+            barManager1.DockControls.Add(barDockControlRight);
+            barManager1.Form = this;
+            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnDelete, btnRefresh, btnClose, btnSave });
+            barManager1.MaxItemId = 6;
             // 
-            // gridView3
+            // bar1
             // 
-            gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn3, gridColumn4, gridColumn5, gridColumn6, gridColumn7, gridColumn8, gridColumn9, gridColumn10, gridColumn11 });
-            gridView3.GridControl = gridControl3;
-            gridView3.Name = "gridView3";
-            gridView3.OptionsBehavior.Editable = false;
-            gridView3.OptionsView.ColumnAutoWidth = false;
-            gridView3.OptionsView.ShowGroupPanel = false;
+            bar1.BarName = "Custom 3";
+            bar1.DockCol = 0;
+            bar1.DockRow = 0;
+            bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnSave, true), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnRefresh, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
+            bar1.Text = "Custom 3";
             // 
-            // gridColumn3
+            // btnAdd
             // 
-            gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn3.Caption = "Mã KH";
-            gridColumn3.FieldName = "Makh";
-            gridColumn3.Name = "gridColumn3";
-            gridColumn3.Visible = true;
-            gridColumn3.VisibleIndex = 0;
-            gridColumn3.Width = 83;
+            btnAdd.Caption = "Thêm";
+            btnAdd.Id = 0;
+            btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
+            btnAdd.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.Insert);
+            btnAdd.Name = "btnAdd";
+            btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // gridColumn4
+            // btnDelete
             // 
-            gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn4.Caption = "Tên khách hàng";
-            gridColumn4.FieldName = "Tenkh";
-            gridColumn4.Name = "gridColumn4";
-            gridColumn4.Visible = true;
-            gridColumn4.VisibleIndex = 1;
-            gridColumn4.Width = 192;
+            btnDelete.Caption = "Xóa";
+            btnDelete.Id = 1;
+            btnDelete.ImageOptions.Image = (Image)resources.GetObject("btnDelete.ImageOptions.Image");
+            btnDelete.ImageOptions.LargeImage = (Image)resources.GetObject("btnDelete.ImageOptions.LargeImage");
+            btnDelete.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.Delete);
+            btnDelete.Name = "btnDelete";
+            btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // gridColumn5
+            // btnRefresh
             // 
-            gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn5.Caption = "Đơn vị";
-            gridColumn5.FieldName = "Donvi";
-            gridColumn5.Name = "gridColumn5";
-            gridColumn5.Visible = true;
-            gridColumn5.VisibleIndex = 2;
-            gridColumn5.Width = 58;
+            btnRefresh.Caption = "Nạp lại";
+            btnRefresh.Id = 3;
+            btnRefresh.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnRefresh.ImageOptions.SvgImage");
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // gridColumn6
+            // btnClose
             // 
-            gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn6.Caption = "Giá bán";
-            gridColumn6.DisplayFormat.FormatString = "n0";
-            gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridColumn6.FieldName = "Giaban";
-            gridColumn6.Name = "gridColumn6";
-            gridColumn6.Visible = true;
-            gridColumn6.VisibleIndex = 3;
-            gridColumn6.Width = 58;
+            btnClose.Caption = "Đóng";
+            btnClose.Id = 4;
+            btnClose.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnClose.ImageOptions.SvgImage");
+            btnClose.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.F4);
+            btnClose.Name = "btnClose";
+            btnClose.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // gridColumn7
+            // barDockControlTop
             // 
-            gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn7.Caption = "Giá củ";
-            gridColumn7.DisplayFormat.FormatString = "n0";
-            gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridColumn7.FieldName = "Giacu";
-            gridColumn7.Name = "gridColumn7";
-            gridColumn7.Visible = true;
-            gridColumn7.VisibleIndex = 4;
-            gridColumn7.Width = 58;
+            barDockControlTop.CausesValidation = false;
+            barDockControlTop.Dock = DockStyle.Top;
+            barDockControlTop.Location = new Point(0, 0);
+            barDockControlTop.Manager = barManager1;
+            barDockControlTop.Size = new Size(535, 31);
             // 
-            // gridColumn8
+            // barDockControlBottom
             // 
-            gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn8.Caption = "Giá bán NT";
-            gridColumn8.DisplayFormat.FormatString = "n3";
-            gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridColumn8.FieldName = "GiabanNT";
-            gridColumn8.Name = "gridColumn8";
-            gridColumn8.Visible = true;
-            gridColumn8.VisibleIndex = 5;
-            gridColumn8.Width = 58;
+            barDockControlBottom.CausesValidation = false;
+            barDockControlBottom.Dock = DockStyle.Bottom;
+            barDockControlBottom.Location = new Point(0, 392);
+            barDockControlBottom.Manager = barManager1;
+            barDockControlBottom.Size = new Size(535, 0);
             // 
-            // gridColumn9
+            // barDockControlLeft
             // 
-            gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn9.Caption = "Giá củ NT";
-            gridColumn9.DisplayFormat.FormatString = "n3";
-            gridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridColumn9.FieldName = "GiacuNT";
-            gridColumn9.Name = "gridColumn9";
-            gridColumn9.Visible = true;
-            gridColumn9.VisibleIndex = 6;
-            gridColumn9.Width = 58;
+            barDockControlLeft.CausesValidation = false;
+            barDockControlLeft.Dock = DockStyle.Left;
+            barDockControlLeft.Location = new Point(0, 31);
+            barDockControlLeft.Manager = barManager1;
+            barDockControlLeft.Size = new Size(0, 361);
             // 
-            // gridColumn10
+            // barDockControlRight
             // 
-            gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn10.Caption = "Giá ảo";
-            gridColumn10.DisplayFormat.FormatString = "n0";
-            gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridColumn10.FieldName = "Giaao";
-            gridColumn10.Name = "gridColumn10";
-            gridColumn10.Visible = true;
-            gridColumn10.VisibleIndex = 7;
-            gridColumn10.Width = 58;
+            barDockControlRight.CausesValidation = false;
+            barDockControlRight.Dock = DockStyle.Right;
+            barDockControlRight.Location = new Point(535, 31);
+            barDockControlRight.Manager = barManager1;
+            barDockControlRight.Size = new Size(0, 361);
             // 
-            // gridColumn11
+            // gridControl1
             // 
-            gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn11.Caption = "Giá lẽ";
-            gridColumn11.DisplayFormat.FormatString = "n0";
-            gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridColumn11.FieldName = "Giale";
-            gridColumn11.Name = "gridColumn11";
-            gridColumn11.Visible = true;
-            gridColumn11.VisibleIndex = 8;
-            gridColumn11.Width = 69;
+            gridControl1.Dock = DockStyle.Fill;
+            gridControl1.Location = new Point(0, 31);
+            gridControl1.MainView = gridView1;
+            gridControl1.Name = "gridControl1";
+            gridControl1.Size = new Size(535, 361);
+            gridControl1.TabIndex = 4;
+            gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            // 
+            // gridView1
+            // 
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, colNgungsd });
+            gridView1.GridControl = gridControl1;
+            gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.EditFormColumnCount = 1;
+            gridView1.OptionsNavigation.AutoFocusNewRow = true;
+            gridView1.OptionsSelection.InvertSelection = true;
+            gridView1.OptionsView.ColumnAutoWidth = false;
+            gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // colMa
+            // 
+            colMa.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colMa.AppearanceHeader.Options.UseFont = true;
+            colMa.AppearanceHeader.Options.UseTextOptions = true;
+            colMa.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            colMa.Caption = "Mã";
+            colMa.FieldName = "Ma";
+            colMa.Name = "colMa";
+            colMa.Visible = true;
+            colMa.VisibleIndex = 0;
+            colMa.Width = 77;
+            // 
+            // colTen
+            // 
+            colTen.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colTen.AppearanceHeader.Options.UseFont = true;
+            colTen.AppearanceHeader.Options.UseTextOptions = true;
+            colTen.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            colTen.Caption = "Tên";
+            colTen.FieldName = "Ten";
+            colTen.Name = "colTen";
+            colTen.Visible = true;
+            colTen.VisibleIndex = 1;
+            colTen.Width = 215;
+            // 
+            // colNgungsd
+            // 
+            colNgungsd.AppearanceHeader.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            colNgungsd.AppearanceHeader.Options.UseFont = true;
+            colNgungsd.AppearanceHeader.Options.UseTextOptions = true;
+            colNgungsd.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            colNgungsd.Caption = "Ngừng sd";
+            colNgungsd.FieldName = "Ngungsd";
+            colNgungsd.Name = "colNgungsd";
+            colNgungsd.Visible = true;
+            colNgungsd.VisibleIndex = 2;
+            colNgungsd.Width = 65;
+            // 
+            // btnSave
+            // 
+            btnSave.Caption = "Lưu";
+            btnSave.Id = 5;
+            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
+            btnSave.Name = "btnSave";
+            btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // XtraForm1
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(750, 505);
-            Controls.Add(gridControl3);
+            ClientSize = new Size(535, 392);
+            Controls.Add(gridControl1);
+            Controls.Add(barDockControlLeft);
+            Controls.Add(barDockControlRight);
+            Controls.Add(barDockControlBottom);
+            Controls.Add(barDockControlTop);
             Name = "XtraForm1";
             Text = "XtraForm1";
-            ((System.ComponentModel.ISupportInitialize)gridControl3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)barManager1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gridControl3;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.BarButtonItem btnAdd;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
+        private DevExpress.XtraBars.BarButtonItem btnRefresh;
+        private DevExpress.XtraBars.BarButtonItem btnClose;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMa;
+        private DevExpress.XtraGrid.Columns.GridColumn colTen;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgungsd;
+        private DevExpress.XtraBars.BarButtonItem btnSave;
     }
 }

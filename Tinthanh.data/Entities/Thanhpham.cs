@@ -46,7 +46,8 @@ namespace Tinthanh.Data.Entities
  
  
         public virtual ObservableCollectionListSource<Donvisanpham>? Donvisanphams { get; set; }
- 
+        public virtual ObservableCollectionListSource<Thanhpham_Tailieu>? Thanhpham_Tailieus { get; set; }
+
     }
 
 }

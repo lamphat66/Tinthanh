@@ -42,7 +42,8 @@ namespace Tinthanh.Data.Entities
  
        
         public virtual ObservableCollectionListSource<LienlacNCC>? LienlacNCCs { get; set; }
- 
+        public virtual ObservableCollectionListSource<NhaCC_Tailieu>? NhaCC_Tailieus { get; set; }
+
 
     }
 

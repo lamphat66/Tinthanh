@@ -1,7 +1,10 @@
 ﻿
 using Dapper;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
 using Tinthanh.App.General;
 using Tinthanh.Data.EF;
 using Tinthanh.Data.Entities;
@@ -20,7 +23,7 @@ namespace Tinthanh.App.Danhmuc
             btnClose.ItemClick += delegate { this.Close(); };
             gridControl2.ProcessGridKey += GridControl2_ProcessGridKey;
             gridView2.RowUpdated += GridView2_RowUpdated;
-          
+            gridControl5.ProcessGridKey += GridControl5_ProcessGridKey;
             btnClose.ItemClick += delegate { this.Close(); };
             btnAdd.ItemClick += delegate
             {
@@ -31,6 +34,25 @@ namespace Tinthanh.App.Danhmuc
             btnRefresh.ItemClick += delegate { LoadDanhsach(0, txtFind.Text); };
             this.FormClosing += FrmKhachhang_FormClosing;
             LoadLookup();
+        }
+
+        private void GridControl5_ProcessGridKey(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.Control)
+            {
+                if (MessageBox.Show("Xóa 1 tài liệu ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    FTP f = new FTP("/Khachhang");
+                    var tenfile = gridView6.GetFocusedRowCellValue("Tenfile")?.ToString();
+                    if (!string.IsNullOrEmpty(tenfile))
+                    {
+                        f.Delete(tenfile);
+                        gridView6.DeleteSelectedRows();
+                    }
+                    f.Dispose();
+                }
+                e.Handled = true;
+            }
         }
 
         private void GridControl2_ProcessGridKey(object? sender, KeyEventArgs e)
@@ -46,7 +68,7 @@ namespace Tinthanh.App.Danhmuc
             {
                 // Khi nhấn Ctrl+Ins, thêm dòng mới
                 gridView2.AddNewRow();
-                gridView2.ShowEditForm();
+              
                 e.Handled = true;
             }
         }
@@ -181,6 +203,7 @@ namespace Tinthanh.App.Danhmuc
                 Loadlienlac();
                 LoadBangia(Id);
                 LoadKhuon(Id);
+                LoadTailieu();
 
             }
 
@@ -250,6 +273,94 @@ namespace Tinthanh.App.Danhmuc
             gridControl4.DataSource = Khuonsohuu(ma);
             gridView4.BestFitColumns();
 
+        }
+
+        private void LoadTailieu()
+        {
+            var data = bdSource.Current as Khachhang;
+
+            if (data != null)
+            {
+                this.dbContext.Entry(data).Collection(e => e.Khachhang_Tailieus).Load();
+
+                gridControl4.DataSource = data.Khachhang_Tailieus;
+
+
+            }
+        }
+
+
+        private void btnFileName_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 0) //upload File
+            {
+                using (var dlg = new OpenFileDialog())
+                {
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        string fileSource = dlg.FileName;
+                        string FileUpload = Path.GetFileName(fileSource);
+                        FTP f = new FTP("/Khachhang");
+                        try
+                        {
+
+                            f.UploadFile(fileSource, FileUpload);
+                            MessageBox.Show("Upload Xong!!");
+                            f.Dispose();
+
+                            GridView view = gridView6;
+
+                            if (view.IsNewItemRow(view.FocusedRowHandle))
+                            {
+                                view.AddNewRow();
+
+                            }
+                            gridView6.SetRowCellValue(view.FocusedRowHandle, "Tenfile", Path.GetFileName(fileSource));
+
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
+                }
+            }
+
+            if (e.Button.Index == 1) //DownLoad File
+            {
+                using (var dlg = new SaveFileDialog())
+                {
+                    dlg.FileName = gridView6.GetFocusedRowCellValue("Tenfile").ToString();
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        string fileDownload = dlg.FileName;
+                        string FileSource = Path.GetFileName(dlg.FileName);
+                        FTP f = new FTP("/Khachhang");
+                        try
+                        {
+
+                            f.DownLoad(fileDownload, FileSource);
+                            MessageBox.Show("Download Xong!!");
+
+                            ProcessStartInfo psi = new ProcessStartInfo();
+                            psi.FileName = fileDownload;
+                            psi.UseShellExecute = true;
+                            psi.WindowStyle = ProcessWindowStyle.Normal;
+                            Process.Start(psi);
+
+                            f.Dispose();
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
+                }
+            }
         }
     }
 }

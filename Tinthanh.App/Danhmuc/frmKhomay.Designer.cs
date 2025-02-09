@@ -51,6 +51,7 @@
             barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             bar2 = new DevExpress.XtraBars.Bar();
+            colTentat = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -68,13 +69,13 @@
             gridControl1.Location = new Point(0, 31);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(617, 461);
+            gridControl1.Size = new Size(735, 461);
             gridControl1.TabIndex = 2;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
-            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, colGiakhuon, colGiakhuonUSD, colLoinhuan, colLoinhuanM, colNgungsd });
+            gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, colTentat, colGiakhuon, colGiakhuonUSD, colLoinhuan, colLoinhuanM, colNgungsd });
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             gridView1.OptionsEditForm.EditFormColumnCount = 1;
@@ -116,7 +117,7 @@
             colGiakhuon.FieldName = "Giakhuon";
             colGiakhuon.Name = "colGiakhuon";
             colGiakhuon.Visible = true;
-            colGiakhuon.VisibleIndex = 2;
+            colGiakhuon.VisibleIndex = 3;
             // 
             // colGiakhuonUSD
             // 
@@ -126,7 +127,7 @@
             colGiakhuonUSD.FieldName = "GiakhuonUSD";
             colGiakhuonUSD.Name = "colGiakhuonUSD";
             colGiakhuonUSD.Visible = true;
-            colGiakhuonUSD.VisibleIndex = 3;
+            colGiakhuonUSD.VisibleIndex = 4;
             // 
             // colLoinhuan
             // 
@@ -138,7 +139,7 @@
             colLoinhuan.FieldName = "Loinhuan";
             colLoinhuan.Name = "colLoinhuan";
             colLoinhuan.Visible = true;
-            colLoinhuan.VisibleIndex = 4;
+            colLoinhuan.VisibleIndex = 5;
             // 
             // colLoinhuanM
             // 
@@ -150,7 +151,7 @@
             colLoinhuanM.FieldName = "LoinhuanM";
             colLoinhuanM.Name = "colLoinhuanM";
             colLoinhuanM.Visible = true;
-            colLoinhuanM.VisibleIndex = 5;
+            colLoinhuanM.VisibleIndex = 6;
             colLoinhuanM.Width = 81;
             // 
             // colNgungsd
@@ -161,7 +162,7 @@
             colNgungsd.FieldName = "Ngungsd";
             colNgungsd.Name = "colNgungsd";
             colNgungsd.Visible = true;
-            colNgungsd.VisibleIndex = 6;
+            colNgungsd.VisibleIndex = 7;
             // 
             // barManager1
             // 
@@ -231,7 +232,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(617, 31);
+            barDockControlTop.Size = new Size(735, 31);
             // 
             // barDockControlBottom
             // 
@@ -239,7 +240,7 @@
             barDockControlBottom.Dock = DockStyle.Bottom;
             barDockControlBottom.Location = new Point(0, 492);
             barDockControlBottom.Manager = barManager1;
-            barDockControlBottom.Size = new Size(617, 0);
+            barDockControlBottom.Size = new Size(735, 0);
             // 
             // barDockControlLeft
             // 
@@ -253,7 +254,7 @@
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(617, 31);
+            barDockControlRight.Location = new Point(735, 31);
             barDockControlRight.Manager = barManager1;
             barDockControlRight.Size = new Size(0, 461);
             // 
@@ -268,11 +269,22 @@
             bar2.OptionsBar.UseWholeRow = true;
             bar2.Text = "Main menu";
             // 
+            // colTentat
+            // 
+            colTentat.AppearanceHeader.Options.UseTextOptions = true;
+            colTentat.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            colTentat.Caption = "Tên tắt";
+            colTentat.FieldName = "Tentat";
+            colTentat.Name = "colTentat";
+            colTentat.Visible = true;
+            colTentat.VisibleIndex = 2;
+            colTentat.Width = 80;
+            // 
             // frmKhomay
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(617, 492);
+            ClientSize = new Size(735, 492);
             Controls.Add(gridControl1);
             Controls.Add(barDockControlLeft);
             Controls.Add(barDockControlRight);
@@ -310,5 +322,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLoinhuan;
         private DevExpress.XtraGrid.Columns.GridColumn colLoinhuanM;
         private DevExpress.XtraGrid.Columns.GridColumn colNgungsd;
+        private DevExpress.XtraGrid.Columns.GridColumn colTentat;
     }
 }

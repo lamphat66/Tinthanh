@@ -49,6 +49,7 @@ namespace Tinthanh.Data.Entities
 
         public bool? Cohinh { get; set; } = false;
         public virtual ObservableCollectionListSource<DonviVattu>? DonviVattus { get; set; }
+         public virtual ObservableCollectionListSource<Vattu_Tailieu>? VattuTailieus { get; set; }
 
     }
 
