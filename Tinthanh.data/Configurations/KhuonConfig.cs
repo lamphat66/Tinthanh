@@ -17,8 +17,7 @@ namespace Tinthanh.Data.Configurations
             builder.Property(x => x.Makh).HasMaxLength(20);
             builder.Property(x => x.TenKH).HasMaxLength(100);
             builder.Property(x => x.Mats).HasMaxLength(20);
-            builder.Property(x => x.CreateDate).HasDefaultValueSql("getdate()");
-          
+                
             builder.HasIndex(b => b.Manhom, "IX_Nhomkhuon");
             builder.Property(b => b.Manhom).HasMaxLength(20);
             builder.Property(b => b.Ghichu).HasMaxLength(200);

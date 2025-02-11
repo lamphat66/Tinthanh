@@ -30,16 +30,16 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhacungcap));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -100,6 +100,13 @@
             labelControl9 = new DevExpress.XtraEditors.LabelControl();
             memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             sidePanel7 = new DevExpress.XtraEditors.SidePanel();
+            gridControl5 = new DevExpress.XtraGrid.GridControl();
+            gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            btnFileName = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             panelControl1 = new DevExpress.XtraEditors.PanelControl();
             btnFind = new DevExpress.XtraEditors.SimpleButton();
             txtFind = new DevExpress.XtraEditors.TextEdit();
@@ -145,13 +152,6 @@
             gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridControl5 = new DevExpress.XtraGrid.GridControl();
-            gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            btnFileName = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
-            gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)tablePanel1).BeginInit();
             tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)xtraTabControl1).BeginInit();
@@ -176,6 +176,9 @@
             xtraTabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).BeginInit();
             sidePanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gridControl5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridView6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnFileName).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
             panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtFind.Properties).BeginInit();
@@ -218,9 +221,6 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem15).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridControl5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridView6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnFileName).BeginInit();
             SuspendLayout();
             // 
             // tablePanel1
@@ -234,7 +234,7 @@
             tablePanel1.Location = new Point(0, 31);
             tablePanel1.Name = "tablePanel1";
             tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 316F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F) });
-            tablePanel1.Size = new Size(1118, 618);
+            tablePanel1.Size = new Size(1118, 641);
             tablePanel1.TabIndex = 0;
             tablePanel1.UseSkinIndents = true;
             // 
@@ -247,7 +247,7 @@
             tablePanel1.SetRow(xtraTabControl1, 1);
             tablePanel1.SetRowSpan(xtraTabControl1, 2);
             xtraTabControl1.SelectedTabPage = xtraTabPage1;
-            xtraTabControl1.Size = new Size(654, 277);
+            xtraTabControl1.Size = new Size(654, 300);
             xtraTabControl1.TabIndex = 4;
             xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] { xtraTabPage1, xtraTabPage2, xtraTabPage3, xtraTabPage5 });
             // 
@@ -255,7 +255,7 @@
             // 
             xtraTabPage1.Controls.Add(gridControl2);
             xtraTabPage1.Name = "xtraTabPage1";
-            xtraTabPage1.Size = new Size(648, 249);
+            xtraTabPage1.Size = new Size(648, 272);
             xtraTabPage1.Text = "Liên lạc";
             // 
             // gridControl2
@@ -267,7 +267,7 @@
             gridControl2.MenuManager = barManager1;
             gridControl2.Name = "gridControl2";
             gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { cboPhanloai });
-            gridControl2.Size = new Size(648, 249);
+            gridControl2.Size = new Size(648, 272);
             gridControl2.TabIndex = 0;
             gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView2 });
             // 
@@ -447,7 +447,7 @@
             // barManager1
             // 
             barManager1.AllowQuickCustomization = false;
-            barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] { bar1, bar3 });
+            barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] { bar1 });
             barManager1.DockControls.Add(barDockControlTop);
             barManager1.DockControls.Add(barDockControlBottom);
             barManager1.DockControls.Add(barDockControlLeft);
@@ -455,7 +455,6 @@
             barManager1.Form = this;
             barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnSave, btnDelete, btnRefresh, btnClose });
             barManager1.MaxItemId = 5;
-            barManager1.StatusBar = bar3;
             // 
             // bar1
             // 
@@ -524,15 +523,15 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(1104, 31);
+            barDockControlTop.Size = new Size(1096, 31);
             // 
             // barDockControlBottom
             // 
             barDockControlBottom.CausesValidation = false;
             barDockControlBottom.Dock = DockStyle.Bottom;
-            barDockControlBottom.Location = new Point(0, 649);
+            barDockControlBottom.Location = new Point(0, 672);
             barDockControlBottom.Manager = barManager1;
-            barDockControlBottom.Size = new Size(1104, 23);
+            barDockControlBottom.Size = new Size(1096, 0);
             // 
             // barDockControlLeft
             // 
@@ -540,15 +539,15 @@
             barDockControlLeft.Dock = DockStyle.Left;
             barDockControlLeft.Location = new Point(0, 31);
             barDockControlLeft.Manager = barManager1;
-            barDockControlLeft.Size = new Size(0, 618);
+            barDockControlLeft.Size = new Size(0, 641);
             // 
             // barDockControlRight
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(1104, 31);
+            barDockControlRight.Location = new Point(1096, 31);
             barDockControlRight.Manager = barManager1;
-            barDockControlRight.Size = new Size(0, 618);
+            barDockControlRight.Size = new Size(0, 641);
             // 
             // xtraTabPage2
             // 
@@ -563,7 +562,7 @@
             xtraTabPage2.Controls.Add(labelControl3);
             xtraTabPage2.Controls.Add(textEdit15);
             xtraTabPage2.Name = "xtraTabPage2";
-            xtraTabPage2.Size = new Size(648, 249);
+            xtraTabPage2.Size = new Size(648, 272);
             xtraTabPage2.Text = "Công nợ";
             // 
             // labelControl6
@@ -668,7 +667,7 @@
             // 
             xtraTabPage3.Controls.Add(gridControl3);
             xtraTabPage3.Name = "xtraTabPage3";
-            xtraTabPage3.Size = new Size(648, 249);
+            xtraTabPage3.Size = new Size(648, 272);
             xtraTabPage3.Text = "Giá mua";
             // 
             // gridControl3
@@ -678,7 +677,7 @@
             gridControl3.MainView = gridView3;
             gridControl3.MenuManager = barManager1;
             gridControl3.Name = "gridControl3";
-            gridControl3.Size = new Size(648, 249);
+            gridControl3.Size = new Size(648, 272);
             gridControl3.TabIndex = 1;
             gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView3 });
             // 
@@ -801,7 +800,7 @@
             xtraTabPage5.Controls.Add(memoEdit1);
             xtraTabPage5.Controls.Add(sidePanel7);
             xtraTabPage5.Name = "xtraTabPage5";
-            xtraTabPage5.Size = new Size(648, 249);
+            xtraTabPage5.Size = new Size(648, 272);
             xtraTabPage5.Text = "Tài liệu liên quan";
             // 
             // labelControl9
@@ -831,6 +830,78 @@
             sidePanel7.TabIndex = 0;
             sidePanel7.Text = "sidePanel7";
             // 
+            // gridControl5
+            // 
+            gridControl5.Dock = DockStyle.Fill;
+            gridControl5.Location = new Point(0, 0);
+            gridControl5.MainView = gridView6;
+            gridControl5.MenuManager = barManager1;
+            gridControl5.Name = "gridControl5";
+            gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { btnFileName });
+            gridControl5.Size = new Size(648, 160);
+            gridControl5.TabIndex = 6;
+            gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView6 });
+            // 
+            // gridView6
+            // 
+            gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn19, gridColumn20, gridColumn21, gridColumn22 });
+            gridView6.GridControl = gridControl5;
+            gridView6.Name = "gridView6";
+            gridView6.OptionsView.ColumnAutoWidth = false;
+            gridView6.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn19
+            // 
+            gridColumn19.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn19.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn19.Caption = "Tên file";
+            gridColumn19.ColumnEdit = btnFileName;
+            gridColumn19.FieldName = "Tenfile";
+            gridColumn19.Name = "gridColumn19";
+            gridColumn19.Visible = true;
+            gridColumn19.VisibleIndex = 0;
+            gridColumn19.Width = 212;
+            // 
+            // btnFileName
+            // 
+            btnFileName.AutoHeight = false;
+            btnFileName.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Up, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Upload File", null, null, DevExpress.Utils.ToolTipAnchor.Default), new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "Download File", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            btnFileName.Name = "btnFileName";
+            // 
+            // gridColumn20
+            // 
+            gridColumn20.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn20.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn20.Caption = "Mô tả";
+            gridColumn20.FieldName = "Mota";
+            gridColumn20.Name = "gridColumn20";
+            gridColumn20.Visible = true;
+            gridColumn20.VisibleIndex = 1;
+            gridColumn20.Width = 276;
+            // 
+            // gridColumn21
+            // 
+            gridColumn21.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn21.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn21.Caption = "Phân loại";
+            gridColumn21.FieldName = "Phanloai";
+            gridColumn21.Name = "gridColumn21";
+            gridColumn21.Visible = true;
+            gridColumn21.VisibleIndex = 2;
+            gridColumn21.Width = 69;
+            // 
+            // gridColumn22
+            // 
+            gridColumn22.AppearanceHeader.Options.UseTextOptions = true;
+            gridColumn22.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            gridColumn22.Caption = "Ngưng sd";
+            gridColumn22.FieldName = "Ngungsd";
+            gridColumn22.Name = "gridColumn22";
+            gridColumn22.Visible = true;
+            gridColumn22.VisibleIndex = 3;
+            gridColumn22.Width = 60;
+            // 
             // panelControl1
             // 
             tablePanel1.SetColumn(panelControl1, 0);
@@ -838,7 +909,7 @@
             panelControl1.Controls.Add(txtFind);
             panelControl1.Controls.Add(labelControl1);
             panelControl1.Dock = DockStyle.Fill;
-            panelControl1.Location = new Point(13, 559);
+            panelControl1.Location = new Point(13, 582);
             panelControl1.Name = "panelControl1";
             tablePanel1.SetRow(panelControl1, 2);
             panelControl1.Size = new Size(434, 46);
@@ -1221,8 +1292,9 @@
             layoutControlItem14.Control = textEdit8;
             layoutControlItem14.Location = new Point(0, 24);
             layoutControlItem14.Name = "layoutControlItem14";
+            layoutControlItem14.OptionsToolTip.ToolTip = "Giá trị  hàng nhập chưa nhận hóa đơn";
             layoutControlItem14.Size = new Size(188, 24);
-            layoutControlItem14.Text = "Đơn hàng";
+            layoutControlItem14.Text = "Giao hàng";
             layoutControlItem14.TextSize = new Size(69, 13);
             // 
             // layoutControlItem15
@@ -1230,8 +1302,9 @@
             layoutControlItem15.Control = textEdit9;
             layoutControlItem15.Location = new Point(0, 48);
             layoutControlItem15.Name = "layoutControlItem15";
+            layoutControlItem15.OptionsToolTip.ToolTip = "Giá trị đăt mua chưa nhận hàng";
             layoutControlItem15.Size = new Size(188, 24);
-            layoutControlItem15.Text = "Đã nhận";
+            layoutControlItem15.Text = "Đặt hàng";
             layoutControlItem15.TextSize = new Size(69, 13);
             // 
             // gridControl1
@@ -1243,7 +1316,7 @@
             gridControl1.Name = "gridControl1";
             tablePanel1.SetRow(gridControl1, 0);
             tablePanel1.SetRowSpan(gridControl1, 2);
-            gridControl1.Size = new Size(434, 543);
+            gridControl1.Size = new Size(434, 566);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -1288,83 +1361,11 @@
             gridColumn3.FieldName = "Id";
             gridColumn3.Name = "gridColumn3";
             // 
-            // gridControl5
-            // 
-            gridControl5.Dock = DockStyle.Fill;
-            gridControl5.Location = new Point(0, 0);
-            gridControl5.MainView = gridView6;
-            gridControl5.MenuManager = barManager1;
-            gridControl5.Name = "gridControl5";
-            gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { btnFileName });
-            gridControl5.Size = new Size(648, 160);
-            gridControl5.TabIndex = 6;
-            gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView6 });
-            // 
-            // gridView6
-            // 
-            gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn19, gridColumn20, gridColumn21, gridColumn22 });
-            gridView6.GridControl = gridControl5;
-            gridView6.Name = "gridView6";
-            gridView6.OptionsView.ColumnAutoWidth = false;
-            gridView6.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            gridView6.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn19
-            // 
-            gridColumn19.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn19.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn19.Caption = "Tên file";
-            gridColumn19.ColumnEdit = btnFileName;
-            gridColumn19.FieldName = "Tenfile";
-            gridColumn19.Name = "gridColumn19";
-            gridColumn19.Visible = true;
-            gridColumn19.VisibleIndex = 0;
-            gridColumn19.Width = 212;
-            // 
-            // btnFileName
-            // 
-            btnFileName.AutoHeight = false;
-            btnFileName.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Up, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Upload File", null, null, DevExpress.Utils.ToolTipAnchor.Default), new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Download File", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
-            btnFileName.Name = "btnFileName";
-            // 
-            // gridColumn20
-            // 
-            gridColumn20.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn20.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn20.Caption = "Mô tả";
-            gridColumn20.FieldName = "Mota";
-            gridColumn20.Name = "gridColumn20";
-            gridColumn20.Visible = true;
-            gridColumn20.VisibleIndex = 1;
-            gridColumn20.Width = 276;
-            // 
-            // gridColumn21
-            // 
-            gridColumn21.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn21.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn21.Caption = "Phân loại";
-            gridColumn21.FieldName = "Phanloai";
-            gridColumn21.Name = "gridColumn21";
-            gridColumn21.Visible = true;
-            gridColumn21.VisibleIndex = 2;
-            gridColumn21.Width = 69;
-            // 
-            // gridColumn22
-            // 
-            gridColumn22.AppearanceHeader.Options.UseTextOptions = true;
-            gridColumn22.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            gridColumn22.Caption = "Ngưng sd";
-            gridColumn22.FieldName = "Ngungsd";
-            gridColumn22.Name = "gridColumn22";
-            gridColumn22.Visible = true;
-            gridColumn22.VisibleIndex = 3;
-            gridColumn22.Width = 60;
-            // 
             // frmNhacungcap
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1104, 672);
+            ClientSize = new Size(1096, 672);
             Controls.Add(tablePanel1);
             Controls.Add(barDockControlLeft);
             Controls.Add(barDockControlRight);
@@ -1398,6 +1399,9 @@
             xtraTabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).EndInit();
             sidePanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gridControl5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridView6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnFileName).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
             panelControl1.ResumeLayout(false);
             panelControl1.PerformLayout();
@@ -1441,9 +1445,6 @@
             ((System.ComponentModel.ISupportInitialize)layoutControlItem15).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridControl5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridView6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnFileName).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

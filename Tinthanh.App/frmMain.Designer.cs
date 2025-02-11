@@ -85,7 +85,7 @@
             ribbon.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             ribbon.ShowToolbarCustomizeItem = false;
-            ribbon.Size = new Size(1089, 143);
+            ribbon.Size = new Size(1081, 143);
             ribbon.StatusBar = ribbonStatusBar;
             ribbon.Toolbar.ShowCustomizeItem = false;
             // 
@@ -377,10 +377,10 @@
             ribbonStatusBar.ItemLinks.Add(stIns, true);
             ribbonStatusBar.ItemLinks.Add(stUser, true);
             ribbonStatusBar.ItemLinks.Add(stNgay, true);
-            ribbonStatusBar.Location = new Point(0, 687);
+            ribbonStatusBar.Location = new Point(0, 689);
             ribbonStatusBar.Name = "ribbonStatusBar";
             ribbonStatusBar.Ribbon = ribbon;
-            ribbonStatusBar.Size = new Size(1089, 35);
+            ribbonStatusBar.Size = new Size(1081, 33);
             // 
             // documentManager1
             // 
@@ -398,7 +398,7 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1089, 722);
+            ClientSize = new Size(1081, 722);
             Controls.Add(ribbonStatusBar);
             Controls.Add(ribbon);
             IsMdiContainer = true;

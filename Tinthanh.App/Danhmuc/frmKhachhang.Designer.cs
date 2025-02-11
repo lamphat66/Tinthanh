@@ -568,7 +568,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(1014, 31);
+            barDockControlTop.Size = new Size(1006, 31);
             // 
             // barDockControlBottom
             // 
@@ -576,7 +576,7 @@
             barDockControlBottom.Dock = DockStyle.Bottom;
             barDockControlBottom.Location = new Point(0, 667);
             barDockControlBottom.Manager = barManager1;
-            barDockControlBottom.Size = new Size(1014, 0);
+            barDockControlBottom.Size = new Size(1006, 0);
             // 
             // barDockControlLeft
             // 
@@ -590,7 +590,7 @@
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(1014, 31);
+            barDockControlRight.Location = new Point(1006, 31);
             barDockControlRight.Manager = barManager1;
             barDockControlRight.Size = new Size(0, 636);
             // 
@@ -1411,8 +1411,9 @@
             layoutControlItem12.Control = textEdit12;
             layoutControlItem12.Location = new Point(0, 24);
             layoutControlItem12.Name = "layoutControlItem12";
+            layoutControlItem12.OptionsToolTip.ToolTip = "Giá trị giao hàng chưa xuất hóa đơn";
             layoutControlItem12.Size = new Size(214, 24);
-            layoutControlItem12.Text = "Đơn hàng";
+            layoutControlItem12.Text = "Giao hàng";
             layoutControlItem12.TextSize = new Size(49, 13);
             // 
             // layoutControlItem13
@@ -1420,6 +1421,7 @@
             layoutControlItem13.Control = textEdit13;
             layoutControlItem13.Location = new Point(0, 48);
             layoutControlItem13.Name = "layoutControlItem13";
+            layoutControlItem13.OptionsToolTip.ToolTip = "Giá trị đặt hàng chưa giao";
             layoutControlItem13.Size = new Size(214, 24);
             layoutControlItem13.Text = "Đặt hàng";
             layoutControlItem13.TextSize = new Size(49, 13);
@@ -1665,7 +1667,7 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1014, 667);
+            ClientSize = new Size(1006, 667);
             Controls.Add(sidePanel1);
             Controls.Add(barDockControlLeft);
             Controls.Add(barDockControlRight);

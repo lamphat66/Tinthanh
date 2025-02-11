@@ -45,6 +45,7 @@
             barManager1 = new DevExpress.XtraBars.BarManager(components);
             bar1 = new DevExpress.XtraBars.Bar();
             btnAdd = new DevExpress.XtraBars.BarButtonItem();
+            btnSave = new DevExpress.XtraBars.BarButtonItem();
             btnDelete = new DevExpress.XtraBars.BarButtonItem();
             btnRefresh = new DevExpress.XtraBars.BarButtonItem();
             btnClose = new DevExpress.XtraBars.BarButtonItem();
@@ -54,7 +55,6 @@
             barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             bar3 = new DevExpress.XtraBars.Bar();
             bdSourceCT = new BindingSource(components);
-            btnSave = new DevExpress.XtraBars.BarButtonItem();
             sidePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
@@ -170,7 +170,7 @@
             colSTT.AppearanceHeader.Options.UseTextOptions = true;
             colSTT.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             colSTT.Caption = "Mã";
-            colSTT.FieldName = "STT";
+            colSTT.FieldName = "Ma";
             colSTT.Name = "colSTT";
             colSTT.Visible = true;
             colSTT.VisibleIndex = 0;
@@ -231,6 +231,14 @@
             btnAdd.Name = "btnAdd";
             btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             btnAdd.ItemClick += btnAdd_ItemClick;
+            // 
+            // btnSave
+            // 
+            btnSave.Caption = "Lưu";
+            btnSave.Id = 10;
+            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
+            btnSave.Name = "btnSave";
+            btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // btnDelete
             // 
@@ -305,14 +313,6 @@
             bar3.OptionsBar.DrawDragBorder = false;
             bar3.OptionsBar.UseWholeRow = true;
             bar3.Text = "Status bar";
-            // 
-            // btnSave
-            // 
-            btnSave.Caption = "Lưu";
-            btnSave.Id = 10;
-            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("barButtonItem1.ImageOptions.SvgImage");
-            btnSave.Name = "btnSave";
-            btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // frmDanhmuc
             // 

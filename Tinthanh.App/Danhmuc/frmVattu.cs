@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DevExpress.CodeParser;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Data;
@@ -95,7 +96,7 @@ namespace Tinthanh.App.Danhmuc
                 .Where(p => p.Ngungsd == false)
                 .ToList();
             cboDonvi.DataSource = dv;
-           
+
             cboDonvi.DisplayMember = "Ten";
             cboDonvi.ValueMember = "Ma";
             cboDonvi.BestFit();
@@ -252,7 +253,7 @@ namespace Tinthanh.App.Danhmuc
             IsNew = true;
             bdSource.EndEdit();
             bdSource.AddNew();
-            
+
             txtMa.EditValue = Dungchung.Sinhmadoituong("VT", 6);
             txtTen.Focus();
             LoadDonviVattu();
@@ -346,6 +347,80 @@ namespace Tinthanh.App.Danhmuc
                     }
                 }
             }
+        }
+
+        public void AddImage(string Ma, byte[] img)
+        {
+            string Ten = "[pr_Hinhvattu]";
+
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@Ma", Ma, DbType.String, ParameterDirection.Input);
+            para.Add("@img", img, DbType.Binary, ParameterDirection.Input);
+
+            SQLHelper.ExecProcedureNonData(Ten, para);
+        }
+
+        public DataTable GetImage(string Ma)
+        {
+            return SQLHelper.ExecQueryDataAsDataTable("Select Hinhanh from Hinhvattu where Mavt=@Ma ", new { Ma });
+
+        }
+        public void DeleteImage(string Ma)
+        {
+            if (MessageBox.Show("Xóa hình vật tư  ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string Ten = "[pr_Xoahinhvattu]";
+                DynamicParameters para = new DynamicParameters();
+                para.Add("@Id", Ma, DbType.String, ParameterDirection.Input);
+                SQLHelper.ExecProcedureNonData(Ten, para);
+            }
+        }
+
+        private void btnXemhinh_Click(object sender, EventArgs e)
+        {
+            if (chkCohinh.Checked)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                DataTable dt = GetImage(txtMa.Text);
+
+                // Byte[] data = new Byte[0];
+                Byte[] data = (Byte[])(dt.Rows[0]["Hinhanh"]);
+                MemoryStream mem = new MemoryStream(data);
+                picHinh.Image = Image.FromStream(mem);
+                Cursor.Current = Cursors.Default;
+            }
+            else MessageBox.Show("Vật tư này không có ảnh");
+        }
+
+        private void btnSavehinh_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new OpenFileDialog())
+            {
+                dlg.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.png; *.bmp)|*.jpg; *.jpeg; *.gif; *.png; *.bmp";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    string fileSource = dlg.FileName;
+                    try
+                    {
+                        if (picHinh.Image != null) picHinh.Image.Dispose();
+                        picHinh.Image = new Bitmap(fileSource);
+                        AddImage(txtMa.Text, Dungchung.converImgToByte(fileSource));
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+            }
+        }
+
+        private void btnXoahinh_Click(object sender, EventArgs e)
+        {
+            DeleteImage(txtMa.Text);
+            picHinh.Image = null;
         }
     }
 }

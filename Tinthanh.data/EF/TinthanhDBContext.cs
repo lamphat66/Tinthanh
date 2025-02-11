@@ -22,6 +22,7 @@ namespace Tinthanh.Data.EF
         public DbSet<Nhomdoituong> Nhomdoituongs { get; set; }
         public DbSet<Donvi> Donvis { get; set; }
         public DbSet<Vattu> Vattus { get; set; }
+        public DbSet<Hinhvattu> Hinhvattus { get; set; }
         public DbSet<DonviVattu> DonviVattus { get; set; }
         public DbSet<Vattu_Tailieu> Vattu_Tailieus { get; set; }
         public DbSet<Taisan> Taisans { get; set; }
@@ -67,8 +68,27 @@ namespace Tinthanh.Data.EF
         public DbSet<NhaCC_Tailieu> NhaCC_Tailieus { get; set; }
         
         public DbSet<KhachhangTN> KhachhangTNs { get; set; }
+        //Chung tu
+        public DbSet<Phieuyeucau> Phieuyeucaus { get; set; }
 
+        public DbSet<PhieuyeucauCT> PhieuyeucauCTs { get; set; }
 
+        public DbSet<Phieuxuly> Phieuxulys { get; set; }
+
+        public DbSet<PhieuxulyCT> PhieuxulyCTs { get; set; }
+        public DbSet<Phieudinhgia> Phieudinhgias { get; set; }
+
+        public DbSet<PhieudinhgiaCT> PhieudinhgiaCTs { get; set; }
+        public DbSet<Phieubaogia> Phieubaogias { get; set; }
+
+        public DbSet<PhieubaogiaCT> PhieubaogiaCTs { get; set; }
+        public DbSet<Phieuthukhuon> Phieuthukhuons { get; set; }
+        public DbSet<ThongtinSP> ThongtinSPs { get; set; }
+        public DbSet<ThongtinSP_CT> ThongtinSP_CTs { get; set; }
+        public DbSet<YeucauGCK> YeucauGCKs { get; set; }
+        public DbSet<YeucauGCK_CT> YeucauGCK_CTs { get; set; }
+        public DbSet<Hopdongkhuon> Hopdongkhuons { get; set; }
+        public DbSet<HopdongkhuonCT> HopdongkhuonCTs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -118,7 +138,8 @@ namespace Tinthanh.Data.EF
             modelBuilder.ApplyConfiguration(new VattuConfig());
             modelBuilder.ApplyConfiguration(new VattuTailieuConfig());
             modelBuilder.ApplyConfiguration(new DonviVattuConfig());
-
+            modelBuilder.ApplyConfiguration(new HinhvattuConfig());
+            
             modelBuilder.ApplyConfiguration(new XemayConfig());
             modelBuilder.ApplyConfiguration(new XebaotriConfig());
             modelBuilder.ApplyConfiguration(new XeHoatdongConfig());
@@ -146,6 +167,23 @@ namespace Tinthanh.Data.EF
             modelBuilder.ApplyConfiguration(new KhoConfig());
 
             modelBuilder.ApplyConfiguration(new TieuchiCTConfig());
+
+            //Chung tu
+            modelBuilder.ApplyConfiguration(new Phieuyeucaucf());
+            modelBuilder.ApplyConfiguration(new PhieuyeucauCTcf());
+            modelBuilder.ApplyConfiguration(new Phieuxulycf());
+            modelBuilder.ApplyConfiguration(new PhieuxulyCTcf());
+            modelBuilder.ApplyConfiguration(new Phieudinhgiacf());
+            modelBuilder.ApplyConfiguration(new PhieudinhgiaCTcf());
+            modelBuilder.ApplyConfiguration(new Phieubaogiacf());
+            modelBuilder.ApplyConfiguration(new PhieubaogiaCTcf());
+            modelBuilder.ApplyConfiguration(new PhieuthukhuonConfig());
+            modelBuilder.ApplyConfiguration(new ThongtinSPConfig());
+            modelBuilder.ApplyConfiguration(new ThongtinSPCTConfig());
+            modelBuilder.ApplyConfiguration(new YeucauGCKConfig());
+            modelBuilder.ApplyConfiguration(new YeucauGCK_CTConfig());
+            modelBuilder.ApplyConfiguration(new HopdongkhuonConfig());
+            modelBuilder.ApplyConfiguration(new HopdongkhuonCTConfig());
 
         }
 

@@ -109,5 +109,15 @@ namespace Tinthanh.App.General
 
 
         }
+
+        public static byte[] converImgToByte(string FileName)
+        {
+            FileStream fs;
+            fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+            byte[] picbyte = new byte[fs.Length];
+            fs.Read(picbyte, 0, System.Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picbyte;
+        }
     }
 }

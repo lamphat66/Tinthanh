@@ -148,6 +148,19 @@ namespace Tinthanh.data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+               name: "Hinhvattu",
+               columns: table => new
+               {
+                   Mavt = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                   Hinhanh = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Hinhvattu", x => x.Mavt);
+               });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Khachhang_Tailieu_KhachhangId",
                 table: "Khachhang_Tailieu",
@@ -191,6 +204,9 @@ namespace Tinthanh.data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Vattu_Tailieu");
+           
+            migrationBuilder.DropTable(
+                name: "Hinhvattu");
 
             //migrationBuilder.DropColumn(
             //    name: "Tentat",
