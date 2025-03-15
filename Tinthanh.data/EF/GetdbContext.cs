@@ -1,4 +1,6 @@
-﻿namespace Tinthanh.Data.EF
+﻿using Tinthanh.Data.Entities;
+
+namespace Tinthanh.Data.EF
 {
     public static class GetdbContext
     {
@@ -7,5 +9,8 @@
             TinthanhDbContextFactory ft = new TinthanhDbContextFactory();
             return ft.CreateDbContext(Array.Empty<string>());
         }
+
+       
+
     }
 }

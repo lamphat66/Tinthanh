@@ -40,7 +40,6 @@
             bar1 = new DevExpress.XtraBars.Bar();
             btnAdd = new DevExpress.XtraBars.BarButtonItem();
             btnDelete = new DevExpress.XtraBars.BarButtonItem();
-            btnRefresh = new DevExpress.XtraBars.BarButtonItem();
             btnClose = new DevExpress.XtraBars.BarButtonItem();
             barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -61,10 +60,10 @@
             // 
             gridControl1.DataSource = bdSource;
             gridControl1.Dock = DockStyle.Fill;
-            gridControl1.Location = new Point(0, 28);
+            gridControl1.Location = new Point(0, 31);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new Size(405, 426);
+            gridControl1.Size = new Size(397, 423);
             gridControl1.TabIndex = 2;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -79,6 +78,7 @@
             gridView1.OptionsView.ColumnAutoWidth = false;
             gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             gridView1.OptionsView.ShowGroupPanel = false;
+            gridView1.RowUpdated += gridView1_RowUpdated;
             // 
             // colMa
             // 
@@ -129,7 +129,7 @@
             barManager1.DockControls.Add(barDockControlLeft);
             barManager1.DockControls.Add(barDockControlRight);
             barManager1.Form = this;
-            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnDelete, btnRefresh, btnClose });
+            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnDelete, btnClose });
             barManager1.MaxItemId = 5;
             // 
             // bar1
@@ -138,7 +138,7 @@
             bar1.DockCol = 0;
             bar1.DockRow = 0;
             bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnRefresh, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
+            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
             bar1.Text = "Custom 3";
             // 
             // btnAdd
@@ -149,7 +149,6 @@
             btnAdd.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.Insert);
             btnAdd.Name = "btnAdd";
             btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            btnAdd.ItemClick += btnAdd_ItemClick;
             // 
             // btnDelete
             // 
@@ -160,16 +159,6 @@
             btnDelete.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.Delete);
             btnDelete.Name = "btnDelete";
             btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            btnDelete.ItemClick += btnDelete_ItemClick;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.Caption = "Nạp lại";
-            btnRefresh.Id = 3;
-            btnRefresh.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnRefresh.ImageOptions.SvgImage");
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            btnRefresh.ItemClick += btnRefresh_ItemClick;
             // 
             // btnClose
             // 
@@ -179,7 +168,6 @@
             btnClose.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.F4);
             btnClose.Name = "btnClose";
             btnClose.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            btnClose.ItemClick += btnClose_ItemClick;
             // 
             // barDockControlTop
             // 
@@ -187,7 +175,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(405, 28);
+            barDockControlTop.Size = new Size(397, 31);
             // 
             // barDockControlBottom
             // 
@@ -195,23 +183,23 @@
             barDockControlBottom.Dock = DockStyle.Bottom;
             barDockControlBottom.Location = new Point(0, 454);
             barDockControlBottom.Manager = barManager1;
-            barDockControlBottom.Size = new Size(405, 0);
+            barDockControlBottom.Size = new Size(397, 0);
             // 
             // barDockControlLeft
             // 
             barDockControlLeft.CausesValidation = false;
             barDockControlLeft.Dock = DockStyle.Left;
-            barDockControlLeft.Location = new Point(0, 28);
+            barDockControlLeft.Location = new Point(0, 31);
             barDockControlLeft.Manager = barManager1;
-            barDockControlLeft.Size = new Size(0, 426);
+            barDockControlLeft.Size = new Size(0, 423);
             // 
             // barDockControlRight
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(405, 28);
+            barDockControlRight.Location = new Point(397, 31);
             barDockControlRight.Manager = barManager1;
-            barDockControlRight.Size = new Size(0, 426);
+            barDockControlRight.Size = new Size(0, 423);
             // 
             // bar2
             // 
@@ -228,7 +216,7 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(405, 454);
+            ClientSize = new Size(397, 454);
             Controls.Add(gridControl1);
             Controls.Add(barDockControlLeft);
             Controls.Add(barDockControlRight);
@@ -260,7 +248,6 @@
         private DevExpress.XtraBars.BarButtonItem btnAdd;
         private DevExpress.XtraBars.BarButtonItem btnDelete;
         private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarButtonItem btnRefresh;
         private DevExpress.XtraBars.BarButtonItem btnClose;
     }
 }

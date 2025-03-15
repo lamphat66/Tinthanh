@@ -59,6 +59,10 @@ namespace Tinthanh.data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<string>("Makh")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<string>("Marieng")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
@@ -284,6 +288,21 @@ namespace Tinthanh.data.Migrations
                     b.HasKey("Ma");
 
                     b.ToTable("Chucnang", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Chungtu", b =>
+                {
+                    b.Property<string>("Maphieu")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Loaiphieu")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Maphieu");
+
+                    b.ToTable("Chungtu", (string)null);
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.CongviecBT", b =>
@@ -684,6 +703,189 @@ namespace Tinthanh.data.Migrations
                     b.ToTable("Hethong");
                 });
 
+            modelBuilder.Entity("Tinthanh.Data.Entities.Hinhvattu", b =>
+                {
+                    b.Property<string>("Mavt")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<byte[]>("Hinhanh")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Mavt");
+
+                    b.ToTable("Hinhvattu", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Hopdongkhuon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Bienban")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("EditBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("EditDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Ghichu")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<double?>("GiatriNT")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Hantt")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Makh")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Maphieu")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("Ngaychungtu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Ngaylap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PathFile")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("SoSP")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Sohopdong")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("SonamBH")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TWDot1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TWDot2")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tenkh")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("ThoigianHT")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Trangthai")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Maphieu")
+                        .IsUnique();
+
+                    b.ToTable("Hopdongkhuon", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.HopdongkhuonCT", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double?>("Dongia")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Dongiant")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Donvi")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("HopdongkhuonId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Khomay")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Makhuon")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Maphieu")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("Socav")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Soluong")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tenkhuon")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<double?>("Thanhtien")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Thanhtiennt")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Vat")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HopdongkhuonId");
+
+                    b.ToTable("Hopdongkhuon_CT", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.KhachHangGD", b =>
+                {
+                    b.Property<string>("Ma")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DiaChi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Ma");
+
+                    b.ToTable((string)null);
+
+                    b.ToView("KhachHangGD", (string)null);
+                });
+
             modelBuilder.Entity("Tinthanh.Data.Entities.Khachhang", b =>
                 {
                     b.Property<int>("Id")
@@ -1048,9 +1250,7 @@ namespace Tinthanh.data.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<DateTime?>("CreateDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("getdate()");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("EditDate")
                         .HasColumnType("datetime2");
@@ -1477,6 +1677,21 @@ namespace Tinthanh.data.Migrations
                     b.HasIndex("NhacungcapId");
 
                     b.ToTable("LienlacNCC", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Link", b =>
+                {
+                    b.Property<string>("CopyFrom")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("CopyTo")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("CopyFrom", "CopyTo");
+
+                    b.ToTable("Link", (string)null);
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.Loaidanhdiem", b =>
@@ -1972,6 +2187,1060 @@ namespace Tinthanh.data.Migrations
                     b.ToTable("Nhomtaisan", (string)null);
                 });
 
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieubaogia", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("DKTT")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Diachi")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Dienthoai")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EditBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("EditDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Ghichu")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("GhichuNB")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int?>("HanTT")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Hieuluc")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("HinhthucTT")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Makh")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Maphieu")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<double?>("Maxno")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime?>("Ngaychungtu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngayduyet")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Ngaylap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("Ngoaite")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Nguoilienhe")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("PTVanchuyen")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Solan")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SongayLH")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Songaykhuon")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TW1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TW2")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tenkh")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("ThoihanTT")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Tigia")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("TileTT")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Trangthai")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Maphieu")
+                        .IsUnique();
+
+                    b.ToTable("Phieubaogia", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.PhieubaogiaCT", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double?>("Dongia")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DongiaKG")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DongiaNT")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Donvi")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<double?>("GiaCu")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiaCuNT")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiaKH")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiaKH_USD")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiaSC")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiaSCNT")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Khomay")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("Loai")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Mabo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Masp")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<double?>("Matdo")
+                        .HasColumnType("float");
+
+                    b.Property<int>("PhieubaogiaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Socav")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("SoluongBG")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("SoluongKH")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Stt")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tensp")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<double?>("Thanhtien")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("ThanhtienNT")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Tilevon")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Trongluong")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Vat")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("gc")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PhieubaogiaId");
+
+                    b.ToTable("Phieubaogia_CT", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieudinhgia", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double?>("Baogia")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Buocgia")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("CPSX")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Cao")
+                        .HasColumnType("float");
+
+                    b.Property<bool?>("Choncokhuon")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<double?>("Dai")
+                        .HasColumnType("float");
+
+                    b.Property<string>("EditBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("EditDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Ghichu")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<double?>("Gia1")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Gia2")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Gia3")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Gia4")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Gia5")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiaSP")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Giachon")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Giakhuon")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiakhuonBG")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiakhuonBGUSD")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("GiakhuonUSD")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Giasp1")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Giasp2")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Giasp3")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Giasp4")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Giasp5")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Giathanh")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Hanthanhtoan")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Khoiluong")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Khomay")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("Loaiphieu")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Logo")
+                        .HasColumnType("bit");
+
+                    b.Property<double?>("LoinhuanCK")
+                        .HasColumnType("float");
+
+                    b.Property<string>("MaTC")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Machungtu")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Makh")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Makhuon")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Maphieu")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Masp")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<double?>("Moq")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime?>("Ngaychungtu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaylap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("Ngoaite")
+                        .HasColumnType("bit");
+
+                    b.Property<double?>("Rong")
+                        .HasColumnType("float");
+
+                    b.Property<string>("SLTheo")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("SaisoKL")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SaisoTT")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Sanluong")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("SoCAV")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Socavkhuon")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TGlamkhuon")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenTC")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Tenfile")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Tenkh")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Tenkhuon")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Tensp")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<double?>("Thetich")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Tigia")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Titrong")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Trangthai")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Maphieu")
+                        .IsUnique();
+
+                    b.ToTable("Phieudinhgia", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.PhieudinhgiaCT", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("Baogia")
+                        .HasColumnType("real");
+
+                    b.Property<float>("C")
+                        .HasColumnType("real");
+
+                    b.Property<bool>("Chon")
+                        .HasColumnType("bit");
+
+                    b.Property<float>("D")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Gia1")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Gia2")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Gia3")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Gia4")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Gia5")
+                        .HasColumnType("real");
+
+                    b.Property<float>("Giathanh")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Masp")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<float>("Moq")
+                        .HasColumnType("real");
+
+                    b.Property<int>("PhieudinhgiaId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("R")
+                        .HasColumnType("real");
+
+                    b.Property<int>("SoCAV")
+                        .HasColumnType("int");
+
+                    b.Property<float>("TL")
+                        .HasColumnType("real");
+
+                    b.Property<float>("TT")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Tensp")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<float>("V")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PhieudinhgiaId");
+
+                    b.ToTable("Phieudinhgia_CT", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieuthukhuon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ChuKy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("DateEdit")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Den")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EditBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("GhichuCM")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("GhichuDG")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("GhichuKM")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Loaibao")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Loaihat")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Makhuon")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Maphieu")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MayDinhHinh")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MayKichHat")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("NVkichhat")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("NVvanhanh")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("NgayChaymau")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaychungtu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaygiao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaykichhat")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Ngaylap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PhieuKT")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("QCD")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("QCL")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("QCngang")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SLBao")
+                        .HasColumnType("int");
+
+                    b.Property<float?>("SLKich")
+                        .HasColumnType("real");
+
+                    b.Property<int?>("SPNG")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SPOK")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Slmau")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SoCK")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SoSP")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("TGChayDK")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("TGU")
+                        .HasColumnType("int");
+
+                    b.Property<float?>("TLBadauMax")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("TLBadauMin")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("TLThanhphamMax")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("TLThanhphammin")
+                        .HasColumnType("real");
+
+                    b.Property<string>("TenDinhhinh")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("TenNhua")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Tenbao")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Tenkhuon")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Tenkichhat")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("Tinhdien")
+                        .HasColumnType("int");
+
+                    b.Property<float?>("Titrong")
+                        .HasColumnType("real");
+
+                    b.Property<int?>("Trangthai")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Tu")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Maphieu")
+                        .IsUnique()
+                        .HasFilter("[Maphieu] IS NOT NULL");
+
+                    b.ToTable("Phieuthukhuon", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieuxuly", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("Bo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("EditBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("EditDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Ghichu")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<double?>("Giakhuon")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Kekhuon")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("Khomay")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Kiemtra")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Logo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Makh")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Maphieu")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("Ngaychungtu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Ngaylap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaynhan")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngayvc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngayxl")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nguoinhan")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Nguoivc")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Nguoixl")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("SoCAV")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tenkh")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Tenkhuon")
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
+
+                    b.Property<int?>("Thoigiangc")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Trangthai")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Maphieu")
+                        .IsUnique();
+
+                    b.ToTable("Phieuxuly", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.PhieuxulyCT", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double?>("Cao")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("CaoA")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("CaoD")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Dai")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DaiA")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DaiD")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Donvi")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Masp")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("PhieuxulyId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Rong")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("RongA")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("RongD")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Socav")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tensp")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<double?>("Thetich")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Titrong")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Trongluong")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Yeucau")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("caoka")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("caokd")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("daika")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("daikd")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("rongka")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("rongkd")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PhieuxulyId");
+
+                    b.ToTable("Phieuxuly_CT", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieuyeucau", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Diachi")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Dienthoai")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("EditBy")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("EditDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Ghichu")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Ketluan")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Lienhe")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Makh")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Maphieu")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("NgayVC1")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("NgayXL1")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaychungtu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngayhoanthanh")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaylap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaynhan1")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NguoiVC1")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("NguoiXL1")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Nguoinhan1")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Tenkh")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("Trangthai")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Maphieu")
+                        .IsUnique();
+
+                    b.ToTable("Phieuyeucau", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.PhieuyeucauCT", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Donvi")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Ghichu")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<double?>("GiaSC")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Ketqua")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Khomay")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("KhomayKH")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Lanthang")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Loaisp")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Masp")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int?>("Nhomkhuon")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PhieuyeucauId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Socav")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SocavT")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Soluong")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("SoluongDH")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("SoluongMin")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tensp")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("Thoihan")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tinhtrang")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("Xuly")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Yeucau")
+                        .HasColumnType("int");
+
+                    b.Property<string>("YeucauT")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PhieuyeucauId");
+
+                    b.ToTable("Phieuyeucau_CT", (string)null);
+                });
+
             modelBuilder.Entity("Tinthanh.Data.Entities.Tailieu", b =>
                 {
                     b.Property<int>("Id")
@@ -2317,6 +3586,29 @@ namespace Tinthanh.data.Migrations
                     b.ToTable("ThanhphamBG", (string)null);
                 });
 
+            modelBuilder.Entity("Tinthanh.Data.Entities.ThanhphamGD", b =>
+                {
+                    b.Property<string>("Ma")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Donvi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Ma");
+
+                    b.ToTable((string)null);
+
+                    b.ToView("ThanhphamGD", (string)null);
+                });
+
             modelBuilder.Entity("Tinthanh.Data.Entities.Thanhpham_Tailieu", b =>
                 {
                     b.Property<int>("Id")
@@ -2352,6 +3644,208 @@ namespace Tinthanh.data.Migrations
                     b.HasIndex("ThanhphamId");
 
                     b.ToTable("Thanhpham_Tailieu", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.ThongtinSP", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("Bo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CopyFrom")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CopyTo")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<double?>("Dautucty")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Dautukh")
+                        .HasColumnType("float");
+
+                    b.Property<string>("EditBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("EditDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Kekhuon")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Khomay")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("Loaikt")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Logo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Makh")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Makhuon")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Maphieu")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool?>("Maus")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Ngaychungtu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaylap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Ngoaiquan")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("SLChaymau")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Socav")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tenkh")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Tenkhuon")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("Trangthai")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Yeucaukhac")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Maphieu")
+                        .IsUnique()
+                        .HasFilter("[Maphieu] IS NOT NULL");
+
+                    b.ToTable("ThongtinSP", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.ThongtinSP_CT", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<double?>("Cao")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("CaoA")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("CaoD")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Dai")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DaiA")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DaiD")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Donvi")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("LoaiSL")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MaSP")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<double?>("Rong")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("RongA")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("RongD")
+                        .HasColumnType("float");
+
+                    b.Property<bool?>("SPChinh")
+                        .HasColumnType("bit");
+
+                    b.Property<double?>("Sanluong")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Socav")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TenSP")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<double?>("Thetich")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ThongtinSPId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Titrong")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Trongluong")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("caoka")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("caokd")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("daika")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("daikd")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("rongka")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("rongkd")
+                        .HasColumnType("float");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ThongtinSPId");
+
+                    b.ToTable("ThongtinSP_CT", (string)null);
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.TieuchiCT", b =>
@@ -2861,6 +4355,166 @@ namespace Tinthanh.data.Migrations
                     b.ToTable("Xemay", (string)null);
                 });
 
+            modelBuilder.Entity("Tinthanh.Data.Entities.YeucauGCK", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("BatdauGC")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("BatdauTK")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Bienban")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CopyFrom")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CopyTo")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("DateEdit")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Dinhkem")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("EditBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("GiaomauGC")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("GiaomauTK")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Hinhthuc")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("HoanthanhGC")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("HoanthanhTK")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Khomay")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool?>("KhuonNB")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MaKH")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Machungtu")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Makhuon")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Maphieu")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("Ngaychungtu")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaygiaokhuon")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngayhoanthanh")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaylap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaynhankhuon")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Ngaythumau")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PathFile")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("SoCAV")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenKH")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Tenkhuon")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("Tinhtrang")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Trangthai")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Yeucau")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Maphieu")
+                        .IsUnique()
+                        .HasFilter("[Maphieu] IS NOT NULL");
+
+                    b.ToTable("YeucauGCK", (string)null);
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.YeucauGCK_CT", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Donvi")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<float?>("Soluong")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Tenvt")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("YeucauGCKId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("YeucauGCKId");
+
+                    b.ToTable("YeucauGCK_CT", (string)null);
+                });
+
             modelBuilder.Entity("Tinthanh.Data.Entities.DanhmucCT", b =>
                 {
                     b.HasOne("Tinthanh.Data.Entities.Danhmuc", "Danhmuc")
@@ -2892,6 +4546,17 @@ namespace Tinthanh.data.Migrations
                         .IsRequired();
 
                     b.Navigation("Thanhpham");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.HopdongkhuonCT", b =>
+                {
+                    b.HasOne("Tinthanh.Data.Entities.Hopdongkhuon", "Hopdongkhuon")
+                        .WithMany("HopdongkhuonCTs")
+                        .HasForeignKey("HopdongkhuonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hopdongkhuon");
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.Khachhang_Tailieu", b =>
@@ -2991,6 +4656,50 @@ namespace Tinthanh.data.Migrations
                     b.Navigation("Loaitaisan");
                 });
 
+            modelBuilder.Entity("Tinthanh.Data.Entities.PhieubaogiaCT", b =>
+                {
+                    b.HasOne("Tinthanh.Data.Entities.Phieubaogia", "Phieubaogia")
+                        .WithMany("PhieubaogiaCTs")
+                        .HasForeignKey("PhieubaogiaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Phieubaogia");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.PhieudinhgiaCT", b =>
+                {
+                    b.HasOne("Tinthanh.Data.Entities.Phieudinhgia", "Phieudinhgia")
+                        .WithMany("PhieudinhgiaCTs")
+                        .HasForeignKey("PhieudinhgiaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Phieudinhgia");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.PhieuxulyCT", b =>
+                {
+                    b.HasOne("Tinthanh.Data.Entities.Phieuxuly", "Phieuxuly")
+                        .WithMany("PhieuxulyCTs")
+                        .HasForeignKey("PhieuxulyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Phieuxuly");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.PhieuyeucauCT", b =>
+                {
+                    b.HasOne("Tinthanh.Data.Entities.Phieuyeucau", "Phieuyeucau")
+                        .WithMany("PhieuyeucauCTs")
+                        .HasForeignKey("PhieuyeucauId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Phieuyeucau");
+                });
+
             modelBuilder.Entity("Tinthanh.Data.Entities.Thanhpham_Tailieu", b =>
                 {
                     b.HasOne("Tinthanh.Data.Entities.Thanhpham", "Thanhpham")
@@ -3000,6 +4709,17 @@ namespace Tinthanh.data.Migrations
                         .IsRequired();
 
                     b.Navigation("Thanhpham");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.ThongtinSP_CT", b =>
+                {
+                    b.HasOne("Tinthanh.Data.Entities.ThongtinSP", "ThongtinSP")
+                        .WithMany("ThongtinSP_CTs")
+                        .HasForeignKey("ThongtinSPId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ThongtinSP");
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.TieuchiCT", b =>
@@ -3057,9 +4777,25 @@ namespace Tinthanh.data.Migrations
                     b.Navigation("Xemay");
                 });
 
+            modelBuilder.Entity("Tinthanh.Data.Entities.YeucauGCK_CT", b =>
+                {
+                    b.HasOne("Tinthanh.Data.Entities.YeucauGCK", "YeucauGCK")
+                        .WithMany("YeucauGCK_CTs")
+                        .HasForeignKey("YeucauGCKId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("YeucauGCK");
+                });
+
             modelBuilder.Entity("Tinthanh.Data.Entities.Danhmuc", b =>
                 {
                     b.Navigation("DanhmucCTs");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Hopdongkhuon", b =>
+                {
+                    b.Navigation("HopdongkhuonCTs");
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.Khachhang", b =>
@@ -3098,11 +4834,36 @@ namespace Tinthanh.data.Migrations
                     b.Navigation("NhaCC_Tailieus");
                 });
 
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieubaogia", b =>
+                {
+                    b.Navigation("PhieubaogiaCTs");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieudinhgia", b =>
+                {
+                    b.Navigation("PhieudinhgiaCTs");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieuxuly", b =>
+                {
+                    b.Navigation("PhieuxulyCTs");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.Phieuyeucau", b =>
+                {
+                    b.Navigation("PhieuyeucauCTs");
+                });
+
             modelBuilder.Entity("Tinthanh.Data.Entities.Thanhpham", b =>
                 {
                     b.Navigation("Donvisanphams");
 
                     b.Navigation("Thanhpham_Tailieus");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.ThongtinSP", b =>
+                {
+                    b.Navigation("ThongtinSP_CTs");
                 });
 
             modelBuilder.Entity("Tinthanh.Data.Entities.TieuchiKT", b =>
@@ -3127,6 +4888,11 @@ namespace Tinthanh.data.Migrations
                     b.Navigation("XeBaoTris");
 
                     b.Navigation("XeHoatdongs");
+                });
+
+            modelBuilder.Entity("Tinthanh.Data.Entities.YeucauGCK", b =>
+                {
+                    b.Navigation("YeucauGCK_CTs");
                 });
 #pragma warning restore 612, 618
         }

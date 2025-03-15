@@ -19,7 +19,7 @@ namespace Tinthanh.Data.Entities
         public double? Rong { get; set; }
         public double? Cao { get; set; }
         public int? Socav { get; set; }
-        public string Donvi { get; set; }
+        public string? Donvi { get; set; }
         public int? Yeucau { get; set; }
         public double? DaiD { get; set; }
         public double? DaiA { get; set; }

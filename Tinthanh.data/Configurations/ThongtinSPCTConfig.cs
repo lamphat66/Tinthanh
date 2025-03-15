@@ -9,7 +9,7 @@ namespace Tinthanh.Data.Configurations
         public void Configure(EntityTypeBuilder<ThongtinSP_CT> builder)
         {
 
-            builder.ToTable("Phieuxuly_CT");
+            builder.ToTable("ThongtinSP_CT");
 
             builder.HasOne(x => x.ThongtinSP)
                 .WithMany(x => x.ThongtinSP_CTs)

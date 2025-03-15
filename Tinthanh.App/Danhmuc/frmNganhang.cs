@@ -1,114 +1,71 @@
 ﻿
 
-using Microsoft.EntityFrameworkCore;
-using Tinthanh.App.General;
-using Tinthanh.Data.EF;
+
+ 
+using DevExpress.Mvvm;
+using DevExpress.Utils.MVVM;
+
+using DevExpress.XtraGrid.Views.Base;
+using System.ComponentModel;
+using Tinthanh.Data.Entities;
+using Tinthanh.ViewModel;
+using static Tinthanh.ViewModel.NganhangViewModel;
 
 namespace Tinthanh.App.Danhmuc;
 
 public partial class frmNganhang : DevExpress.XtraEditors.XtraForm
 {
-    private readonly TinthanhDBContext dbContext;
     public frmNganhang()
     {
-        dbContext = GetdbContext.dbContext();
         InitializeComponent();
+        InitBinding();
+    }
+    private void InitBinding()
+    {
+        MVVMContext mvvmContext = new MVVMContext();
+        mvvmContext.ContainerControl = this;
+        mvvmContext.ViewModelType = typeof(NganhangViewModel);
+        MVVMContext.RegisterMessageBoxService();
+      
+        var fluent = mvvmContext.OfType<NganhangViewModel>();
+        
+        Messenger.Default.Register<string>(this,"Close", x => Close());
+        Messenger.Default.Register<string>(this, "Focus", x => txtTen.Focus());
 
-        this.Load += FrmKhohang_Load;
 
-        var Nhomdt = dbContext.Nhomdoituongs
-            .Where(p => p.Madt == "NH")
-            .ToList();
+        // Bind dữ liệu lên GridControl
+        fluent.SetBinding(gridControl1, g => g.DataSource, x => x.lstNganhang);
+        //fluent.SetBinding(bdSource, g => g.DataSource, x => x.SelectedItem);
+        bdSource.DataSource = typeof(Nganhang);
+        fluent.SetObjectDataSourceBinding(bdSource, x => x.SelectedItem);
+        
+        txtMa.DataBindings.Add("EditValue", bdSource, "Ma", true, DataSourceUpdateMode.OnPropertyChanged);
+        txtTen.DataBindings.Add("EditValue", bdSource, "Ten", true, DataSourceUpdateMode.OnPropertyChanged);
+        txtTentat.DataBindings.Add("EditValue", bdSource, "Tentat", true, DataSourceUpdateMode.OnPropertyChanged);
+        lkNhom.DataBindings.Add("EditValue", bdSource, "Manhom", true, DataSourceUpdateMode.OnPropertyChanged);
+        txtDiachi.DataBindings.Add("EditValue", bdSource, "Diachi", true, DataSourceUpdateMode.OnPropertyChanged);
+        chkNgungsd.DataBindings.Add("EditValue", bdSource, "Ngungsd", true, DataSourceUpdateMode.OnPropertyChanged);
 
-        lkNhom.Properties.DataSource = Nhomdt;
+        lkNhom.Properties.DataSource = fluent.ViewModel.NhomNganhang();
         lkNhom.Properties.DisplayMember = "Ten";
         lkNhom.Properties.ValueMember = "Ma";
-        lkNhom.Properties.BestFit();
 
-        this.FormClosing += FrmKhohang_FormClosing;
-        btnAdd.ItemClick += BtnAdd_ItemClick;
+        fluent.BindCommand(btnDelete, x => x.Delete);
+        fluent.BindCommand(btnSave, x => x.Save);
+        fluent.BindCommand(btnCancel, x => x.Cancel());
+         
+        fluent.BindCommand(btnAdd, x => x.Add);
        
-        btnCancel.ItemClick += delegate { Loaddata(); };
-        btnDelete.ItemClick += BtnDelete_ItemClick;
-    }
-
-    private void FrmKhohang_FormClosing(object? sender, FormClosingEventArgs e)
-    {
-        bdSource.EndEdit();
-        if (dbContext.ChangeTracker.HasChanges())
-        {
-            var result = MessageBox.Show("Bạn có muốn lưu thay đổi?", "Xác nhận", MessageBoxButtons.YesNoCancel);
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    dbContext.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    // Xử lý lỗi
-                    MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message);
-                    e.Cancel = true; // Ngăn không cho form đóng
-                }
-            }
-            else if (result == DialogResult.Cancel)
-            {
-                e.Cancel = true; // Hủy bỏ đóng form
-            }
-        }
-    }
-
-    private void BtnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-    {
-        if (MessageBox.Show("Xóa 1 kho hàng ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-        {
-
-            bdSource.RemoveCurrent();
-            Save();
-
-        }
-    }
-
-    private void BtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-    {
+        fluent.BindCommand(btnClose, x => x.CloseForm);
        
-        if (dbContext.ChangeTracker.HasChanges()) Save();
-            bdSource.AddNew();
-        txtMa.EditValue= Dungchung.Sinhmadoituong("NH", 2);
-        txtTen.Focus();
+        fluent.WithEvent<FocusedRowObjectChangedEventArgs>(gridView1, "FocusedRowObjectChanged")
+            .EventToCommand(x => x.Loaddata);
+
+        fluent.WithEvent<ListChangedEventArgs>(bdSource, "ListChanged")
+            .EventToCommand(x => x.TestChanged);
+
 
     }
-    private void FrmKhohang_Load(object? sender, EventArgs e)
-    {
-        Loaddata();
-    }
 
-    void Loaddata()
-    {
-        this.dbContext?.Nganhangs.Load();
-        this.bdSource.DataSource = this.dbContext?.Nganhangs.Local.ToBindingList();
-    }
-
-    private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-    {
-        Close();
-    }
-    private void Save()
-    {
-        try
-        {
-            this.dbContext!.SaveChanges();
-
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-    }
-
-    private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-    {
-        bdSource.EndEdit();
-        Save();
-    }
+    
 }

@@ -1,5 +1,7 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Tinthanh.Data.Entities
 {
  
@@ -7,7 +9,10 @@ namespace Tinthanh.Data.Entities
  
     public class Nganhang
     {
-        public int Id { get; set; }
+       
+       
+        public int Id {get; set;}
+       
         public string Ma { get; set; }
         public string Ten { get; set; }
         public string? Tentat { get; set; }

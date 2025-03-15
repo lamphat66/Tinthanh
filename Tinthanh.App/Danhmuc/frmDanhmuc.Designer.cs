@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDanhmuc));
             sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
-            bdSource = new BindingSource(components);
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             colMa = new DevExpress.XtraGrid.Columns.GridColumn();
             colTen = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,28 +41,27 @@
             colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
             colTen1 = new DevExpress.XtraGrid.Columns.GridColumn();
             colNgungsd = new DevExpress.XtraGrid.Columns.GridColumn();
+            gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             barManager1 = new DevExpress.XtraBars.BarManager(components);
             bar1 = new DevExpress.XtraBars.Bar();
             btnAdd = new DevExpress.XtraBars.BarButtonItem();
-            btnSave = new DevExpress.XtraBars.BarButtonItem();
             btnDelete = new DevExpress.XtraBars.BarButtonItem();
-            btnRefresh = new DevExpress.XtraBars.BarButtonItem();
             btnClose = new DevExpress.XtraBars.BarButtonItem();
             barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            mnuDelete = new DevExpress.XtraBars.BarButtonItem();
+            popupMenu1 = new DevExpress.XtraBars.PopupMenu(components);
             bar3 = new DevExpress.XtraBars.Bar();
-            bdSourceCT = new BindingSource(components);
             sidePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)barManager1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)bdSourceCT).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)popupMenu1).BeginInit();
             SuspendLayout();
             // 
             // sidePanel1
@@ -78,7 +76,6 @@
             // 
             // gridControl1
             // 
-            gridControl1.DataSource = bdSource;
             gridControl1.Dock = DockStyle.Fill;
             gridControl1.Location = new Point(0, 0);
             gridControl1.MainView = gridView1;
@@ -86,10 +83,6 @@
             gridControl1.Size = new Size(323, 528);
             gridControl1.TabIndex = 4;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
-            // 
-            // bdSource
-            // 
-            bdSource.DataSource = typeof(Data.Entities.Danhmuc);
             // 
             // gridView1
             // 
@@ -152,7 +145,7 @@
             // 
             // gridView2
             // 
-            gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colSTT, colTen1, colNgungsd });
+            gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colSTT, colTen1, colNgungsd, gridColumn1 });
             gridView2.GridControl = gridControl2;
             gridView2.Name = "gridView2";
             gridView2.NewItemRowText = "Click tại đây để thêm 1 dòng mới or nhấn Ctrl+Insert";
@@ -201,6 +194,12 @@
             colNgungsd.Visible = true;
             colNgungsd.VisibleIndex = 2;
             // 
+            // gridColumn1
+            // 
+            gridColumn1.Caption = "Id";
+            gridColumn1.FieldName = "Id";
+            gridColumn1.Name = "gridColumn1";
+            // 
             // barManager1
             // 
             barManager1.AllowQuickCustomization = false;
@@ -210,8 +209,8 @@
             barManager1.DockControls.Add(barDockControlLeft);
             barManager1.DockControls.Add(barDockControlRight);
             barManager1.Form = this;
-            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnDelete, btnRefresh, btnClose, btnSave });
-            barManager1.MaxItemId = 11;
+            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnDelete, btnClose, mnuDelete });
+            barManager1.MaxItemId = 12;
             // 
             // bar1
             // 
@@ -219,7 +218,7 @@
             bar1.DockCol = 0;
             bar1.DockRow = 0;
             bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnSave, true), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnRefresh, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
+            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
             bar1.Text = "Tools";
             // 
             // btnAdd
@@ -230,15 +229,6 @@
             btnAdd.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.N);
             btnAdd.Name = "btnAdd";
             btnAdd.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            btnAdd.ItemClick += btnAdd_ItemClick;
-            // 
-            // btnSave
-            // 
-            btnSave.Caption = "Lưu";
-            btnSave.Id = 10;
-            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
-            btnSave.Name = "btnSave";
-            btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // btnDelete
             // 
@@ -248,17 +238,6 @@
             btnDelete.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.Delete);
             btnDelete.Name = "btnDelete";
             btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            btnDelete.ItemClick += btnDelete_ItemClick;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.Caption = "Nạp lại";
-            btnRefresh.Id = 2;
-            btnRefresh.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnRefresh.ImageOptions.SvgImage");
-            btnRefresh.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.F5);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            btnRefresh.ItemClick += btnRefresh_ItemClick;
             // 
             // btnClose
             // 
@@ -268,7 +247,6 @@
             btnClose.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.F4);
             btnClose.Name = "btnClose";
             btnClose.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            btnClose.ItemClick += btnClose_ItemClick;
             // 
             // barDockControlTop
             // 
@@ -276,7 +254,7 @@
             barDockControlTop.Dock = DockStyle.Top;
             barDockControlTop.Location = new Point(0, 0);
             barDockControlTop.Manager = barManager1;
-            barDockControlTop.Size = new Size(731, 31);
+            barDockControlTop.Size = new Size(699, 31);
             // 
             // barDockControlBottom
             // 
@@ -284,7 +262,7 @@
             barDockControlBottom.Dock = DockStyle.Bottom;
             barDockControlBottom.Location = new Point(0, 559);
             barDockControlBottom.Manager = barManager1;
-            barDockControlBottom.Size = new Size(731, 0);
+            barDockControlBottom.Size = new Size(699, 0);
             // 
             // barDockControlLeft
             // 
@@ -298,9 +276,22 @@
             // 
             barDockControlRight.CausesValidation = false;
             barDockControlRight.Dock = DockStyle.Right;
-            barDockControlRight.Location = new Point(731, 31);
+            barDockControlRight.Location = new Point(699, 31);
             barDockControlRight.Manager = barManager1;
             barDockControlRight.Size = new Size(0, 528);
+            // 
+            // mnuDelete
+            // 
+            mnuDelete.Caption = "Xóa";
+            mnuDelete.Id = 11;
+            mnuDelete.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("mnuDelete.ImageOptions.SvgImage");
+            mnuDelete.Name = "mnuDelete";
+            // 
+            // popupMenu1
+            // 
+            popupMenu1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(mnuDelete) });
+            popupMenu1.Manager = barManager1;
+            popupMenu1.Name = "popupMenu1";
             // 
             // bar3
             // 
@@ -318,7 +309,7 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(731, 559);
+            ClientSize = new Size(699, 559);
             Controls.Add(sidePanel2);
             Controls.Add(sidePanel1);
             Controls.Add(barDockControlLeft);
@@ -330,13 +321,12 @@
             Text = "Danh mục chung";
             sidePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)bdSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             sidePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControl2).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)barManager1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)bdSourceCT).EndInit();
+            ((System.ComponentModel.ISupportInitialize)popupMenu1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -347,7 +337,6 @@
         private DevExpress.XtraEditors.SidePanel sidePanel2;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private BindingSource bdSource;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMa;
@@ -356,7 +345,6 @@
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarButtonItem btnAdd;
         private DevExpress.XtraBars.BarButtonItem btnDelete;
-        private DevExpress.XtraBars.BarButtonItem btnRefresh;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -366,7 +354,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraGrid.Columns.GridColumn colTen1;
         private DevExpress.XtraGrid.Columns.GridColumn colNgungsd;
-        private BindingSource bdSourceCT;
-        private DevExpress.XtraBars.BarButtonItem btnSave;
+        private DevExpress.XtraBars.BarButtonItem mnuDelete;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

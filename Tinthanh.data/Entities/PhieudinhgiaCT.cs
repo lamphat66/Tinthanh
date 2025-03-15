@@ -13,9 +13,9 @@ namespace Tinthanh.Data.Entities
         
         public int Id { get; set; }
         public int PhieudinhgiaId { get; set; }
-        [MaxLength(20)]
+        
         public string? Masp { get; set; }
-        [MaxLength(100)]
+        
         public string? Tensp { get; set; }
         public float TT { get; set; }
         public float V { get; set; }

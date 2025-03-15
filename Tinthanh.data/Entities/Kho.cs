@@ -17,7 +17,7 @@ namespace Tinthanh.Data.Entities
         public DateTime? Ngayngungsd { get; set; }
         public DateTime? CreateDate { get; set; } = DateTime.Today;
         public string? Users { get; set; }
-        public DateTime? EditDate { get; set; }
+        public DateTime? EditDate { get; set; }= DateTime.Today;
         public string? Taikhoan { get; set; }
         public string? Diachi { get; set; }
         public bool? Kho_ao { get; set; } = false;

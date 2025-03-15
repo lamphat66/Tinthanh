@@ -53,8 +53,9 @@ namespace Tinthanh.Data.Entities
         public DateTime? Ngaygiaokhuon { get; set; }
         public DateTime? Ngayhoanthanh { get; set; }
         [MaxLength(20)]
-        public string? Chungtugoc { get; set; }
-
+        public string? CopyFrom { get; set; }
+        [MaxLength(20)]
+        public string? CopyTo { get; set; }
         public virtual ObservableCollectionListSource<YeucauGCK_CT> YeucauGCK_CTs {  get; set; } 
     }
 

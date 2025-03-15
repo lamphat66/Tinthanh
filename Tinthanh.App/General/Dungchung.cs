@@ -1,7 +1,8 @@
 ﻿
+using Dapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-
+using System.Data;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -19,7 +20,11 @@ namespace Tinthanh.App.General
             var result= SQLHelper.ExecQuerySacalar("select dbo.fn_Sinhmadoituong(@loaidt,@dodai)", new { loaidt, Dodai }).ToString();
              return result?.ToString() ?? string.Empty;
         }
-
+        public static string Sinhmadanhdiem(string loaidt, int Dodai)
+        {
+            var result = SQLHelper.ExecQuerySacalar("select dbo.fn_Sinhmadanhdiem(@loaidt,@dodai)", new { loaidt, Dodai }).ToString();
+            return result?.ToString() ?? string.Empty;
+        }
         public static string Getversion()
         {
             var result = SQLHelper.ExecQuerySacalar(@"Select top 1 Version from Hethong");
@@ -119,5 +124,23 @@ namespace Tinthanh.App.General
             fs.Close();
             return picbyte;
         }
+
+        public static string Getmachungtu(DateTime Ngay, string LoaiCT)
+        {
+
+            string Ten = "pr_Sinhmachungtu";
+
+            DynamicParameters para = new DynamicParameters();
+            para.Add("@Ngaychungtu", Ngay, DbType.DateTime, ParameterDirection.Input);
+            para.Add("@LoaiCT", LoaiCT, DbType.String, ParameterDirection.Input);
+
+
+            para.Add("@Maphieu", null, dbType: DbType.String, direction: ParameterDirection.Output, 20);
+
+            SQLHelper.ExecProcedureNonData(Ten, para);
+
+            return para.Get<string>("@Maphieu");
+        }
+
     }
 }

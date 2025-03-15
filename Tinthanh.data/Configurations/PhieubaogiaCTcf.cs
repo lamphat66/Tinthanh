@@ -10,7 +10,11 @@ namespace Tinthanh.Data.Configurations
         {
 
             builder.ToTable("Phieubaogia_CT");
-
+            builder.Property(x => x.Masp).HasMaxLength(20);
+            builder.Property(x => x.Tensp).HasMaxLength(100);
+            builder.Property(x => x.Donvi).HasMaxLength(20);
+            builder.Property(x => x.Khomay).HasMaxLength(20);
+          
             builder.HasOne(x => x.Phieubaogia)
                 .WithMany(x => x.PhieubaogiaCTs)
                 .HasForeignKey(x => x.PhieubaogiaId)

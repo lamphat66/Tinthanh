@@ -1,157 +1,79 @@
 ﻿
 
+using DevExpress.Mvvm;
+using DevExpress.Utils.MVVM;
 using DevExpress.XtraGrid.Views.Base;
-using Microsoft.EntityFrameworkCore;
-using Tinthanh.App.General;
 using Tinthanh.Data.EF;
- 
-
+using Tinthanh.ViewModel;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Tinthanh.App.Danhmuc
 {
     public partial class frmDanhmuc : DevExpress.XtraEditors.XtraForm
     {
         private TinthanhDBContext? dbContext;
-
+        int ID;
         public frmDanhmuc()
         {
             InitializeComponent();
-            dbContext = GetdbContext.dbContext();
-            gridView1.FocusedRowChanged += GridView1_FocusedRowChanged;
-            gridControl2.ProcessGridKey += GridControl2_ProcessGridKey;
-            gridView1.RowUpdated += GridView1_RowUpdated;
-            this.Load += FrmDanhmuc_Load;
-            this.FormClosing += FrmDanhmuc_FormClosing;
-            btnSave.ItemClick += BtnSave_ItemClick;
+            InitBinding();
+
         }
 
-        private void BtnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+
+        public void InitBinding()
         {
-            Save();
+            MVVMContext mvvmContext = new MVVMContext();
+            mvvmContext.ContainerControl = this;
+            mvvmContext.ViewModelType = typeof(DanhmucViewModel);
+            MVVMContext.RegisterMessageBoxService();
+
+            var fluent = mvvmContext.OfType<DanhmucViewModel>();
+
+            Messenger.Default.Register<string>(this, "Close", x => Close());
+            Messenger.Default.Register<string>(this, "New", x => gridView1.AddNewRow());
+       
+
+            fluent.SetBinding(gridControl1, g => g.DataSource, x => x.Danhmucs);
+            fluent.SetBinding(gridView1, g => g.FocusedRowObject, x => x.SelectedDanhmuc);
+
+            fluent.SetBinding(gridControl2, g => g.DataSource, x => x.lstDanhmucCT);
+            fluent.SetBinding(gridView2, g => g.FocusedRowObject, x => x.SelectedDanhmucCT);
+
+            fluent.BindCommand(btnDelete, x => x.Delete);
+            fluent.BindCommand(btnAdd, x => x.Addnew);
+            fluent.BindCommand(btnClose, x => x.CloseForm);
+            fluent.BindCommand(mnuDelete, x => x.DeleteCT);
+
+            fluent.WithEvent<RowObjectEventArgs>(gridView1, "RowUpdated")
+                    .EventToCommand(x => x.Save);
+            fluent.WithEvent<FocusedRowObjectChangedEventArgs>(gridView1, "FocusedRowObjectChanged")
+                .EventToCommand(x => x.LoadCT);
+
+            fluent.WithEvent<RowObjectEventArgs>(gridView2, "RowUpdated")
+                    .EventToCommand(x => x.Save);
+
+            barManager1.SetPopupContextMenu(gridControl2, popupMenu1);
+            gridView2.MouseUp += gridView2_MouseUp;
         }
 
-        private void FrmDanhmuc_FormClosing(object? sender, FormClosingEventArgs e)
+        private void gridView2_MouseUp(object sender, MouseEventArgs e)
         {
-            if (dbContext!.ChangeTracker.HasChanges())
+            if (e.Button == MouseButtons.Right)
             {
-                var result = MessageBox.Show("Bạn có muốn lưu thay đổi?", "Xác nhận", MessageBoxButtons.YesNoCancel);
-                if (result == DialogResult.Yes)
+                GridView view = sender as GridView;
+                if (view != null)
                 {
-                    try
+                    // Lấy vị trí dòng được click
+                    var hitInfo = view.CalcHitInfo(e.Location);
+                    if (hitInfo.InRow)
                     {
-                        dbContext.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        // Xử lý lỗi
-                        MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message);
-                        e.Cancel = true; // Ngăn không cho form đóng
+                        view.FocusedRowHandle = hitInfo.RowHandle; // Chọn dòng
+                        popupMenu1.ShowPopup(MousePosition); // Hiển thị menu
                     }
                 }
-                else if (result == DialogResult.Cancel)
-                {
-                    e.Cancel = true; // Hủy bỏ đóng form
-                }
             }
         }
 
-        private void FrmDanhmuc_Load(object? sender, EventArgs e)
-        {
-            Loadata();
-        }
-
-        private void GridControl2_ProcessGridKey(object? sender, KeyEventArgs e)
-        {
-        
-          
-
-            if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.Control)
-            {
-                // Khi nhấn Ctrl+Delete, xóa dòng hiện tại
-                bdSourceCT.RemoveCurrent();
-                Save();
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.Insert && e.Modifiers == Keys.Control)
-            {
-                // Khi nhấn Ctrl+Ins, thêm dòng mới
-                bdSourceCT.AddNew();
-                gridView2.ShowEditForm();
-                e.Handled = true;
-            }
-     
-        }
-
-        private void Loadata()
-        {
-
-            this.dbContext?.Danhmucs.Load();
-            this.bdSource.DataSource = dbContext?.Danhmucs.Local.ToBindingList();
-        }
-     
-        private void GridView1_RowUpdated(object sender, RowObjectEventArgs e)
-        {
-            Save();
-        }
-
-        private void GridView1_FocusedRowChanged(object sender, FocusedRowChangedEventArgs e)
-        {
-            if (this.dbContext != null)
-            {
-
-                var data = e.FocusedRowHandle >= 0 ? this.gridView1.GetFocusedRow() as Data.Entities.Danhmuc : null;
-
-                if (data != null)
-                {
-                    this.dbContext.Entry(data).Collection(e => e.DanhmucCTs).Load();
-                    gridControl2.DataSource =  bdSourceCT;
-                    bdSourceCT.DataSource = data.DanhmucCTs;
-
-                }
-            }
-        }
-
-        private void Save()
-        {
-            try
-            {
-                this.dbContext!.SaveChanges();
-                this.gridView1.RefreshData();
-                this.gridView2.RefreshData();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            bdSource.AddNew();
-            
-        }
-
-        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (MessageBox.Show("Xóa dòng hiện hành ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-
-                bdSource.RemoveCurrent();
-                Save();
-            }
-        }
-
-        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Loadata();
-        }
-
-        
-
-        private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
-        }
     }
 }

@@ -13,6 +13,7 @@ namespace Tinthanh.Data.Configurations
           //  builder.HasIndex(p => new { p.Masp, p.Makh }).IsUnique();
             builder.HasIndex(p => new { p.KhachhangId, p.SanphamId }).IsUnique();
             builder.Property(x => x.Masp).HasMaxLength(20);
+            builder.Property(x => x.Makh).HasMaxLength(20);
             builder.Property(x => x.TenSPKH).HasMaxLength(100);
             builder.Property(x => x.TenSPTT).HasMaxLength(100);
             builder.Property(x => x.Donvi).HasMaxLength(20);

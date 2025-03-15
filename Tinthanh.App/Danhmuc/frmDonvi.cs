@@ -1,111 +1,49 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Mvvm;
+using DevExpress.Utils.MVVM;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Base;
-using Microsoft.EntityFrameworkCore;
-using Tinthanh.App.General;
-using Tinthanh.Data.EF;
- 
-
-
+using Tinthanh.Data.Entities;
+using Tinthanh.ViewModel;
 
 namespace Tinthanh.App.Danhmuc
 {
     public partial class frmDonvi : XtraForm
     {
-        private readonly TinthanhDBContext dbContext;
-
         public frmDonvi()
         {
             InitializeComponent();
+            MVVMContext mvvmContext = new MVVMContext();
+            mvvmContext.ContainerControl = this;
+            mvvmContext.ViewModelType = typeof(DonviViewModel);
+            MVVMContext.RegisterMessageBoxService();
 
-            dbContext = GetdbContext.dbContext();
-            this.Load += FrmDonvi_Load;
-            this.FormClosing += FrmDonvi_FormClosing;
-            gridView1.RowUpdated += GridView1_RowUpdated;
+            var fluent = mvvmContext.OfType<DonviViewModel>();
+
+            Messenger.Default.Register<string>(this, "Close", x => Close());
+            Messenger.Default.Register<string>(this, "New", x => gridView1.AddNewRow());
+
+            fluent.SetBinding(gridControl1, g => g.DataSource, x => x.Donvis);
+            fluent.SetBinding(gridView1, g => g.FocusedRowObject, x => x.SelectedDonvi);
+
+            fluent.BindCommand(btnDelete, x => x.Delete);
+
+            fluent.BindCommand(btnAdd, x => x.Addnew);
+
+            fluent.BindCommand(btnClose, x => x.CloseForm);
+
+            fluent.WithEvent<RowObjectEventArgs>(gridView1, "RowUpdated")
+                    .EventToCommand(x => x.Save);
+
+            //fluent.WithEvent<ColumnView, FocusedRowObjectChangedEventArgs>(gridView1, "FocusedRowObjectChanged")
+            //    .SetBinding(x => x.SelectedDonvi,
+            //        args => args.Row as Donvi,
+            //        (gView, entity) => gView.FocusedRowHandle = gView.FindRow(entity));
 
         }
 
-        void Loaddata()
+        private void gridView1_RowUpdated(object sender, RowObjectEventArgs e)
         {
-            this.dbContext?.Donvis.Load();
 
-            this.bdSource.DataSource = dbContext?.Donvis.Local.ToBindingList();
-        }
-        private void FrmDonvi_Load(object? sender, EventArgs e)
-        {
-            Loaddata();
-        }
-
-        private void FrmDonvi_FormClosing(object? sender, FormClosingEventArgs e)
-        {
-            if (dbContext.ChangeTracker.HasChanges())
-            {
-                var result = MessageBox.Show("Bạn có muốn lưu thay đổi?", "Xác nhận", MessageBoxButtons.YesNoCancel);
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        dbContext.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        // Xử lý lỗi
-                        MessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message);
-                        e.Cancel = true; // Ngăn không cho form đóng
-                    }
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                    e.Cancel = true; // Hủy bỏ đóng form
-                }
-            }
-        }
-
-        private void Save()
-        {
-            try
-            {
-                this.dbContext!.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private void GridView1_RowUpdated(object sender, RowObjectEventArgs e)
-        {
-            Save();
-        }
-
-
-        private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            bdSource.AddNew();
-            
-        }
-
-
-
-        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (MessageBox.Show("Xóa 1 đơn vị ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-
-                bdSource.RemoveCurrent();
-                Save();
-
-            }
-        }
-
-        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Loaddata();
-        }
-
-        private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Close();
         }
     }
 }

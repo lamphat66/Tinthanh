@@ -11,6 +11,7 @@ namespace Tinthanh.Data.Entities
         [MaxLength(20)]
         public string? Maphieu { get; set; }
         public DateTime? Ngaylap { get; set; }
+        public DateTime? Ngaychungtu { get; set; }
         [MaxLength(20)]
         public string? Makh { get; set; }
         [MaxLength(100)]
@@ -32,8 +33,7 @@ namespace Tinthanh.Data.Entities
         public bool? Maus { get; set; }
         public int? Loaikt { get; set; }
         public bool? Logo { get; set; }
-        [MaxLength(20)]
-        public string? Machungtu { get; set; }
+       
    
         public string? CreateBy { get; set; }
         public string? EditBy { get; set; }
@@ -44,7 +44,10 @@ namespace Tinthanh.Data.Entities
         public int? Bo { get; set; }
         public int? SLChaymau { get; set; }
         [MaxLength(20)]
-        public string? Chungtugoc { get; set; }
+        public string? CopyFrom { get; set; }
+        [MaxLength(20)]
+        public string? CopyTo { get; set; }
+        [MaxLength(20)]
 
         public virtual ObservableCollectionListSource<ThongtinSP_CT>ThongtinSP_CTs { get; set; }
     }

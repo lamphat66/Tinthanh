@@ -8,16 +8,16 @@ namespace Tinthanh.Data.Entities
     {
         public int Id { get; set; }
         public int? HopdongkhuonId { get; set; }
-        [MaxLength(20)]
+       
         public string? Maphieu { get; set; }
-        [MaxLength(20)]
+        
         public string? Makhuon { get; set; }
-        [MaxLength(100)]
+         
         public string? Tenkhuon { get; set; }
         public int? Socav { get; set; }
-        [MaxLength(20)]
+       
         public string? Khomay { get; set; }
-        [MaxLength(20)]
+      
         public string? Donvi { get; set; }
         public double? Dongia { get; set; }
         public double? Thanhtien { get; set; }

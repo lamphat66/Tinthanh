@@ -11,21 +11,21 @@ namespace Tinthanh.Data.Entities
     {
         public int Id { get; set; }
         public int? DieuchinhgiaId { get; set; }
-        [MaxLength(20)]
+       
         public string? Makh { get; set; }
-        [MaxLength(100)]
+        
         public string? Tenkh { get; set; }
-        [MaxLength(20)]
+     
         public string? Masp { get; set; }
-        [MaxLength(100)]
+        
         public string? Tensp { get; set; }
-        [MaxLength(20)]
+        
         public string? Donvi { get; set; }
         public double? Giaban { get; set; }
         public double? Giabannt { get; set; }
         public double? Giamoi { get; set; }
         public double? Giamoint { get; set; }
-        [MaxLength(20)]
+       
         public string? Khomay { get; set; }
         public double? Matdo { get; set; }
         public int? Socav { get; set; }

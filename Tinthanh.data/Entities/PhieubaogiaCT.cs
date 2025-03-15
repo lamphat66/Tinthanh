@@ -8,14 +8,13 @@ namespace Tinthanh.Data.Entities
     {
         public int Id { get; set; }
         public int? PhieubaogiaId { get; set; }
-        [MaxLength(20)]
-     
+      
         public int? Stt { get; set; }
-        [MaxLength(20)]
+ 
         public string? Masp { get; set; }
-        [MaxLength(100)]
+       
         public string? Tensp { get; set; }
-        [MaxLength(20)]
+       
         public string? Donvi { get; set; }
         public double? Dongia { get; set; }
         public int? Vat { get; set; }
@@ -24,7 +23,7 @@ namespace Tinthanh.Data.Entities
         public double? Matdo { get; set; }
         public int? Loai { get; set; }
         public int? Socav { get; set; }
-        [MaxLength(20)]
+        
         public string? Khomay { get; set; }
         public double? DongiaNT { get; set; }
         public double? ThanhtienNT { get; set; }

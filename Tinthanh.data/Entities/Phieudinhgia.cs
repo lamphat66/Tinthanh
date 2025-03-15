@@ -11,17 +11,12 @@ namespace Tinthanh.Data.Entities
     public class Phieudinhgia
     {
         public int Id { get; set; }
-        [MaxLength(20)]
         public string? Maphieu { get; set; }
         public DateTime? Ngaylap { get; set; }
-        [MaxLength(20)]
-        public string? MaSP { get; set; }
-        [MaxLength(100)]
-        public string? TenSP { get; set; }
-        [MaxLength(20)]
-        public string? MAKH { get; set; }
-        [MaxLength(100)]
-        public string? TenKH { get; set; }
+        public string? Masp { get; set; }
+        public string? Tensp { get; set; }
+        public string? Makh { get; set; }
+        public string? Tenkh { get; set; }
         public double? Thetich { get; set; }
         public double? Titrong { get; set; }
         public double? Gia1 { get; set; }
@@ -32,52 +27,40 @@ namespace Tinthanh.Data.Entities
         public double? Khoiluong { get; set; }
         public double? Sanluong { get; set; }
         public int? SoCAV { get; set; }
-        [MaxLength(20)]
         public string? Khomay { get; set; }
         public double? LoinhuanCK { get; set; }
         public double? Dai { get; set; }
         public double? Rong { get; set; }
         public double? Cao { get; set; }
         public bool? Logo { get; set; }
-        public int? Buocgia { get; set; }
-        public int? SaisoTT { get; set; }
-        public int? SaisoKL { get; set; }
+        public int? Buocgia { get; set; } = 10000;
+        public int? SaisoTT { get; set; } = 40;
+        public int? SaisoKL { get; set; } = 40;
         public double? Giachon { get; set; }
-        [MaxLength(20)]
         public string? SLTheo { get; set; }
         public double? GiaSP { get; set; }
         public double? Giakhuon { get; set; }
-        [MaxLength(200)]
         public string? Ghichu { get; set; }
         public int? Hanthanhtoan { get; set; }
         public int? TGlamkhuon { get; set; }
         public double? GiakhuonBG { get; set; }
         public double? GiakhuonUSD { get; set; }
         public double? GiakhuonBGUSD { get; set; }
-        [MaxLength(20)]
         public string? MaTC { get; set; }
-        [MaxLength(100)]
         public string? TenTC { get; set; }
         public bool? Choncokhuon { get; set; }
-        [MaxLength(20)]
         public string? Machungtu { get; set; }
         public int? Loaiphieu { get; set; }
         public bool? Ngoaite { get; set; }
         public int? Tigia { get; set; }
-        [MaxLength(20)]
         public string? Makhuon { get; set; }
-        [MaxLength(100)]
         public string? Tenkhuon { get; set; }
         public double? CPSX { get; set; }
         public int? Socavkhuon { get; set; }
-        [MaxLength(20)]
         public string? CreateBy { get; set; }
-     
-        [MaxLength(20)]
         public string? EditBy { get; set; }
         public DateTime? EditDate { get; set; }
         public int? Trangthai { get; set; }
-      
         public DateTime? Ngaychungtu { get; set; }
         public double? Giasp1 { get; set; }
         public double? Giasp2 { get; set; }
@@ -87,11 +70,8 @@ namespace Tinthanh.Data.Entities
         public double? Giathanh { get; set; }
         public double? Baogia { get; set; }
         public double? Moq { get; set; }
-        [MaxLength(100)]
         public string? Tenfile { get; set; }
-        [MaxLength(20)]
-        public string? Chungtugoc { get; set; }
-        public virtual ObservableCollectionListSource<PhieudinhgiaCT>PhieudinhgiaCTs { get; set; }    
+        public virtual ObservableCollectionListSource<PhieudinhgiaCT> PhieudinhgiaCTs { get; set; }
     }
 
 }

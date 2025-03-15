@@ -10,7 +10,10 @@ namespace Tinthanh.Data.Configurations
         {
 
             builder.ToTable("Hopdongkhuon_CT");
-
+            builder.Property(x => x.Makhuon).HasMaxLength(20);
+            builder.Property(x => x.Tenkhuon).HasMaxLength(100);
+            builder.Property(x => x.Donvi).HasMaxLength(20);
+            builder.Property(x => x.Khomay).HasMaxLength(20);
             builder.HasOne(x => x.Hopdongkhuon)
                 .WithMany(x => x.HopdongkhuonCTs)
                 .HasForeignKey(x => x.HopdongkhuonId)

@@ -48,10 +48,10 @@ partial class frmNganhang
         layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
         txtMa = new DevExpress.XtraEditors.TextEdit();
         txtTen = new DevExpress.XtraEditors.TextEdit();
-        textEdit3 = new DevExpress.XtraEditors.TextEdit();
+        txtTentat = new DevExpress.XtraEditors.TextEdit();
         lkNhom = new DevExpress.XtraEditors.LookUpEdit();
-        textEdit5 = new DevExpress.XtraEditors.TextEdit();
-        checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
+        txtDiachi = new DevExpress.XtraEditors.TextEdit();
+        chkNgungsd = new DevExpress.XtraEditors.CheckEdit();
         Root = new DevExpress.XtraLayout.LayoutControlGroup();
         layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
         layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -64,6 +64,7 @@ partial class frmNganhang
         gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
         colMa = new DevExpress.XtraGrid.Columns.GridColumn();
         colTen = new DevExpress.XtraGrid.Columns.GridColumn();
+        gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
         ((System.ComponentModel.ISupportInitialize)bdSource).BeginInit();
         ((System.ComponentModel.ISupportInitialize)barManager1).BeginInit();
         sidePanel1.SuspendLayout();
@@ -72,10 +73,10 @@ partial class frmNganhang
         layoutControl1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)txtMa.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)txtTen.Properties).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)txtTentat.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)lkNhom.Properties).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)checkEdit3.Properties).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)txtDiachi.Properties).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)chkNgungsd.Properties).BeginInit();
         ((System.ComponentModel.ISupportInitialize)Root).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem2).BeginInit();
@@ -91,6 +92,7 @@ partial class frmNganhang
         // bdSource
         // 
         bdSource.DataSource = typeof(Data.Entities.Nganhang);
+         
         // 
         // barManager1
         // 
@@ -130,13 +132,12 @@ partial class frmNganhang
         btnSave.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.S);
         btnSave.Name = "btnSave";
         btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-        btnSave.ItemClick += btnSave_ItemClick;
         // 
         // btnCancel
         // 
-        btnCancel.Caption = "Nạp lại";
+        btnCancel.Caption = "Hủy";
         btnCancel.Id = 2;
-        btnCancel.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnCancel.ImageOptions.SvgImage");
+        btnCancel.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnRefresh.ImageOptions.SvgImage");
         btnCancel.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Control | Keys.U);
         btnCancel.Name = "btnCancel";
         btnCancel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -158,7 +159,6 @@ partial class frmNganhang
         btnClose.ItemShortcut = new DevExpress.XtraBars.BarShortcut(Keys.Alt | Keys.F4);
         btnClose.Name = "btnClose";
         btnClose.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-        btnClose.ItemClick += btnClose_ItemClick;
         // 
         // barDockControlTop
         // 
@@ -166,40 +166,40 @@ partial class frmNganhang
         barDockControlTop.Dock = DockStyle.Top;
         barDockControlTop.Location = new Point(0, 0);
         barDockControlTop.Manager = barManager1;
-        barDockControlTop.Size = new Size(729, 28);
+        barDockControlTop.Size = new Size(719, 31);
         // 
         // barDockControlBottom
         // 
         barDockControlBottom.CausesValidation = false;
         barDockControlBottom.Dock = DockStyle.Bottom;
-        barDockControlBottom.Location = new Point(0, 601);
+        barDockControlBottom.Location = new Point(0, 686);
         barDockControlBottom.Manager = barManager1;
-        barDockControlBottom.Size = new Size(729, 0);
+        barDockControlBottom.Size = new Size(719, 0);
         // 
         // barDockControlLeft
         // 
         barDockControlLeft.CausesValidation = false;
         barDockControlLeft.Dock = DockStyle.Left;
-        barDockControlLeft.Location = new Point(0, 28);
+        barDockControlLeft.Location = new Point(0, 31);
         barDockControlLeft.Manager = barManager1;
-        barDockControlLeft.Size = new Size(0, 573);
+        barDockControlLeft.Size = new Size(0, 655);
         // 
         // barDockControlRight
         // 
         barDockControlRight.CausesValidation = false;
         barDockControlRight.Dock = DockStyle.Right;
-        barDockControlRight.Location = new Point(729, 28);
+        barDockControlRight.Location = new Point(719, 31);
         barDockControlRight.Manager = barManager1;
-        barDockControlRight.Size = new Size(0, 573);
+        barDockControlRight.Size = new Size(0, 655);
         // 
         // sidePanel1
         // 
         sidePanel1.Controls.Add(sidePanel3);
         sidePanel1.Controls.Add(sidePanel2);
         sidePanel1.Dock = DockStyle.Left;
-        sidePanel1.Location = new Point(0, 28);
+        sidePanel1.Location = new Point(0, 31);
         sidePanel1.Name = "sidePanel1";
-        sidePanel1.Size = new Size(719, 573);
+        sidePanel1.Size = new Size(719, 655);
         sidePanel1.TabIndex = 9;
         sidePanel1.Text = "sidePanel1";
         // 
@@ -209,7 +209,7 @@ partial class frmNganhang
         sidePanel3.Dock = DockStyle.Fill;
         sidePanel3.Location = new Point(339, 0);
         sidePanel3.Name = "sidePanel3";
-        sidePanel3.Size = new Size(379, 573);
+        sidePanel3.Size = new Size(379, 655);
         sidePanel3.TabIndex = 1;
         sidePanel3.Text = "sidePanel3";
         // 
@@ -217,82 +217,76 @@ partial class frmNganhang
         // 
         layoutControl1.Controls.Add(txtMa);
         layoutControl1.Controls.Add(txtTen);
-        layoutControl1.Controls.Add(textEdit3);
+        layoutControl1.Controls.Add(txtTentat);
         layoutControl1.Controls.Add(lkNhom);
-        layoutControl1.Controls.Add(textEdit5);
-        layoutControl1.Controls.Add(checkEdit3);
+        layoutControl1.Controls.Add(txtDiachi);
+        layoutControl1.Controls.Add(chkNgungsd);
         layoutControl1.Dock = DockStyle.Fill;
         layoutControl1.Location = new Point(0, 0);
         layoutControl1.Name = "layoutControl1";
         layoutControl1.Root = Root;
-        layoutControl1.Size = new Size(379, 573);
+        layoutControl1.Size = new Size(379, 655);
         layoutControl1.TabIndex = 0;
         layoutControl1.Text = "layoutControl1";
         // 
         // txtMa
         // 
-        txtMa.DataBindings.Add(new Binding("EditValue", bdSource, "Ma", true, DataSourceUpdateMode.OnPropertyChanged));
-        txtMa.Location = new Point(59, 12);
+        txtMa.Location = new Point(51, 12);
         txtMa.MenuManager = barManager1;
         txtMa.Name = "txtMa";
-        txtMa.Size = new Size(308, 20);
+        txtMa.Size = new Size(316, 20);
         txtMa.StyleController = layoutControl1;
         txtMa.TabIndex = 0;
         // 
         // txtTen
         // 
-        txtTen.DataBindings.Add(new Binding("EditValue", bdSource, "Ten", true, DataSourceUpdateMode.OnPropertyChanged));
-        txtTen.Location = new Point(59, 36);
+        txtTen.Location = new Point(51, 36);
         txtTen.MenuManager = barManager1;
         txtTen.Name = "txtTen";
-        txtTen.Size = new Size(308, 20);
+        txtTen.Size = new Size(316, 20);
         txtTen.StyleController = layoutControl1;
         txtTen.TabIndex = 2;
         // 
-        // textEdit3
+        // txtTentat
         // 
-        textEdit3.DataBindings.Add(new Binding("EditValue", bdSource, "Tentat", true, DataSourceUpdateMode.OnPropertyChanged));
-        textEdit3.Location = new Point(59, 60);
-        textEdit3.MenuManager = barManager1;
-        textEdit3.Name = "textEdit3";
-        textEdit3.Size = new Size(308, 20);
-        textEdit3.StyleController = layoutControl1;
-        textEdit3.TabIndex = 3;
+        txtTentat.Location = new Point(51, 60);
+        txtTentat.MenuManager = barManager1;
+        txtTentat.Name = "txtTentat";
+        txtTentat.Size = new Size(316, 20);
+        txtTentat.StyleController = layoutControl1;
+        txtTentat.TabIndex = 3;
         // 
         // lkNhom
         // 
-        lkNhom.DataBindings.Add(new Binding("EditValue", bdSource, "Manhom", true, DataSourceUpdateMode.OnPropertyChanged));
-        lkNhom.Location = new Point(59, 84);
+        lkNhom.Location = new Point(51, 84);
         lkNhom.MenuManager = barManager1;
         lkNhom.Name = "lkNhom";
         lkNhom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
         lkNhom.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] { new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten", "Name1") });
         lkNhom.Properties.NullText = "";
         lkNhom.Properties.ShowHeader = false;
-        lkNhom.Size = new Size(308, 20);
+        lkNhom.Size = new Size(316, 20);
         lkNhom.StyleController = layoutControl1;
         lkNhom.TabIndex = 4;
         // 
-        // textEdit5
+        // txtDiachi
         // 
-        textEdit5.DataBindings.Add(new Binding("EditValue", bdSource, "Diachi", true, DataSourceUpdateMode.OnPropertyChanged));
-        textEdit5.Location = new Point(59, 108);
-        textEdit5.MenuManager = barManager1;
-        textEdit5.Name = "textEdit5";
-        textEdit5.Size = new Size(308, 20);
-        textEdit5.StyleController = layoutControl1;
-        textEdit5.TabIndex = 5;
+        txtDiachi.Location = new Point(51, 108);
+        txtDiachi.MenuManager = barManager1;
+        txtDiachi.Name = "txtDiachi";
+        txtDiachi.Size = new Size(316, 20);
+        txtDiachi.StyleController = layoutControl1;
+        txtDiachi.TabIndex = 5;
         // 
-        // checkEdit3
+        // chkNgungsd
         // 
-        checkEdit3.DataBindings.Add(new Binding("EditValue", bdSource, "Ngungsd", true, DataSourceUpdateMode.OnPropertyChanged));
-        checkEdit3.Location = new Point(12, 132);
-        checkEdit3.MenuManager = barManager1;
-        checkEdit3.Name = "checkEdit3";
-        checkEdit3.Properties.Caption = "Ngưng sử dụng";
-        checkEdit3.Size = new Size(355, 20);
-        checkEdit3.StyleController = layoutControl1;
-        checkEdit3.TabIndex = 7;
+        chkNgungsd.Location = new Point(12, 132);
+        chkNgungsd.MenuManager = barManager1;
+        chkNgungsd.Name = "chkNgungsd";
+        chkNgungsd.Properties.Caption = "Ngưng sử dụng";
+        chkNgungsd.Size = new Size(355, 19);
+        chkNgungsd.StyleController = layoutControl1;
+        chkNgungsd.TabIndex = 7;
         // 
         // Root
         // 
@@ -300,7 +294,7 @@ partial class frmNganhang
         Root.GroupBordersVisible = false;
         Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem1, layoutControlItem2, layoutControlItem3, layoutControlItem4, layoutControlItem5, layoutControlItem8 });
         Root.Name = "Root";
-        Root.Size = new Size(379, 573);
+        Root.Size = new Size(379, 655);
         Root.TextVisible = false;
         // 
         // layoutControlItem1
@@ -323,7 +317,7 @@ partial class frmNganhang
         // 
         // layoutControlItem3
         // 
-        layoutControlItem3.Control = textEdit3;
+        layoutControlItem3.Control = txtTentat;
         layoutControlItem3.Location = new Point(0, 48);
         layoutControlItem3.Name = "layoutControlItem3";
         layoutControlItem3.Size = new Size(359, 24);
@@ -341,7 +335,7 @@ partial class frmNganhang
         // 
         // layoutControlItem5
         // 
-        layoutControlItem5.Control = textEdit5;
+        layoutControlItem5.Control = txtDiachi;
         layoutControlItem5.Location = new Point(0, 96);
         layoutControlItem5.Name = "layoutControlItem5";
         layoutControlItem5.Size = new Size(359, 24);
@@ -350,10 +344,10 @@ partial class frmNganhang
         // 
         // layoutControlItem8
         // 
-        layoutControlItem8.Control = checkEdit3;
+        layoutControlItem8.Control = chkNgungsd;
         layoutControlItem8.Location = new Point(0, 120);
         layoutControlItem8.Name = "layoutControlItem8";
-        layoutControlItem8.Size = new Size(359, 433);
+        layoutControlItem8.Size = new Size(359, 515);
         layoutControlItem8.TextSize = new Size(0, 0);
         layoutControlItem8.TextVisible = false;
         // 
@@ -363,25 +357,24 @@ partial class frmNganhang
         sidePanel2.Dock = DockStyle.Left;
         sidePanel2.Location = new Point(0, 0);
         sidePanel2.Name = "sidePanel2";
-        sidePanel2.Size = new Size(339, 573);
+        sidePanel2.Size = new Size(339, 655);
         sidePanel2.TabIndex = 0;
         sidePanel2.Text = "sidePanel2";
         // 
         // gridControl1
         // 
-        gridControl1.DataSource = bdSource;
         gridControl1.Dock = DockStyle.Fill;
         gridControl1.Location = new Point(0, 0);
         gridControl1.MainView = gridView1;
         gridControl1.MenuManager = barManager1;
         gridControl1.Name = "gridControl1";
-        gridControl1.Size = new Size(338, 573);
+        gridControl1.Size = new Size(338, 655);
         gridControl1.TabIndex = 0;
         gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
         // 
         // gridView1
         // 
-        gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen });
+        gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { colMa, colTen, gridColumn1 });
         gridView1.GridControl = gridControl1;
         gridView1.Name = "gridView1";
         gridView1.OptionsBehavior.Editable = false;
@@ -413,13 +406,19 @@ partial class frmNganhang
         colTen.VisibleIndex = 1;
         colTen.Width = 231;
         // 
+        // gridColumn1
+        // 
+        gridColumn1.Caption = "gridColumn1";
+        gridColumn1.FieldName = "Id";
+        gridColumn1.Name = "gridColumn1";
+        // 
         // frmNganhang
         // 
         AutoScaleDimensions = new SizeF(6F, 13F);
         AutoScaleMode = AutoScaleMode.Font;
         AutoScroll = true;
         AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        ClientSize = new Size(729, 601);
+        ClientSize = new Size(705, 703);
         Controls.Add(sidePanel1);
         Controls.Add(barDockControlLeft);
         Controls.Add(barDockControlRight);
@@ -437,10 +436,10 @@ partial class frmNganhang
         layoutControl1.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)txtMa.Properties).EndInit();
         ((System.ComponentModel.ISupportInitialize)txtTen.Properties).EndInit();
-        ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).EndInit();
+        ((System.ComponentModel.ISupportInitialize)txtTentat.Properties).EndInit();
         ((System.ComponentModel.ISupportInitialize)lkNhom.Properties).EndInit();
-        ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).EndInit();
-        ((System.ComponentModel.ISupportInitialize)checkEdit3.Properties).EndInit();
+        ((System.ComponentModel.ISupportInitialize)txtDiachi.Properties).EndInit();
+        ((System.ComponentModel.ISupportInitialize)chkNgungsd.Properties).EndInit();
         ((System.ComponentModel.ISupportInitialize)Root).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem1).EndInit();
         ((System.ComponentModel.ISupportInitialize)layoutControlItem2).EndInit();
@@ -476,9 +475,9 @@ partial class frmNganhang
     private DevExpress.XtraLayout.LayoutControl layoutControl1;
     private DevExpress.XtraEditors.TextEdit txtMa;
     private DevExpress.XtraEditors.TextEdit txtTen;
-    private DevExpress.XtraEditors.TextEdit textEdit3;
+    private DevExpress.XtraEditors.TextEdit txtTentat;
     private DevExpress.XtraEditors.LookUpEdit lkNhom;
-    private DevExpress.XtraEditors.TextEdit textEdit5;
+    private DevExpress.XtraEditors.TextEdit txtDiachi;
     private DevExpress.XtraLayout.LayoutControlGroup Root;
     private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
@@ -487,6 +486,7 @@ partial class frmNganhang
     private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     private DevExpress.XtraGrid.Columns.GridColumn colMa;
     private DevExpress.XtraGrid.Columns.GridColumn colTen;
-    private DevExpress.XtraEditors.CheckEdit checkEdit3;
+    private DevExpress.XtraEditors.CheckEdit chkNgungsd;
     private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+    private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
 }

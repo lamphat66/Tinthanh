@@ -1,9 +1,11 @@
 ﻿using System;
- 
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
 
 namespace Tinthanh.App.General
 {
-  public  class Xulyngaythang
+    public class Xulyngaythang  
     {
 
         public virtual DateTime Tungay { get; set; }
@@ -14,7 +16,7 @@ namespace Tinthanh.App.General
         public virtual int Nam { get; set; }
         public virtual int Tuychon { get; set; }
 
-      public  Xulyngaythang()
+        public Xulyngaythang()
         {
 
 
@@ -48,7 +50,7 @@ namespace Tinthanh.App.General
             Capnhat();
         }
 
-        private void Capnhat()
+        public void Capnhat()
         {
             switch (Tuychon)
             {
@@ -69,6 +71,8 @@ namespace Tinthanh.App.General
 
         }
 
-        
+      
+
+
     }
 }

@@ -65,8 +65,8 @@
             bar1 = new DevExpress.XtraBars.Bar();
             btnAdd = new DevExpress.XtraBars.BarButtonItem();
             btnSave = new DevExpress.XtraBars.BarButtonItem();
+            btnCancel = new DevExpress.XtraBars.BarButtonItem();
             btnDelete = new DevExpress.XtraBars.BarButtonItem();
-            btnRefresh = new DevExpress.XtraBars.BarButtonItem();
             btnClose = new DevExpress.XtraBars.BarButtonItem();
             barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -115,7 +115,7 @@
             memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             sidePanel7 = new DevExpress.XtraEditors.SidePanel();
             gridControl5 = new DevExpress.XtraGrid.GridControl();
-            gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             btnFileName = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -208,7 +208,7 @@
             ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).BeginInit();
             sidePanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridView6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridView5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnFileName).BeginInit();
             sidePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)layoutControl1).BeginInit();
@@ -510,7 +510,7 @@
             barManager1.DockControls.Add(barDockControlLeft);
             barManager1.DockControls.Add(barDockControlRight);
             barManager1.Form = this;
-            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnSave, btnDelete, btnRefresh, btnClose });
+            barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] { btnAdd, btnSave, btnDelete, btnCancel, btnClose });
             barManager1.MaxItemId = 5;
             // 
             // bar1
@@ -519,7 +519,7 @@
             bar1.DockCol = 0;
             bar1.DockRow = 0;
             bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnSave, true), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnRefresh, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
+            bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(btnAdd), new DevExpress.XtraBars.LinkPersistInfo(btnSave, true), new DevExpress.XtraBars.LinkPersistInfo(btnCancel, true), new DevExpress.XtraBars.LinkPersistInfo(btnDelete, true), new DevExpress.XtraBars.LinkPersistInfo(btnClose, true) });
             bar1.Text = "Tools";
             // 
             // btnAdd
@@ -538,6 +538,14 @@
             btnSave.Name = "btnSave";
             btnSave.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
+            // btnCancel
+            // 
+            btnCancel.Caption = "Hủy";
+            btnCancel.Id = 3;
+            btnCancel.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnCancel.ImageOptions.SvgImage");
+            btnCancel.Name = "btnCancel";
+            btnCancel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
             // btnDelete
             // 
             btnDelete.Caption = "Delete";
@@ -545,14 +553,6 @@
             btnDelete.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDelete.ImageOptions.SvgImage");
             btnDelete.Name = "btnDelete";
             btnDelete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.Caption = "Nạp lại";
-            btnRefresh.Id = 3;
-            btnRefresh.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnRefresh.ImageOptions.SvgImage");
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // btnClose
             // 
@@ -1009,6 +1009,7 @@
             // 
             // memoEdit1
             // 
+            memoEdit1.DataBindings.Add(new Binding("EditValue", bdSource, "Ghichu", true));
             memoEdit1.Location = new Point(5, 244);
             memoEdit1.MenuManager = barManager1;
             memoEdit1.Name = "memoEdit1";
@@ -1029,22 +1030,22 @@
             // 
             gridControl5.Dock = DockStyle.Fill;
             gridControl5.Location = new Point(0, 0);
-            gridControl5.MainView = gridView6;
+            gridControl5.MainView = gridView5;
             gridControl5.MenuManager = barManager1;
             gridControl5.Name = "gridControl5";
             gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] { btnFileName });
             gridControl5.Size = new Size(595, 220);
             gridControl5.TabIndex = 5;
-            gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView6 });
+            gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView5 });
             // 
-            // gridView6
+            // gridView5
             // 
-            gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn19, gridColumn20, gridColumn21, gridColumn22 });
-            gridView6.GridControl = gridControl5;
-            gridView6.Name = "gridView6";
-            gridView6.OptionsView.ColumnAutoWidth = false;
-            gridView6.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            gridView6.OptionsView.ShowGroupPanel = false;
+            gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] { gridColumn19, gridColumn20, gridColumn21, gridColumn22 });
+            gridView5.GridControl = gridControl5;
+            gridView5.Name = "gridView5";
+            gridView5.OptionsView.ColumnAutoWidth = false;
+            gridView5.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            gridView5.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn19
             // 
@@ -1063,7 +1064,6 @@
             btnFileName.AutoHeight = false;
             btnFileName.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Up, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Upload File", null, null, DevExpress.Utils.ToolTipAnchor.Default), new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Download File", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             btnFileName.Name = "btnFileName";
-            btnFileName.ButtonClick += btnFileName_ButtonClick;
             // 
             // gridColumn20
             // 
@@ -1591,7 +1591,6 @@
             gridView1.OptionsBehavior.Editable = false;
             gridView1.OptionsView.ShowFooter = true;
             gridView1.OptionsView.ShowGroupPanel = false;
-            gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
             // gridColumn1
             // 
@@ -1644,7 +1643,6 @@
             btnFind.Size = new Size(77, 23);
             btnFind.TabIndex = 2;
             btnFind.Text = "Tìm";
-            btnFind.Click += btnFind_Click;
             // 
             // labelControl1
             // 
@@ -1661,7 +1659,6 @@
             txtFind.Name = "txtFind";
             txtFind.Size = new Size(189, 20);
             txtFind.TabIndex = 0;
-            txtFind.KeyDown += txtFind_KeyDown;
             // 
             // frmKhachhang
             // 
@@ -1675,7 +1672,6 @@
             Controls.Add(barDockControlTop);
             Name = "frmKhachhang";
             Text = "Danh mục khách hàng";
-            Load += frmKhachhang_Load;
             sidePanel1.ResumeLayout(false);
             sidePanel3.ResumeLayout(false);
             sidePanel6.ResumeLayout(false);
@@ -1710,7 +1706,7 @@
             ((System.ComponentModel.ISupportInitialize)memoEdit1.Properties).EndInit();
             sidePanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControl5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridView6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridView5).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnFileName).EndInit();
             sidePanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)layoutControl1).EndInit();
@@ -1778,7 +1774,7 @@
         private DevExpress.XtraBars.BarButtonItem btnAdd;
         private DevExpress.XtraBars.BarButtonItem btnSave;
         private DevExpress.XtraBars.BarButtonItem btnDelete;
-        private DevExpress.XtraBars.BarButtonItem btnRefresh;
+        private DevExpress.XtraBars.BarButtonItem btnCancel;
         private DevExpress.XtraBars.BarButtonItem btnClose;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -1900,7 +1896,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
         private DevExpress.XtraGrid.GridControl gridControl5;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnFileName;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;

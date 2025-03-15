@@ -17,6 +17,9 @@ namespace Tinthanh.Data.EF
 
         public DbSet<Danhmuc> Danhmucs { get; set; }
         public DbSet<Loaidanhdiem> Loaidanhdiems { get; set; }
+
+        public DbSet<Chungtu> Chungtus { get; set; }
+        public DbSet<Link> Links { get; set; }
         public DbSet<Nhomdanhdiem> Nhomdanhdiems { get; set; }
         public DbSet<Loaidoituong> Loaiddoituongs { get; set; }
         public DbSet<Nhomdoituong> Nhomdoituongs { get; set; }
@@ -101,6 +104,21 @@ namespace Tinthanh.Data.EF
                 property.SetMaxLength(50);
                 //   property.IsNullable = true;
             }
+            // dinh nghia View
+            modelBuilder.Entity<KhachHangGD>(entity =>
+            {
+                entity.ToView("KhachHangGD");
+                entity.HasKey(e => e.Ma);
+            });
+
+
+            modelBuilder.Entity<ThanhphamGD>(entity =>
+            {
+                entity.ToView("ThanhphamGD");
+                entity.HasKey(e => e.Ma);
+            });
+
+
 
             //Configure using Fluent API
             modelBuilder.ApplyConfiguration(new BanggiaKHConfig());
@@ -113,8 +131,10 @@ namespace Tinthanh.Data.EF
             modelBuilder.ApplyConfiguration(new NhomdanhdiemConfig());
             modelBuilder.ApplyConfiguration(new NhomdoituongConfig());
             modelBuilder.ApplyConfiguration(new TailieuConfig());
-           
-           
+            modelBuilder.ApplyConfiguration(new ChungtuConfig());
+            modelBuilder.ApplyConfiguration(new LinkConfig());
+
+
             modelBuilder.ApplyConfiguration(new DonviConfig());
 
             modelBuilder.ApplyConfiguration(new TaisanConfig());

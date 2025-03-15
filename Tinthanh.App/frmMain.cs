@@ -3,7 +3,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraSplashScreen;
 using Tinthanh.App.Danhmuc;
 using Tinthanh.App.General;
-
+using Tinthanh.App.Tiepnhan;
 namespace Tinthanh.App
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -15,7 +15,7 @@ namespace Tinthanh.App
             {
                 var fl = new FluentSplashScreenOptions();
                 fl.Title = "HỆ THỐNG QUẢN LÝ THÔNG TIN TÍN THÀNH";
-                fl.Subtitle = "PHÂN HỆ BẢO TRÌ XE MÁY-MÁY MÓC THIẾT BỊ ";
+                fl.Subtitle = "PHÂN HỆ QUẢN LÝ BÁN HÀNG ";
                 fl.RightFooter = "Bắt đầu ....";
                 fl.LeftFooter = $"Copyright @ 2023 {Environment.NewLine} All rights Reserved";
                 fl.LoadingIndicatorType = FluentLoadingIndicatorType.Dots;
@@ -72,6 +72,7 @@ namespace Tinthanh.App
 
         void OpenForm(Type typeForm, object Loai)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (Convert.ToInt32(Loai) == 0)
             {
                 MessageBox.Show("Bạn không có quyền thực hiện chức năng này !!!");
@@ -90,8 +91,9 @@ namespace Tinthanh.App
 
             f.MdiParent = this;
             f.Show();
+            Cursor.Current = Cursors.Default;
         }
-      
+
         void OpenForm(Type typeForm)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -118,8 +120,8 @@ namespace Tinthanh.App
 
         private void mnuDonvi_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //OpenForm(typeof(frmDonvi));
-            OpenForm(typeof(XtraForm1));
+            OpenForm(typeof(frmDonvi));
+
         }
 
         private void mnuDanhdiem_ItemClick(object sender, ItemClickEventArgs e)
@@ -134,151 +136,165 @@ namespace Tinthanh.App
             OpenForm(typeof(frmLoaidoituong));
 
         }
- 
+
         private void btnKho_ItemClick(object sender, ItemClickEventArgs e)
         {
-           
-           OpenForm(typeof(frmKhohang));
 
-           
+            OpenForm(typeof(frmKhohang));
+
+
         }
 
         private void btnNganhang_ItemClick(object sender, ItemClickEventArgs e)
         {
-           
+
 
             OpenForm(typeof(frmNganhang));
 
-            
+
         }
 
         private void btnKhachhang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+
 
             OpenForm(typeof(frmKhachhang));
 
-           
+
         }
 
         private void mnuKhuvuc_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+
 
             OpenForm(typeof(frmKhuvuc));
 
-             
+
         }
 
         private void mnuDanhmuc_ItemClick(object sender, ItemClickEventArgs e)
         {
-             
+
             OpenForm(typeof(frmDanhmuc));
 
-           
+
         }
 
         private void mnuKhachhangTN_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+
 
             OpenForm(typeof(frmKhachhangTN));
 
-            
+
         }
 
         private void mnuNhaCC_ItemClick(object sender, ItemClickEventArgs e)
         {
-           
+
 
             OpenForm(typeof(frmNhacungcap));
 
-            
+
         }
 
         private void mnuThanhpham_ItemClick(object sender, ItemClickEventArgs e)
         {
-          
+
             OpenForm(typeof(frmThanhpham));
 
-           
+
         }
 
         private void mnuVattu_ItemClick(object sender, ItemClickEventArgs e)
         {
-          
+
 
             OpenForm(typeof(frmVattu));
 
-           
+
         }
 
         private void mnuKhuon_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+
 
             OpenForm(typeof(frmKhuon));
 
-            
+
         }
 
         private void mnuThanhphamBG_ItemClick(object sender, ItemClickEventArgs e)
         {
-           
+
 
             OpenForm(typeof(frmThanhphamBG));
 
-            
+
         }
 
         private void mnuKhuonBG_ItemClick(object sender, ItemClickEventArgs e)
         {
-           
+
 
             OpenForm(typeof(frmKhuonBG));
 
-             
+
         }
 
         private void mnuDanhmucKT_ItemClick(object sender, ItemClickEventArgs e)
         {
-             
+
             OpenForm(typeof(frmDanhmucKT));
 
-           
+
         }
 
         private void mnuTieuchiKT_ItemClick(object sender, ItemClickEventArgs e)
         {
-             
+
 
             OpenForm(typeof(frmTieuchiKT));
- 
+
         }
 
         private void mnuBanggiaKH_ItemClick(object sender, ItemClickEventArgs e)
         {
-           
+
             OpenForm(typeof(frmBanggiaKH));
 
-            
+
         }
 
         private void mnuBanggiaNCC_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+
             OpenForm(typeof(frmBanggiaNCC));
 
-            
+
         }
 
         private void mnuKhomay_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+
 
             OpenForm(typeof(frmKhomay));
- 
+
         }
- 
+
+        private void mnuPhieuyeucau_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenForm(typeof(frmNhatkyPhieutiepnhan));
+        }
+
+        private void mnuPhieuxuly_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenForm(typeof(frmNhatkyPhieuxuly));
+        }
+
+        private void mnuPhieudinhgia_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenForm(typeof(frmNhatkyPhieudinhgia));
+        }
     }
 }
